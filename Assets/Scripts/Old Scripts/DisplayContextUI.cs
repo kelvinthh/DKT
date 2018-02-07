@@ -5,12 +5,18 @@ using UnityEngine;
 public class DisplayContextUI : MonoBehaviour
 {
 
-    public GameObject cameraObj;
-    public GameObject capsuleObj;
-    public GameObject[] UI;
+    private Camera cameraObj;
+    [SerializeField] private GameObject MenuButton;
+
     private float displayAngle = 40;
 
     private bool displayed = false;
+
+    private void Start()
+    {
+        cameraObj = Camera.main;
+        MenuButton.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
@@ -49,21 +55,12 @@ public class DisplayContextUI : MonoBehaviour
 
     void DisplayUI()
     {
-        
-        transform.position = capsuleObj.transform.position;//match UI pos to player pos
+        MenuButton.SetActive(true);
 
-        transform.rotation = Quaternion.Euler(0, cameraObj.transform.rotation.eulerAngles.y, 0);//match UI rotation to player rot
-
-        foreach (GameObject wi in UI) //display UI elements...
-        {
-            wi.SetActive(true);
-        }
     }
     void HideUI()
-    {  
-            foreach (GameObject wi in UI) //hide UI elements...
-            {
-                wi.SetActive(false);
-            }
+    {
+        MenuButton.SetActive(false);
+
     }
 }

@@ -1,27 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+public class InteractiveLoadSceneButton : MonoBehaviour, IInteractiveObject {
 
-public class InteractiveMainMenu : MonoBehaviour, IInteractiveObject {
-
-    [SerializeField]
-    private float gazeTimer = 1.0f;
+    [SerializeField] private float gazeTimer = 1.0f;
+    [SerializeField] private int sceneToLoad;
 
     private bool gazingAt = false;
 
     public void Action()
     {
-        //load main menu scene...
+        SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
     }
 
     public void GazeEnter()
     {
-        gazingAt = true;    
+        gazingAt = true;
     }
 
     public void GazeExit()
     {
-        gazingAt = true;
+        gazingAt = false;
+        gazeTimer = 1.0f;
     }
 
     public void GazeTimer()
@@ -36,13 +37,11 @@ public class InteractiveMainMenu : MonoBehaviour, IInteractiveObject {
             }
         }
     }
-
-    // Use this for initialization
+    
     void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
         GazeTimer();	
 	}
