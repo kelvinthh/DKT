@@ -2,28 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractiveTrembleObject : MonoBehaviour, IInteractiveObject {
+public class InteractiveMainMenu : MonoBehaviour, IInteractiveObject {
 
     [SerializeField]
     private float gazeTimer = 1.0f;
 
     private bool gazingAt = false;
 
-
     public void Action()
     {
-        //play tremble animation...
+        //load main menu scene...
     }
 
     public void GazeEnter()
     {
-        gazingAt = true;
+        gazingAt = true;    
     }
 
     public void GazeExit()
     {
-        gazingAt = false;
-        gazeTimer = 1.0f;
+        gazingAt = true;
     }
 
     public void GazeTimer()
@@ -41,11 +39,11 @@ public class InteractiveTrembleObject : MonoBehaviour, IInteractiveObject {
 
     // Use this for initialization
     void Start () {
-
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        GazeTimer();
+        GazeTimer();	
 	}
 }
