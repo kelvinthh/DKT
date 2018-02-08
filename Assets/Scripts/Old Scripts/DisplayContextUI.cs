@@ -10,7 +10,7 @@ public class DisplayContextUI : MonoBehaviour
 
     [SerializeField] private GameObject menuButton;
 
-    private float displayAngle = 40;
+    private float displayAngle = 50;
 
     private bool displayed = false;
 
@@ -29,7 +29,7 @@ public class DisplayContextUI : MonoBehaviour
         {
             
 
-            if (CheckAngle() > displayAngle && CheckAngle() < 100) //evaluate the cameras current X value within a vertical area...
+            if (CheckAngle() > displayAngle && CheckAngle() < 100) //evaluate the cameras current X value to be within a vertical area...
             {
                 DisplayUI();
                 displayed = true;
@@ -60,6 +60,8 @@ public class DisplayContextUI : MonoBehaviour
 
     void DisplayUI()
     {
+        transform.rotation = Quaternion.Euler(0, cameraObj.transform.rotation.eulerAngles.y, 0);
+        
         menuButton.SetActive(true);
 
     }
