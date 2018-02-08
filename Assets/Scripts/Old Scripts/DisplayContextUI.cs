@@ -6,7 +6,9 @@ public class DisplayContextUI : MonoBehaviour
 {
 
     private Camera cameraObj;
-    [SerializeField] private GameObject MenuButton;
+    private Transform transform;
+
+    [SerializeField] private GameObject menuButton;
 
     private float displayAngle = 40;
 
@@ -15,7 +17,8 @@ public class DisplayContextUI : MonoBehaviour
     private void Start()
     {
         cameraObj = Camera.main;
-        MenuButton.SetActive(false);
+        transform = GetComponent<Transform>();
+        menuButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,6 +27,8 @@ public class DisplayContextUI : MonoBehaviour
 
         if (!displayed) //if UI is not currently displayed...
         {
+            
+
             if (CheckAngle() > displayAngle && CheckAngle() < 100) //evaluate the cameras current X value within a vertical area...
             {
                 DisplayUI();
@@ -55,12 +60,12 @@ public class DisplayContextUI : MonoBehaviour
 
     void DisplayUI()
     {
-        MenuButton.SetActive(true);
+        menuButton.SetActive(true);
 
     }
     void HideUI()
     {
-        MenuButton.SetActive(false);
+        menuButton.SetActive(false);
 
     }
 }
