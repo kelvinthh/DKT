@@ -258,7 +258,7 @@ public class GvrArmModel : MonoBehaviour {
 #if UNITY_EDITOR
     return GvrViewer.Instance.HeadPose.Orientation * Vector3.forward;
 #else
-    return InputTracking.GetLocalRotation(VRNode.Head) * Vector3.forward;
+    return UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.Head) * Vector3.forward;
 #endif // UNITY_EDITOR
   }
 

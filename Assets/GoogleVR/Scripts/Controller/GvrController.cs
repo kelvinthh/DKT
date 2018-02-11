@@ -318,7 +318,7 @@ public class GvrController : MonoBehaviour {
         sdk.Recenter();
       }
 #else
-      InputTracking.Recenter();
+      UnityEngine.XR.InputTracking.Recenter();
 #endif  // UNITY_EDITOR
     }
   }
