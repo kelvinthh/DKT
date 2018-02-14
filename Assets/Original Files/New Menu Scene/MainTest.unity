@@ -129,7 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318f18a864a89dc4594aa8613cf8725a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoNumber: 0
 --- !u!4 &7930654 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: fe094fc6d9997fd48a2cb71c8ceaf8eb, type: 3}
@@ -1065,7 +1064,7 @@ Prefab:
     - target: {fileID: 102739433752164086, guid: 34d3378e30771524cbae68c8b7ef55d2,
         type: 2}
       propertyPath: m_Text
-      value: Videos
+      value: "360\xB0\nImages"
       objectReference: {fileID: 0}
     - target: {fileID: 114439938617912418, guid: 34d3378e30771524cbae68c8b7ef55d2,
         type: 2}
@@ -1116,6 +1115,18 @@ Prefab:
         type: 2}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407777391503584, guid: 34d3378e30771524cbae68c8b7ef55d2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407777391503584, guid: 34d3378e30771524cbae68c8b7ef55d2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 8.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407777391503584, guid: 34d3378e30771524cbae68c8b7ef55d2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -5.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34d3378e30771524cbae68c8b7ef55d2, type: 2}
@@ -1390,11 +1401,11 @@ Prefab:
     - target: {fileID: 102739433752164086, guid: 34d3378e30771524cbae68c8b7ef55d2,
         type: 2}
       propertyPath: m_Text
-      value: Img 1
+      value: Witcher
       objectReference: {fileID: 0}
     - target: {fileID: 4407777391503584, guid: 34d3378e30771524cbae68c8b7ef55d2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.56
+      value: -5.79
       objectReference: {fileID: 0}
     - target: {fileID: 4407777391503584, guid: 34d3378e30771524cbae68c8b7ef55d2, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1402,7 +1413,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4407777391503584, guid: 34d3378e30771524cbae68c8b7ef55d2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -5.8
+      value: -5.62
       objectReference: {fileID: 0}
     - target: {fileID: 114439938617912418, guid: 34d3378e30771524cbae68c8b7ef55d2,
         type: 2}
@@ -2319,7 +2330,9 @@ Prefab:
     - target: {fileID: 102739433752164086, guid: 34d3378e30771524cbae68c8b7ef55d2,
         type: 2}
       propertyPath: m_Text
-      value: 'Img 2
+      value: 'Street
+
+        scene 1
 
 '
       objectReference: {fileID: 0}
@@ -2372,6 +2385,18 @@ Prefab:
         type: 2}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407777391503584, guid: 34d3378e30771524cbae68c8b7ef55d2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407777391503584, guid: 34d3378e30771524cbae68c8b7ef55d2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 8.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4407777391503584, guid: 34d3378e30771524cbae68c8b7ef55d2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -5.62
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114018920345176482, guid: 34d3378e30771524cbae68c8b7ef55d2, type: 2}
@@ -3231,6 +3256,10 @@ Prefab:
         type: 2}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1259512285012194, guid: 34d3378e30771524cbae68c8b7ef55d2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114018920345176482, guid: 34d3378e30771524cbae68c8b7ef55d2, type: 2}
