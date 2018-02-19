@@ -7,6 +7,7 @@ public class StreamVideo : MonoBehaviour {
     private VideoPlayer videoPlayer;
     private AudioSource audioSource;
     public RenderTexture renderTexture;
+    public string url = null;
 	// Use this for initialization
 	void Start () {
         videoPlayer = gameObject.AddComponent<VideoPlayer>();
@@ -17,7 +18,7 @@ public class StreamVideo : MonoBehaviour {
         audioSource.Pause();
 
         videoPlayer.source = VideoSource.Url;
-        videoPlayer.url = "http://192.168.0.34/surfers_360.mp4";
+        videoPlayer.url = url;
         videoPlayer.targetTexture = renderTexture;
         //Outsource audio output to AudioSource
         videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
@@ -25,6 +26,7 @@ public class StreamVideo : MonoBehaviour {
         //Assign AudioSource to play audio
         videoPlayer.EnableAudioTrack(0, true);
         videoPlayer.SetTargetAudioSource(0, audioSource);
+        audioSource.volume = 1.0f;
 
         //Pre-buffer the video
         videoPlayer.Prepare();
