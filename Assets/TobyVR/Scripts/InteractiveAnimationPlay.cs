@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractiveAnimationPlay : MonoBehaviour, IInteractiveObject {
 
     [SerializeField] private float gazeTimer = 1.0f;
-
+    [SerializeField] private string animationName = "";
     Animator anim;
 
     private bool gazingAt = false;
@@ -16,12 +16,12 @@ public class InteractiveAnimationPlay : MonoBehaviour, IInteractiveObject {
 
     public void GazeEnter()
     {
-        anim.Play("button enlarge");
+        anim.Play("buttonImpact");
     }
 
     public void GazeExit()
     {
-        anim.Play("Entry");
+        //anim.Play("New State");
     }
 
     public void GazeTimer()
