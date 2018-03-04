@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - envTier
+  - videoTier
+  - Video
+  - game
+  - Back
+  - Image
+  - imageTier
+  - inactive
+  - Exit
+  - Environment
   layers:
   - Default
   - TransparentFX
@@ -13,8 +23,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - InfoBubble
+  - BubbleText
   - 
   - 
   - 
@@ -38,6 +48,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: InfoBubble
+    uniqueID: 3938478543
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
