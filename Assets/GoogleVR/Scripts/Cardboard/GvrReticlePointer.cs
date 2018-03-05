@@ -14,10 +14,18 @@
 
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 /// Draws a circular reticle in front of any object that the user points at.
 /// The circle dilates if the object is clickable.
 public class GvrReticlePointer : GvrBasePointer {
+
+    //ADDITIONAL COD ADDED BY TOBY - PROGRESS BAR IMPLEMENTATION
+    [SerializeField] private Image progressBar;
+    private float currentAmount = 0.0f;
+    private float speed = 33.3f; //100 / speed = time to fill bar in seconds
+
+    
   /// The constants below are expsed for testing. Minimum inner angle of the reticle (in degrees).
   public const float RETICLE_MIN_INNER_ANGLE = 0.0f;
 
@@ -73,12 +81,17 @@ public class GvrReticlePointer : GvrBasePointer {
 
   public override void OnPointerHover(RaycastResult raycastResultResult, bool isInteractive) {
     SetPointerTarget(raycastResultResult.worldPosition, isInteractive);
+    
   }
 
   public override void OnPointerExit(GameObject previousObject) {
     ReticleDistanceInMeters = maxReticleDistance;
     ReticleInnerAngle = RETICLE_MIN_INNER_ANGLE;
     ReticleOuterAngle = RETICLE_MIN_OUTER_ANGLE;
+        
+        //reset progress bar value
+        currentAmount = 0.0f;
+        UpdateProgressBar();
   }
 
   public override void OnPointerClickDown() {}
@@ -154,6 +167,8 @@ public class GvrReticlePointer : GvrBasePointer {
     if (interactive) {
       ReticleInnerAngle = RETICLE_MIN_INNER_ANGLE + RETICLE_GROWTH_ANGLE;
       ReticleOuterAngle = RETICLE_MIN_OUTER_ANGLE + RETICLE_GROWTH_ANGLE;
+      //CODE TO ANIMATE 5s PROGRESS BAR
+      UpdateProgressBar();
     } else {
       ReticleInnerAngle = RETICLE_MIN_INNER_ANGLE;
       ReticleOuterAngle = RETICLE_MIN_OUTER_ANGLE;
@@ -215,4 +230,14 @@ public class GvrReticlePointer : GvrBasePointer {
     mesh.Optimize();
 #endif  // !UNITY_5_5_OR_NEWER
   }
+
+    private void UpdateProgressBar()
+    {
+        if (currentAmount < 100)
+        {
+            currentAmount += speed * Time.deltaTime;
+        }
+
+        progressBar.fillAmount = currentAmount / 100;
+    }
 }
