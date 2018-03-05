@@ -51,6 +51,9 @@ TagManager:
   - name: InfoBubble
     uniqueID: 3938478543
     locked: 0
+  - name: MonitorGazeBar
+    uniqueID: 3760659145
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

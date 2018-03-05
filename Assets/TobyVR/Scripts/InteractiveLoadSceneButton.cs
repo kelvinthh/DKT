@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class InteractiveLoadSceneButton : MonoBehaviour, IInteractiveObject {
 
-    [SerializeField] private float gazeTimer = 1.0f;
-    [SerializeField] private int sceneToLoad;
+    [SerializeField] private float gazeTimer; //value that can be edited in the unity editor
+    private float gazeTimerFromEditor; //empty float that will store the gazeTimer value, used to reset the gazeTimer value on GazeExit()
+    [SerializeField] private int sceneToLoad; //int representing the scene to load by buildIndex
 
-    private bool gazingAt = false;
+    private bool gazingAt = false; //flag
 
     public void Action()
     {
@@ -22,7 +23,7 @@ public class InteractiveLoadSceneButton : MonoBehaviour, IInteractiveObject {
     public void GazeExit()
     {
         gazingAt = false;
-        gazeTimer = 1.0f;
+        gazeTimer = gazeTimerFromEditor;
     }
 
     public void GazeTimer()
@@ -39,8 +40,8 @@ public class InteractiveLoadSceneButton : MonoBehaviour, IInteractiveObject {
     }
     
     void Start () {
-		
-	}
+        gazeTimerFromEditor = gazeTimer;
+    }
 	
 	void Update () {
         GazeTimer();	
