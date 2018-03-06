@@ -76,11 +76,12 @@ public class GvrReticlePointer : GvrBasePointer {
   public override float MaxPointerDistance { get { return maxReticleDistance; } }
 
   public override void OnPointerEnter(RaycastResult raycastResultResult, bool isInteractive) {
-    SetPointerTarget(raycastResultResult.worldPosition, isInteractive);
+    SetPointerTarget(raycastResultResult.worldPosition, isInteractive, raycastResultResult.gameObject.tag);
   }
 
   public override void OnPointerHover(RaycastResult raycastResultResult, bool isInteractive) {
-    SetPointerTarget(raycastResultResult.worldPosition, isInteractive);
+    SetPointerTarget(raycastResultResult.worldPosition, isInteractive, raycastResultResult.gameObject.tag);
+    
     
   }
 
@@ -154,7 +155,7 @@ public class GvrReticlePointer : GvrBasePointer {
     UpdateDiameters();
   }
 
-  private bool SetPointerTarget(Vector3 target, bool interactive) {
+  private bool SetPointerTarget(Vector3 target, bool interactive, string objectTag) {
     if (base.PointerTransform == null) {
       Debug.LogWarning("Cannot operate on a null pointer transform");
       return false;
@@ -167,8 +168,14 @@ public class GvrReticlePointer : GvrBasePointer {
     if (interactive) {
       ReticleInnerAngle = RETICLE_MIN_INNER_ANGLE + RETICLE_GROWTH_ANGLE;
       ReticleOuterAngle = RETICLE_MIN_OUTER_ANGLE + RETICLE_GROWTH_ANGLE;
-      //CODE TO ANIMATE 5s PROGRESS BAR
-      UpdateProgressBar();
+
+            //CODE TO ANIMATE 5s PROGRESS BAR
+            print(objectTag);
+            if(objectTag == "Action")
+            {
+                UpdateProgressBar();
+            }
+      
     } else {
       ReticleInnerAngle = RETICLE_MIN_INNER_ANGLE;
       ReticleOuterAngle = RETICLE_MIN_OUTER_ANGLE;
@@ -238,6 +245,7 @@ public class GvrReticlePointer : GvrBasePointer {
             currentAmount += speed * Time.deltaTime;
         }
 
-        progressBar.fillAmount = currentAmount / 100;
+        if (progressBar != null) { progressBar.fillAmount = currentAmount / 100; }
+        
     }
 }

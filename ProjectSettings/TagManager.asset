@@ -14,6 +14,9 @@ TagManager:
   - inactive
   - Exit
   - Environment
+  - Car
+  - Controller
+  - Action
   layers:
   - Default
   - TransparentFX
