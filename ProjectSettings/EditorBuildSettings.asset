@@ -5,24 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Original Files/New Menu Scene/MainTest.unity
     guid: 9c87e3610ab51e349966be8ab354360b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Original Files/Picturescene1.unity
     guid: ab7340f2230c35a419130842541f381d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Original Files/Picturescene2.unity
     guid: 2aae385fac7a3094c8f42f1d4c3bb095
-  - enabled: 1
+  - enabled: 0
     path: Assets/Original Files/Picturescene3.unity
     guid: 3f4dd564fc690e842a43d11d4b6bf17a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Original Files/Truck Game/Main.unity
     guid: 446b41b24e6ab3449949767c95a19025
-  - enabled: 1
+  - enabled: 0
     path: Assets/Original Files/Truck Game/Night.unity
     guid: 106dd0c590b61c64ab4d2ab355c16223
-  - enabled: 1
+  - enabled: 0
     path: Assets/Original Files/Voxel Scene/Voxel.unity
     guid: a36c1e9b844a6ef4fa76440e87e17834
+  - enabled: 1
+    path: Assets/MainHubVR/Scene/WhiteboxScene.unity
+    guid: 5a027d06376a5cf4b98486d6dae812be
