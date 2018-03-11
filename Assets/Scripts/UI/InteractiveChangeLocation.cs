@@ -22,7 +22,7 @@ public class InteractiveChangeLocation : MonoBehaviour, IInteractiveObject
 
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Transform>();
+        player = GameObject.Find("PlayerWithRadialProg").GetComponent<Transform>();
 
         gazeTimer = GetTimerDuration();
 

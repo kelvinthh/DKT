@@ -14,7 +14,7 @@ public class InteractiveLoadSceneButton : MonoBehaviour, IInteractiveObject {
 
     public void Action()
     {
-        SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
+        StartCoroutine(LoadSceneAsync());
     }
 
     public void GazeEnter()
@@ -58,5 +58,14 @@ public class InteractiveLoadSceneButton : MonoBehaviour, IInteractiveObject {
         }
 
         return 3.0f;
+    }
+    IEnumerator LoadSceneAsync()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneToLoad);
+
+        while(!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }
