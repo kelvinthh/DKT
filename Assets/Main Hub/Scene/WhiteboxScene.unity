@@ -153,50 +153,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1695044351504812, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1119989623315742, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530898698353978, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1050847732489588, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1689916633880870, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1100961015745628, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1186131992058450, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828957790683806, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1424088881615490, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1339152744572816, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1777869189275048, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
   m_IsPrefabParent: 0
@@ -326,6 +282,30 @@ Prefab:
     - target: {fileID: 1424088881615490, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
       propertyPath: m_Name
       value: MacButton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119989623315742, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
+      propertyPath: m_Name
+      value: START
+      objectReference: {fileID: 0}
+    - target: {fileID: 102713443880257582, guid: e2640d30a62cb144dbf79f14f26202fd,
+        type: 2}
+      propertyPath: m_Text
+      value: Test Video
+      objectReference: {fileID: 0}
+    - target: {fileID: 102050637488916080, guid: e2640d30a62cb144dbf79f14f26202fd,
+        type: 2}
+      propertyPath: m_Text
+      value: Unkown Author
+      objectReference: {fileID: 0}
+    - target: {fileID: 102154266287312600, guid: e2640d30a62cb144dbf79f14f26202fd,
+        type: 2}
+      propertyPath: m_Text
+      value: "video | 360\xB0  | tag#3"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114137602713464186, guid: e2640d30a62cb144dbf79f14f26202fd,
+        type: 2}
+      propertyPath: sceneToLoad
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
@@ -4305,6 +4285,10 @@ Prefab:
     - target: {fileID: 4000012185119224, guid: ce7abbbeb276a1547bd8ce1069fdabb7, type: 2}
       propertyPath: m_RootOrder
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013061525784, guid: ce7abbbeb276a1547bd8ce1069fdabb7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce7abbbeb276a1547bd8ce1069fdabb7, type: 2}

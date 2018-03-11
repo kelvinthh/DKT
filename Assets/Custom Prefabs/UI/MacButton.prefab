@@ -245,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1424088881615490}
   m_LocalRotation: {x: -0, y: -0.70708823, z: -0, w: 0.7071253}
-  m_LocalPosition: {x: 0.479, y: 0.352, z: 11.014}
+  m_LocalPosition: {x: -1.235, y: 0.352, z: 11.014}
   m_LocalScale: {x: 2.999999, y: 3, z: 2.999999}
   m_Children:
   - {fileID: 4885697415550284}
@@ -618,7 +618,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1186131992058450}
-  m_Text: Toby Bessant
+  m_Text: Author
   m_OffsetZ: 0
   m_CharacterSize: 0.01
   m_LineSpacing: 1
@@ -639,7 +639,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1695044351504812}
-  m_Text: 1930s | Black and White | Narration
+  m_Text: tag#1 | tag#2 | tag#3
   m_OffsetZ: 0
   m_CharacterSize: 0.01
   m_LineSpacing: 1
@@ -681,7 +681,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1530898698353978}
-  m_Text: The Birthday
+  m_Text: Title
   m_OffsetZ: 0
   m_CharacterSize: 0.01
   m_LineSpacing: 1
@@ -814,7 +814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isShortAction: 0
-  sceneToLoad: 1
+  sceneToLoad: 2
 --- !u!114 &114233772749152058
 MonoBehaviour:
   m_ObjectHideFlags: 1

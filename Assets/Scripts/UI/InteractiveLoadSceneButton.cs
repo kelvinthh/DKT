@@ -14,6 +14,7 @@ public class InteractiveLoadSceneButton : MonoBehaviour, IInteractiveObject {
 
     public void Action()
     {
+        SceneManager.LoadScene(1);
         StartCoroutine(LoadSceneAsync());
     }
 

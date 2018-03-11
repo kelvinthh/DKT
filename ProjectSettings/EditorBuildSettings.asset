@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Main Hub/Scene/WhiteboxScene.unity
     guid: 5a027d06376a5cf4b98486d6dae812be
   - enabled: 1
+    path: Assets/LoadingScreen.unity
+    guid: 029aaf46b275676449e8616999ce1661
+  - enabled: 1
     path: Assets/Original Files/Picturescene1.unity
     guid: ab7340f2230c35a419130842541f381d
   - enabled: 1
-    path: Assets/Kelvin360Video/Scenes/stream.unity
-    guid: e96b51cd36590d749bb4786dc22e453c
+    path: Assets/360 Video/Scenes/local.unity
+    guid: 2c02700c3cf063a45b60a72e242649b9
