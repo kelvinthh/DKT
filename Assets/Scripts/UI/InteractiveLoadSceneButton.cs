@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class InteractiveLoadSceneButton : MonoBehaviour, IInteractiveObject {
 
-    [SerializeField] private float gazeTimer; //value that can be edited in the unity editor
+    private float gazeTimer;
     private float gazeTimerFromEditor; //empty float that will store the gazeTimer value, used to reset the gazeTimer value on GazeExit()
     [SerializeField] private int sceneToLoad; //int representing the scene to load by buildIndex
 
@@ -40,6 +40,7 @@ public class InteractiveLoadSceneButton : MonoBehaviour, IInteractiveObject {
     }
     
     void Start () {
+        gazeTimer = GetComponent<GazeData>().getGazeTimer;
         gazeTimerFromEditor = gazeTimer;
     }
 	

@@ -76,6 +76,7 @@ public class GvrReticlePointer : GvrBasePointer {
   public override float MaxPointerDistance { get { return maxReticleDistance; } }
 
   public override void OnPointerEnter(RaycastResult raycastResultResult, bool isInteractive) {
+    speed = 100 / raycastResultResult.gameObject.GetComponent<InteractiveChangeLocation>().getGazeTimer;
     SetPointerTarget(raycastResultResult.worldPosition, isInteractive, raycastResultResult.gameObject.tag);
   }
 
@@ -169,8 +170,10 @@ public class GvrReticlePointer : GvrBasePointer {
       ReticleInnerAngle = RETICLE_MIN_INNER_ANGLE + RETICLE_GROWTH_ANGLE;
       ReticleOuterAngle = RETICLE_MIN_OUTER_ANGLE + RETICLE_GROWTH_ANGLE;
 
-            //CODE TO ANIMATE 5s PROGRESS BAR
+            //CODE TO ANIMATE PROGRESS BAR
             print(objectTag);
+
+
             if(objectTag == "Action")
             {
                 UpdateProgressBar();

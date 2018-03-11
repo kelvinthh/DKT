@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractiveDisplayOverlay : MonoBehaviour, IInteractiveObject {
 
-    [SerializeField] private float gazeTimer = 1.0f;
+    private float gazeTimer = 1.0f;
     [SerializeField] private GameObject overlay;
     private bool gazingAt = false; //flag 
 
@@ -39,6 +39,7 @@ public class InteractiveDisplayOverlay : MonoBehaviour, IInteractiveObject {
     // Use this for initialization
     void Start () {
         overlay.SetActive(false);
+        gazeTimer = GetComponent<GazeData>().getGazeTimer;
     }
 	
 	// Update is called once per frame

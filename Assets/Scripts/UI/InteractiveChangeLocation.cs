@@ -7,7 +7,7 @@ public class InteractiveChangeLocation : MonoBehaviour, IInteractiveObject
 {
 
     
-    [SerializeField]private float gazeTimer = 1.0f; //Seconds taken to activate interactive event
+    private float gazeTimer = 1.0f; //Seconds taken to activate interactive event
     private bool gazingAt = false; //flag 
 
     [SerializeField] private Transform endWaypoint;
@@ -22,7 +22,9 @@ public class InteractiveChangeLocation : MonoBehaviour, IInteractiveObject
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Transform>();
-        
+
+        gazeTimer = GetComponent<GazeData>().getGazeTimer;
+
         endLocation = endWaypoint.position;
         
     }
