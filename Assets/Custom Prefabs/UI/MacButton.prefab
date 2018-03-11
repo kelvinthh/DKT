@@ -753,7 +753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1561de611dcbe04428977f9b625a8b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gazeTimer: 1
+  isShortAction: 0
   overlay: {fileID: 1339152744572816}
 --- !u!114 &114111090325761664
 MonoBehaviour:
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86049e4f48ec7ba45a16e543f3bfee6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gazeTimer: 3
+  isShortAction: 0
   sceneToLoad: 0
 --- !u!114 &114233772749152058
 MonoBehaviour:

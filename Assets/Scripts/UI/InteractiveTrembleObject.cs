@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractiveTrembleObject : MonoBehaviour, IInteractiveObject {
-    
-    private float gazeTimer = 1.0f;
+
+    [SerializeField] private bool isShortAction = false;
+
+    private float gazeTimer = 3.0f;
 
     private bool gazingAt = false;
 
@@ -40,7 +42,10 @@ public class InteractiveTrembleObject : MonoBehaviour, IInteractiveObject {
 
     // Use this for initialization
     void Start () {
-        gazeTimer = GetComponent<GazeData>().getGazeTimer;
+        if (isShortAction)
+        {
+            gazeTimer = 1.5f;
+        }
     }
 	
 	// Update is called once per frame

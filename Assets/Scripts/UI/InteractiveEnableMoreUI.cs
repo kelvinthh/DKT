@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class InteractiveEnableMoreUI : MonoBehaviour, IInteractiveObject
 {
-     private float gazeTimer = 1.0f; //Seconds taken to activate interactive event
+    [SerializeField] private bool isShortAction = false;
+
+    private float gazeTimer = 3.0f; //Seconds taken to activate interactive event
     [SerializeField] private GameObject[] ui = new GameObject[0];
 
     private bool gazingAt = false; //flag 
@@ -47,7 +49,10 @@ public class InteractiveEnableMoreUI : MonoBehaviour, IInteractiveObject
     }
     void Start()
     {
-        gazeTimer = GetComponent<GazeData>().getGazeTimer;
+        if (isShortAction)
+        {
+            gazeTimer = 1.5f;
+        }
     }
 
     void EnableElements()

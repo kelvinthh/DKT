@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class InteractiveGrow : MonoBehaviour, IInteractiveObject {
 
+    [SerializeField] private bool isShortAction = false;
+
     [SerializeField] private float growRate = 1.0f;
-     private float gazeTimer = 1.0f; //Seconds taken to activate interactive event
+     private float gazeTimer = 3.0f; //Seconds taken to activate interactive event
     private bool gazingAt = false; //flag 
     public void Action()
     {
@@ -38,7 +40,10 @@ public class InteractiveGrow : MonoBehaviour, IInteractiveObject {
 
     // Use this for initialization
     void Start () {
-        gazeTimer = GetComponent<GazeData>().getGazeTimer;
+        if (isShortAction)
+        {
+            gazeTimer = 1.5f;
+        }
     }
 	
 	// Update is called once per frame

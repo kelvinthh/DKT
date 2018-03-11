@@ -20,11 +20,10 @@ using UnityEngine.UI;
 /// The circle dilates if the object is clickable.
 public class GvrReticlePointer : GvrBasePointer {
 
-    //ADDITIONAL COD ADDED BY TOBY - PROGRESS BAR IMPLEMENTATION
+    //ADDITIONAL CODE ADDED BY TOBY - PROGRESS BAR IMPLEMENTATION
     [SerializeField] private Image progressBar;
     private float currentAmount = 0.0f;
     private float speed = 33.3f; //100 / speed = time to fill bar in seconds
-
     
   /// The constants below are expsed for testing. Minimum inner angle of the reticle (in degrees).
   public const float RETICLE_MIN_INNER_ANGLE = 0.0f;
@@ -76,13 +75,12 @@ public class GvrReticlePointer : GvrBasePointer {
   public override float MaxPointerDistance { get { return maxReticleDistance; } }
 
   public override void OnPointerEnter(RaycastResult raycastResultResult, bool isInteractive) {
-    speed = 100 / raycastResultResult.gameObject.GetComponent<InteractiveChangeLocation>().getGazeTimer;
-    SetPointerTarget(raycastResultResult.worldPosition, isInteractive, raycastResultResult.gameObject.tag);
+    SetPointerTarget(raycastResultResult.worldPosition, isInteractive, raycastResultResult);
   }
 
   public override void OnPointerHover(RaycastResult raycastResultResult, bool isInteractive) {
-    SetPointerTarget(raycastResultResult.worldPosition, isInteractive, raycastResultResult.gameObject.tag);
-    
+        
+        SetPointerTarget(raycastResultResult.worldPosition, isInteractive, raycastResultResult);
     
   }
 
@@ -90,7 +88,7 @@ public class GvrReticlePointer : GvrBasePointer {
     ReticleDistanceInMeters = maxReticleDistance;
     ReticleInnerAngle = RETICLE_MIN_INNER_ANGLE;
     ReticleOuterAngle = RETICLE_MIN_OUTER_ANGLE;
-        
+
         //reset progress bar value
         currentAmount = 0.0f;
         UpdateProgressBar();
@@ -156,7 +154,7 @@ public class GvrReticlePointer : GvrBasePointer {
     UpdateDiameters();
   }
 
-  private bool SetPointerTarget(Vector3 target, bool interactive, string objectTag) {
+  private bool SetPointerTarget(Vector3 target, bool interactive, RaycastResult interactible) {
     if (base.PointerTransform == null) {
       Debug.LogWarning("Cannot operate on a null pointer transform");
       return false;
@@ -171,11 +169,16 @@ public class GvrReticlePointer : GvrBasePointer {
       ReticleOuterAngle = RETICLE_MIN_OUTER_ANGLE + RETICLE_GROWTH_ANGLE;
 
             //CODE TO ANIMATE PROGRESS BAR
-            print(objectTag);
-
-
-            if(objectTag == "Action")
+            print(interactible.gameObject.tag);
+            
+            if(interactible.gameObject.tag == "Action")
             {
+                speed = 33.3f; //3 second bar fill
+                UpdateProgressBar();
+            }
+            else if (interactible.gameObject.tag == "ActionShort")
+            {
+                speed = 66.6f; //1.5 second bar fill
                 UpdateProgressBar();
             }
       
@@ -246,7 +249,8 @@ public class GvrReticlePointer : GvrBasePointer {
         if (currentAmount < 100)
         {
             currentAmount += speed * Time.deltaTime;
-        }
+            
+        } 
 
         if (progressBar != null) { progressBar.fillAmount = currentAmount / 100; }
         

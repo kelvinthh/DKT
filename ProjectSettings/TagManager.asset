@@ -17,6 +17,7 @@ TagManager:
   - Car
   - Controller
   - Action
+  - ActionShort
   layers:
   - Default
   - TransparentFX

@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class InteractiveChangeColour : MonoBehaviour, IInteractiveObject 
 {
+    [SerializeField] private bool isShortAction = false;
 
-    private float gazeTimer = 1.0f; //Seconds taken to activate interactive event
+
+    private float gazeTimer = 3.0f; //Seconds taken to activate interactive event
     [SerializeField] private Color startColour = Color.cyan; //default colour    
     private Color lerpedColour = Color.black; //colour to lerp to once being gazed at
     
@@ -18,7 +20,10 @@ public class InteractiveChangeColour : MonoBehaviour, IInteractiveObject
     void Start()
     {
         renderer = GetComponent<Renderer>();
-        gazeTimer = GetComponent<GazeData>().getGazeTimer;
+        if (isShortAction)
+        {
+            gazeTimer = 1.5f;
+        }
     }
     void Update()
     {

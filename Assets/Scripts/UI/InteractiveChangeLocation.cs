@@ -6,8 +6,9 @@ using UnityEngine;
 public class InteractiveChangeLocation : MonoBehaviour, IInteractiveObject
 {
 
+    [SerializeField] private bool isShortAction = false;
     
-    private float gazeTimer = 1.0f; //Seconds taken to activate interactive event
+    private float gazeTimer = 3.0f; //Seconds taken to activate interactive event
     private bool gazingAt = false; //flag 
 
     [SerializeField] private Transform endWaypoint;
@@ -23,7 +24,7 @@ public class InteractiveChangeLocation : MonoBehaviour, IInteractiveObject
     {
         player = GameObject.Find("Player").GetComponent<Transform>();
 
-        gazeTimer = GetComponent<GazeData>().getGazeTimer;
+        gazeTimer = GetTimerDuration();
 
         endLocation = endWaypoint.position;
         
@@ -45,7 +46,7 @@ public class InteractiveChangeLocation : MonoBehaviour, IInteractiveObject
 
     public void GazeExit()
     {
-        gazeTimer = 1.0f;
+        gazeTimer = GetTimerDuration();
         gazingAt = false;
 
     }
@@ -61,5 +62,14 @@ public class InteractiveChangeLocation : MonoBehaviour, IInteractiveObject
                 Action();
             }
         }
+    }
+    private float GetTimerDuration()
+    {
+        if (isShortAction)
+        {
+            return 1.5f;
+        }
+
+        return 3.0f;
     }
 }

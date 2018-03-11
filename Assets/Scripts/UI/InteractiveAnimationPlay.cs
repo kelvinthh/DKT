@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class InteractiveAnimationPlay : MonoBehaviour, IInteractiveObject {
 
-    private float gazeTimer = 1.0f;
+    [SerializeField] private bool isShortAction = false;
+
+    private float gazeTimer = 3.0f;
     [SerializeField] private string animationName = "";
     Animator anim;
 
@@ -39,6 +41,9 @@ public class InteractiveAnimationPlay : MonoBehaviour, IInteractiveObject {
 	}
     void Start()
     {
-        gazeTimer = GetComponent<GazeData>().getGazeTimer;
+        if (isShortAction)
+        {
+            gazeTimer = 1.5f;
+        }
     }
 }
