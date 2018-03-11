@@ -4077,6 +4077,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1616122411572834, guid: 3eee0914acabd1e44bf76ffe7859963e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3eee0914acabd1e44bf76ffe7859963e, type: 2}
   m_IsPrefabParent: 0
@@ -6761,49 +6765,20 @@ Prefab:
       propertyPath: m_Name
       value: MacButton (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 1050847732489588, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
+    - target: {fileID: 212810030607801222, guid: e2640d30a62cb144dbf79f14f26202fd,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1339152744572816, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
+    - target: {fileID: 212810030607801222, guid: e2640d30a62cb144dbf79f14f26202fd,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1689916633880870, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1777869189275048, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1119989623315742, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1695044351504812, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1100961015745628, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1424088881615490, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1828957790683806, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1186131992058450, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1530898698353978, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 0
+    - target: {fileID: 212810030607801222, guid: e2640d30a62cb144dbf79f14f26202fd,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2640d30a62cb144dbf79f14f26202fd, type: 2}
