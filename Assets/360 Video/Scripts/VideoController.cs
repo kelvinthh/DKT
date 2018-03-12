@@ -25,11 +25,11 @@ public class VideoController : MonoBehaviour {
         if (videoPlayer.isPlaying)
         {
             videoPlayer.Pause();
-            spriteRenderer.sprite = pauseIcon;
+            spriteRenderer.sprite = playIcon; 
         }else
         {
             videoPlayer.Play();
-            spriteRenderer.sprite = playIcon;
+            spriteRenderer.sprite = pauseIcon;
         }
     }
 
