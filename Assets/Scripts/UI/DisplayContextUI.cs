@@ -62,7 +62,7 @@ public class DisplayContextUI : MonoBehaviour
     void DisplayUI()
     {
         transform.rotation = Quaternion.Euler(0, cameraObj.transform.rotation.eulerAngles.y, 0);
-        
+
         menuButton.SetActive(true);
 
     }

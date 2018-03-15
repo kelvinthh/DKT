@@ -28,7 +28,7 @@ public class VideoController : MonoBehaviour {
         {
             videoPlayer.Pause();
             spriteRenderer.sprite = playIcon;
-            statusText.GetComponent<TextMesh>().text = "Play";
+            statusText.GetComponent<TextMesh>().text = " Play";
         }else
         {
             videoPlayer.Play();
