@@ -10,7 +10,8 @@ public class DisplayContextUI : MonoBehaviour
 
     [SerializeField] private GameObject menuButton;
 
-    private float displayAngle = 50;
+    [Tooltip("Degrees that the player has to look below the horizon before the context menu is shown.")]
+    [SerializeField] private float displayAngle = 50;
 
     private bool displayed = false;
 

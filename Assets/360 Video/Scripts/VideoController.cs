@@ -14,6 +14,8 @@ public class VideoController : MonoBehaviour {
     [SerializeField] private Sprite playIcon;
     [SerializeField] private Sprite pauseIcon;
 
+    [SerializeField] private GameObject statusText;
+    
     // Use this for initialization
     private void Start()
     {
@@ -25,11 +27,13 @@ public class VideoController : MonoBehaviour {
         if (videoPlayer.isPlaying)
         {
             videoPlayer.Pause();
-            spriteRenderer.sprite = playIcon; 
+            spriteRenderer.sprite = playIcon;
+            statusText.GetComponent<TextMesh>().text = "Play";
         }else
         {
             videoPlayer.Play();
             spriteRenderer.sprite = pauseIcon;
+            statusText.GetComponent<TextMesh>().text = "Pause";
         }
     }
 
