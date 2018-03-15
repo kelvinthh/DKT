@@ -30,7 +30,7 @@ public class DisplayContextUI : MonoBehaviour
         {
             
 
-            if (CheckAngle() > displayAngle && CheckAngle() < 100) //evaluate the cameras current X value to be within a vertical area...
+            if (CheckAngle() > displayAngle && CheckAngle() < 100) //evaluate the cameras current X value to be below a certain threshold...
             {
                 DisplayUI();
                 displayed = true;
