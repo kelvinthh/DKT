@@ -50,6 +50,13 @@ public class sg_ShipMovement : MonoBehaviour {
             applyForce = thrusterForce;
         }
         m_rb.AddForce(directionToTarget * applyForce * Time.deltaTime, ForceMode.Impulse);
-        m_mainChild.LookAt(target);
+        if (m_distanceFromTarget >= tollerance)
+        {
+            Vector3 targetDir = target.position - m_transform.position;
+            float step = turningSpeed * Time.deltaTime;
+            Vector3 newDir = Vector3.RotateTowards(m_mainChild.forward, targetDir, step, 0.0f);
+            Debug.DrawRay(transform.position, newDir, Color.red);
+            m_mainChild.rotation = Quaternion.LookRotation(newDir);
+        }
     }
 }
