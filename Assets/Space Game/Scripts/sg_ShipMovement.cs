@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class sg_ShipMovement : MonoBehaviour {
 
     public float thrusterForce = 10f;
@@ -10,6 +11,7 @@ public class sg_ShipMovement : MonoBehaviour {
     public Transform target;
     private Transform m_transform;
     private Rigidbody m_rb;
+    private Transform m_mainChild;
     [SerializeField]
     private float m_distanceFromTarget;
     public AnimationCurve decelerationRamp;     //  The curve the ship uses to control it's deceleration.
@@ -23,6 +25,7 @@ public class sg_ShipMovement : MonoBehaviour {
     {
         m_rb = GetComponent<Rigidbody>();
         m_transform = GetComponent<Transform>();
+        m_mainChild = transform.GetChild(0);
     }
 
     private void Update()
@@ -47,5 +50,6 @@ public class sg_ShipMovement : MonoBehaviour {
             applyForce = thrusterForce;
         }
         m_rb.AddForce(directionToTarget * applyForce * Time.deltaTime, ForceMode.Impulse);
+        m_mainChild.LookAt(target);
     }
 }
