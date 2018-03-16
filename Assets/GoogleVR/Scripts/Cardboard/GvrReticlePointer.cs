@@ -23,7 +23,7 @@ public class GvrReticlePointer : GvrBasePointer {
     //ADDITIONAL CODE ADDED BY TOBY - PROGRESS BAR IMPLEMENTATION
     [SerializeField] private Image progressBar;
     private float currentAmount = 0.0f;
-    private float speed = 33.3f; //100 / speed = time to fill bar in seconds
+    private float speed = 50.0f; //100 / speed = time to fill bar in seconds
     
   /// The constants below are expsed for testing. Minimum inner angle of the reticle (in degrees).
   public const float RETICLE_MIN_INNER_ANGLE = 0.0f;
@@ -173,7 +173,7 @@ public class GvrReticlePointer : GvrBasePointer {
             
             if(interactible.gameObject.tag == "Action")
             {
-                speed = 33.3f; //3 second bar fill
+                speed = 50.0f; //2 second bar fill
                 UpdateProgressBar();
             }
             else if (interactible.gameObject.tag == "ActionShort")

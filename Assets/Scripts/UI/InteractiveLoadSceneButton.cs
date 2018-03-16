@@ -6,7 +6,7 @@ public class InteractiveLoadSceneButton : MonoBehaviour, IInteractiveObject {
 
     [SerializeField] private bool isShortAction = false;
 
-    private float gazeTimer = 3.0f;
+    private float gazeTimer = 2.0f;
     private float gazeTimerFromEditor; //empty float that will store the gazeTimer value, used to reset the gazeTimer value on GazeExit()
     [SerializeField] private int sceneToLoad; //int representing the scene to load by buildIndex
 
@@ -58,7 +58,7 @@ public class InteractiveLoadSceneButton : MonoBehaviour, IInteractiveObject {
             return 1.5f;
         }
 
-        return 3.0f;
+        return 2.0f;
     }
     IEnumerator LoadSceneAsync()
     {
