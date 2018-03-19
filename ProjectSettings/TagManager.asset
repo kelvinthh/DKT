@@ -18,6 +18,7 @@ TagManager:
   - Controller
   - Action
   - ActionShort
+  - Target
   layers:
   - Default
   - TransparentFX
