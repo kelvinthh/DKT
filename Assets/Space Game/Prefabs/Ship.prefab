@@ -628,16 +628,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    health: 66
-    maxHealth: 66
-    name: Ronald
-    type: 2
+    health: 28
+    maxHealth: 28
+    name: Humphrey
+    type: 0
     shipId: 0
   m_allTargets: []
   m_targetsInRange: []
   currentTarget: {fileID: 0}
-  maxTargetRange: 5
+  maxTargetRange: 15
   tickRate: 0.5
+  gm: {fileID: 0}
 --- !u!114 &114439159509717078
 MonoBehaviour:
   m_ObjectHideFlags: 1

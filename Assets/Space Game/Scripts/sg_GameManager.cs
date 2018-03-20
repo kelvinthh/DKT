@@ -11,8 +11,7 @@ public class sg_GameManager : MonoBehaviour {
     [SerializeField]
     private int m_remainingEnemies;
 
-    [SerializeField]
-    private GameObject m_playerShip;
+    public GameObject m_playerShip;
 
     public List<sg_Level> levels;
 
@@ -23,12 +22,22 @@ public class sg_GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space)) { NextWave(); }
     }
 
-    public void NotifyOfDeath(sg_ShipData ship)
+    public void NotifyOfDeath(sg_ShipAi ship)
     {
-
-        if(m_remainingEnemies<= 0)
+        if(ship.data.type == sg_ShipType.Player)
         {
-            NextWave();
+            GameObject.Destroy(ship.gameObject);
+
+            m_playerShip = SpawnPlayer();
+        }
+        else
+        {
+            GameObject.Destroy(ship.gameObject);
+
+            if (m_remainingEnemies <= 0)
+            {
+                NextWave();
+            }
         }
     }
 
@@ -40,6 +49,7 @@ public class sg_GameManager : MonoBehaviour {
     {
         GameObject newObject = shipPrefab;
         sg_ShipAi shipAi = newObject.GetComponent<sg_ShipAi>();
+        shipAi.gm = this;
         shipAi.data = data;
         GameObject newShip = Instantiate(newObject);
     }
@@ -48,6 +58,7 @@ public class sg_GameManager : MonoBehaviour {
     {
         GameObject newObject = shipPrefab;
         sg_ShipAi shipAi = newObject.GetComponent<sg_ShipAi>();
+        shipAi.gm = this;
         shipAi.data.name = "Player";
         shipAi.data.maxHealth = 100;
         shipAi.data.health = 100;

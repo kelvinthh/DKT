@@ -14,13 +14,15 @@ public class sg_ShipAi : MonoBehaviour {
     public float maxTargetRange = 5.0f;
 
     public float tickRate = 0.5f;
-    private float tickTimer = 0.0f;
+    public float tickTimer = 0.0f;
 
     private sg_ShipMovement m_movement;
 
     private bool isPlayer = false;
 
     private Renderer[] renderers;
+
+    public sg_GameManager gm;
 
     private void OnEnable()
     {
@@ -56,6 +58,7 @@ public class sg_ShipAi : MonoBehaviour {
     {
         gameObject.transform.tag = "Enemy";
         gameObject.transform.name = "Enemy";
+        m_movement.thrusterForce = 20f;
     }
 
     private void Update()
@@ -63,6 +66,10 @@ public class sg_ShipAi : MonoBehaviour {
         if (tickTimer <= tickRate)
         {
             TickUpdate();
+        }
+        else
+        {
+            tickTimer += Time.deltaTime;
         }
     }
 
@@ -102,7 +109,7 @@ public class sg_ShipAi : MonoBehaviour {
         {
             m_allTargets.Clear();
 
-            m_allTargets.Add(GameObject.FindGameObjectWithTag("Player"));
+            m_allTargets.Add(gm.m_playerShip);
         }
     }
 
@@ -118,8 +125,32 @@ public class sg_ShipAi : MonoBehaviour {
         }
     }
 
+    private float shootDelay = 0.2f;
+    private float shootTimer = 0f;
     private void GetPriorityTarget()
     {
         currentTarget = m_targetsInRange[0];
+
+        if(shootTimer <= shootDelay)
+        {
+            Debug.DrawLine(transform.position, currentTarget.transform.position, Color.yellow);
+            shootTimer += Time.deltaTime;
+        }
+        else
+        {
+            Debug.DrawLine(transform.position, currentTarget.transform.position, Color.red, 0.15f);
+            shootTimer = 0.0f;
+            currentTarget.GetComponent<sg_ShipAi>().TakeDamage(1);
+        }
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        data.health -= dmg;
+
+        if(data.health <= 0)
+        {
+            gm.NotifyOfDeath(this);
+        }
     }
 }
