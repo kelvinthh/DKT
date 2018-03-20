@@ -628,10 +628,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    health: 100
-    maxHealth: 100
-    name: Player
-    type: 4
+    health: 66
+    maxHealth: 66
+    name: Ronald
+    type: 2
     shipId: 0
   m_allTargets: []
   m_targetsInRange: []
@@ -652,6 +652,7 @@ MonoBehaviour:
   thrusterForce: 30
   turningSpeed: 5
   tollerance: 0.5
+  decelerationDrag: 7
   targetObject: {fileID: 0}
   m_distanceFromTarget: 0
   decelerationRamp:
@@ -660,8 +661,8 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 1
@@ -672,7 +673,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  decelerationDistance: 20
+  decelerationDistance: 5
   applyForce: 0
   directionToTarget: {x: 0, y: 0, z: 0}
 --- !u!135 &135078221155041946

@@ -8,6 +8,7 @@ public class sg_ShipMovement : MonoBehaviour {
     public float thrusterForce = 10f;
     public float turningSpeed = 10f;
     public float tollerance = 0f;
+    public float decelerationDrag = 4.0f;
     public GameObject targetObject;
     private Transform m_transform;
     private Rigidbody m_rb;
@@ -43,14 +44,18 @@ public class sg_ShipMovement : MonoBehaviour {
 
     private void Move()
     {
-        if(m_distanceFromTarget <= decelerationDistance)
+        float distanceToTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
+
+        if (m_distanceFromTarget <= decelerationDistance)
         {
             //  Decelerate
-            applyForce = thrusterForce * (decelerationRamp.Evaluate(m_distanceFromTarget / decelerationDistance));
+            applyForce = 2f;
+            m_rb.drag = (decelerationRamp.Evaluate(1 - m_distanceFromTarget / decelerationDistance)) * decelerationDrag;
         }
         else
         {
             applyForce = thrusterForce;
+            m_rb.drag = 1f;
         }
         m_rb.AddForce(directionToTarget * applyForce * Time.deltaTime, ForceMode.Impulse);
         if (m_distanceFromTarget >= tollerance)
