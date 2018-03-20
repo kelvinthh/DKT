@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33343667696876790}
   - component: {fileID: 65438032681632944}
   - component: {fileID: 23583608678061108}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33728919690984892}
   - component: {fileID: 65256939851911460}
   - component: {fileID: 23143173860403384}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 33946594268115164}
   - component: {fileID: 135078221155041946}
   - component: {fileID: 23431937309246682}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 33162272489976444}
   - component: {fileID: 65116517970904566}
   - component: {fileID: 23762553424813444}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 33579846183834744}
   - component: {fileID: 136759119940197048}
   - component: {fileID: 23456792730651398}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,9 +111,8 @@ GameObject:
   - component: {fileID: 4481059042084912}
   - component: {fileID: 54507568888493660}
   - component: {fileID: 114439159509717078}
-  - component: {fileID: 114823814249182390}
   - component: {fileID: 114133578382318294}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Ship
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -131,7 +130,7 @@ GameObject:
   - component: {fileID: 33761490216403336}
   - component: {fileID: 65587452795847550}
   - component: {fileID: 23063376814102992}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +148,7 @@ GameObject:
   - component: {fileID: 33853520848319486}
   - component: {fileID: 136813109986802066}
   - component: {fileID: 23382420666774662}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,6 +627,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3909525e27c3e40aaa48d141847d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data:
+    health: 0
+    maxHealth: 0
+    name: New Ship
+    type: 4
+    shipId: 0
   m_allTargets: []
   m_targetsInRange: []
   currentTarget: {fileID: 0}
@@ -647,7 +652,7 @@ MonoBehaviour:
   thrusterForce: 30
   turningSpeed: 5
   tollerance: 0.5
-  target: {fileID: 0}
+  targetObject: {fileID: 0}
   m_distanceFromTarget: 0
   decelerationRamp:
     serializedVersion: 2
@@ -670,21 +675,6 @@ MonoBehaviour:
   decelerationDistance: 20
   applyForce: 0
   directionToTarget: {x: 0, y: 0, z: 0}
---- !u!114 &114823814249182390
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1818095874871670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62be6d66588cf60469c939d1279da6b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 0
-  name: New Ship
-  shipId: 0
 --- !u!135 &135078221155041946
 SphereCollider:
   m_ObjectHideFlags: 1

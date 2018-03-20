@@ -40,7 +40,8 @@ public class sg_ShipAi : MonoBehaviour {
     {
         isPlayer = true;
         m_movement.targetObject = GameObject.Find("Player Target");
-
+        gameObject.transform.tag = "Player";
+        gameObject.transform.name = "Player";
         renderers = GetComponentsInChildren<Renderer>();
         foreach(Renderer r in renderers)
         {
@@ -53,7 +54,8 @@ public class sg_ShipAi : MonoBehaviour {
 
     private void EnemyPrep()
     {
-
+        gameObject.transform.tag = "Enemy";
+        gameObject.transform.name = "Enemy";
     }
 
     private void Update()
