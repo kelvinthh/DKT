@@ -12,7 +12,7 @@ public class sg_Level
 [System.Serializable]
 public class sg_Wave
 {
-    public List<sg_Difficulty> enemies;
+    public List<sg_ShipData> enemies;
 }
 
 public enum sg_Difficulty

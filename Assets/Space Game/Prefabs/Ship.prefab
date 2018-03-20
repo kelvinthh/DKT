@@ -628,9 +628,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    health: 0
-    maxHealth: 0
-    name: New Ship
+    health: 100
+    maxHealth: 100
+    name: Player
     type: 4
     shipId: 0
   m_allTargets: []
