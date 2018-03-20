@@ -18,7 +18,7 @@ TagManager:
   - Controller
   - Action
   - ActionShort
-  - Target
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -30,7 +30,7 @@ TagManager:
   - 
   - InfoBubble
   - BubbleText
-  - PlayerShip
+  - Ship
   - 
   - 
   - 

@@ -8,7 +8,7 @@ public class sg_ShipMovement : MonoBehaviour {
     public float thrusterForce = 10f;
     public float turningSpeed = 10f;
     public float tollerance = 0f;
-    public Transform target;
+    public GameObject targetObject;
     private Transform m_transform;
     private Rigidbody m_rb;
     private Transform m_mainChild;
@@ -30,11 +30,14 @@ public class sg_ShipMovement : MonoBehaviour {
 
     private void Update()
     {
-        m_distanceFromTarget = Vector3.Distance(m_transform.position, target.position);
-        directionToTarget = Vector3.Normalize(target.position - m_transform.position);
-        if(m_distanceFromTarget >= tollerance)
+        if (targetObject != null)
         {
-            Move();
+            m_distanceFromTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
+            directionToTarget = Vector3.Normalize(targetObject.transform.position - m_transform.position);
+            if (m_distanceFromTarget >= tollerance)
+            {
+                Move();
+            }
         }
     }
 
@@ -52,7 +55,7 @@ public class sg_ShipMovement : MonoBehaviour {
         m_rb.AddForce(directionToTarget * applyForce * Time.deltaTime, ForceMode.Impulse);
         if (m_distanceFromTarget >= tollerance)
         {
-            Vector3 targetDir = target.position - m_transform.position;
+            Vector3 targetDir = targetObject.transform.position - m_transform.position;
             float step = turningSpeed * Time.deltaTime;
             Vector3 newDir = Vector3.RotateTowards(m_mainChild.forward, targetDir, step, 0.0f);
             Debug.DrawRay(transform.position, newDir, Color.red);
