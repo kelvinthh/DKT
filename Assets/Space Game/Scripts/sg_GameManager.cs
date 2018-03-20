@@ -12,6 +12,8 @@ public class sg_GameManager : MonoBehaviour {
     [SerializeField]
     private GameObject m_playerShip;
 
+    public List<sg_Level> levels;
+
     public int GetCurrentWave()
     {
         return m_currentWave;
