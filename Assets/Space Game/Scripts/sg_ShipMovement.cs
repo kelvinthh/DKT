@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class sg_ShipMovement : MonoBehaviour {
 
+    public sg_ShipMovementType movementType;
     public float thrusterForce = 10f;
     public float turningSpeed = 10f;
     public float tollerance = 0f;
@@ -37,12 +38,23 @@ public class sg_ShipMovement : MonoBehaviour {
             directionToTarget = Vector3.Normalize(targetObject.transform.position - m_transform.position);
             if (m_distanceFromTarget >= tollerance)
             {
-                Move();
+                switch (movementType)
+                {
+                    case sg_ShipMovementType.Regular:
+                        RegularMove();
+                        break;
+                    case sg_ShipMovementType.Strafe:
+                        StrafeMove();
+                        break;
+                    default:
+                        RegularMove();
+                        break;
+                }
             }
         }
     }
 
-    private void Move()
+    private void RegularMove()
     {
         float distanceToTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
 
@@ -67,4 +79,15 @@ public class sg_ShipMovement : MonoBehaviour {
             m_mainChild.rotation = Quaternion.LookRotation(newDir);
         }
     }
+
+    private void StrafeMove()
+    {
+
+    }
+}
+
+public enum sg_ShipMovementType
+{
+    Regular,
+    Strafe
 }

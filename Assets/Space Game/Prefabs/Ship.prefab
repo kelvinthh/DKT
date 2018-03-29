@@ -1223,6 +1223,11 @@ MonoBehaviour:
   maxTargetRange: 15
   tickRate: 0.5
   tickTimer: 0
+  renderers:
+  - {fileID: 23784782847926246}
+  - {fileID: 23123633367263650}
+  - {fileID: 23594317056597824}
+  - {fileID: 23226318630127872}
   gm: {fileID: 0}
 --- !u!114 &114439159509717078
 MonoBehaviour:

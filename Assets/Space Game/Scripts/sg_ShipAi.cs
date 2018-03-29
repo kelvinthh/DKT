@@ -20,7 +20,7 @@ public class sg_ShipAi : MonoBehaviour {
 
     private bool isPlayer = false;
 
-    private Renderer[] renderers;
+    public Renderer[] renderers;
 
     public sg_GameManager gm;
 
@@ -44,13 +44,9 @@ public class sg_ShipAi : MonoBehaviour {
         m_movement.targetObject = GameObject.Find("Player Target");
         gameObject.transform.tag = "Player";
         gameObject.transform.name = "Player";
-        renderers = GetComponentsInChildren<Renderer>();
         foreach(Renderer r in renderers)
         {
-            if (r.gameObject.name.Contains("Cube"))
-            {
-                r.material.color = Color.blue;
-            }
+            r.material.color = Color.blue;
         }
     }
 
