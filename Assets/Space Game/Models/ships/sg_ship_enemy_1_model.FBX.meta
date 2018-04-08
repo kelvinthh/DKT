@@ -40,6 +40,10 @@ ModelImporter:
     400030: Turret Gun
     400032: Turret Gun 1
     2100000: No Name
+    2100002: sg_Grey_mat
+    2100004: sg_DarkGrey_mat
+    2100006: sg_Black_mat
+    2100008: sg_Window_mat
     2300000: Box001
     2300002: Box002
     2300004: Box003
@@ -85,12 +89,37 @@ ModelImporter:
     4300024: Turret Base
     4300026: Turret Gun
     4300028: Turret Gun
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 1307f00663de0164cb77a0bb2fad2777, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sg_Black_mat
+    second: {fileID: 2100000, guid: 8904ef4f6ababd0439c79992322ce918, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sg_DarkGrey_mat
+    second: {fileID: 2100000, guid: 1bd4573e3ff120f43a59fe36f1fa8d67, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sg_Grey_mat
+    second: {fileID: 2100000, guid: 6d44b6296cc85cf428e09352141a51e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sg_Window_mat
+    second: {fileID: 2100000, guid: 23c4baecdd78e2e4e804a5091a67e965, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -136,7 +165,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
+    normalSmoothAngle: 45
     normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4

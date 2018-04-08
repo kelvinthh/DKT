@@ -136,11 +136,11 @@ public class sg_ShipAi : MonoBehaviour {
         {
             Debug.DrawLine(transform.position, currentTarget.transform.position, Color.red, 0.15f);
             shootTimer = 0.0f;
-            currentTarget.GetComponent<sg_ShipAi>().TakeDamage(1);
+            currentTarget.GetComponent<sg_ShipAi>().Damage(1);
         }
     }
 
-    public void TakeDamage(int dmg)
+    public void Damage(int dmg)
     {
         data.health -= dmg;
 
