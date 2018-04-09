@@ -7,14 +7,14 @@ public class InteractiveEnableMoreUI : MonoBehaviour, IInteractiveObject
     [SerializeField] private bool isShortAction = false;
 
     private float gazeTimer = 3.0f; //Seconds taken to activate interactive event
-    [SerializeField] private GameObject[] ui = new GameObject[0];
+    [SerializeField] private GameObject[] ui = new GameObject[0]; //array of ui elements to enable (edit/add via editor)
 
     private bool gazingAt = false; //flag 
 
     public void Action()
     {
         EnableElements();
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); //disable the activating game object
     }
 
     public void GazeEnter()

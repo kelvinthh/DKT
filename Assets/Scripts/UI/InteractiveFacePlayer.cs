@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class InteractiveFacePlayer : MonoBehaviour {
+
+    [SerializeField] private Vector3 target;
 
 	// Use this for initialization
 	void Start () {
@@ -12,8 +15,7 @@ public class InteractiveFacePlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        //make the bubbles and text face player, flips the gameobject however.
-        //transform.LookAt(Camera.main.transform.position, -Vector3.down);
-        
+        transform.LookAt(target);
+
     }
 }
