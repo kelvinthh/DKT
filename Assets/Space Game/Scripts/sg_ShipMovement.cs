@@ -7,8 +7,11 @@ public class sg_ShipMovement : MonoBehaviour {
 
     public sg_ShipMovementType movementType;
     public float thrusterForce = 10f;
+    public float verticalForce = 2.0f;
     public float turningSpeed = 10f;
     public float tollerance = 0f;
+    public float verticalTollerance = 0.75f;
+    public float strafePitchAngle = 15f;
     public float decelerationDrag = 4.0f;
     public GameObject targetObject;
     private Transform m_transform;
@@ -20,8 +23,7 @@ public class sg_ShipMovement : MonoBehaviour {
     public float decelerationDistance;          //  How close the ship must be from the target before it decelerates.
     [SerializeField]
     private float applyForce = 0f;
-    [SerializeField]
-    private Vector3 directionToTarget;
+    private Vector3 dir;
 
     private void Start()
     {
@@ -35,72 +37,89 @@ public class sg_ShipMovement : MonoBehaviour {
         if (targetObject != null)
         {
             m_distanceFromTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
-            directionToTarget = Vector3.Normalize(targetObject.transform.position - m_transform.position);
-            if (m_distanceFromTarget >= tollerance)
+            dir = Vector3.Normalize(targetObject.transform.position - m_transform.position);
+            switch (movementType)
             {
-                switch (movementType)
-                {
-                    case sg_ShipMovementType.Regular:
-                        RegularMove();
-                        break;
-                    case sg_ShipMovementType.Strafe:
-                        StrafeMove();
-                        break;
-                    default:
-                        RegularMove();
-                        break;
-                }
+                case sg_ShipMovementType.Fighter:
+                    FighterMove();
+                    break;
+                case sg_ShipMovementType.Frigate:
+                    FrigateMove();
+                    break;
+                default:
+                    FighterMove();
+                    break;
             }
         }
     }
 
-    private void RegularMove()
+    private void FighterMove()
     {
-        float distanceToTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
-
-        if (m_distanceFromTarget <= decelerationDistance)
-        {
-            //  Decelerate
-            applyForce = 2f;
-            m_rb.drag = (decelerationRamp.Evaluate(1 - m_distanceFromTarget / decelerationDistance)) * decelerationDrag;
-        }
-        else
-        {
-            applyForce = thrusterForce;
-            m_rb.drag = 1f;
-        }
-        m_rb.AddForce(directionToTarget * applyForce * Time.deltaTime, ForceMode.Impulse);
         if (m_distanceFromTarget >= tollerance)
         {
-            Vector3 targetDir = targetObject.transform.position - m_transform.position;
-            float step = turningSpeed * Time.deltaTime;
-            Vector3 newDir = Vector3.RotateTowards(m_mainChild.forward, targetDir, step, 0.0f);
-            Debug.DrawRay(transform.position, newDir, Color.red);
-            m_mainChild.rotation = Quaternion.LookRotation(newDir);
+            float distanceToTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
+
+            if (m_distanceFromTarget <= decelerationDistance)
+            {
+                //  Decelerate
+                applyForce = 2f;
+                m_rb.drag = (decelerationRamp.Evaluate(1 - m_distanceFromTarget / decelerationDistance)) * decelerationDrag;
+            }
+            else
+            {
+                applyForce = thrusterForce;
+                m_rb.drag = 1f;
+            }
+            m_rb.AddForce(dir * applyForce * Time.deltaTime, ForceMode.Impulse);
+            if (m_distanceFromTarget >= tollerance)
+            {
+                Vector3 targetDir = targetObject.transform.position - m_transform.position;
+                float step = turningSpeed * Time.deltaTime;
+                Vector3 newDir = Vector3.RotateTowards(m_mainChild.forward, targetDir, step, 0.0f);
+                Debug.DrawRay(transform.position, newDir, Color.red);
+                m_mainChild.rotation = Quaternion.LookRotation(newDir);
+            } 
         }
     }
 
-    private void StrafeMove()
+    private void FrigateMove()
     {
         float distanceToTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
+        Vector3 applyForce = Vector3.zero;
 
-        if (m_distanceFromTarget <= decelerationDistance)
+        if (distanceToTarget >= tollerance)
         {
-            //  Decelerate
-            applyForce = 2f;
-            m_rb.drag = (decelerationRamp.Evaluate(1 - m_distanceFromTarget / decelerationDistance)) * decelerationDrag;
+            Vector3 forceDirection = new Vector3(dir.x, 0, dir.z);
+            applyForce.x = dir.x * thrusterForce;
+            applyForce.z = dir.z * thrusterForce;
+
+            Quaternion look = Quaternion.LookRotation(applyForce, Vector3.up);
+            Vector3 l = m_transform.eulerAngles;
+            l.y = Mathf.LerpAngle(l.y, look.eulerAngles.y, turningSpeed * Time.deltaTime);
+            m_transform.eulerAngles = l;
         }
-        else
+
+        float targetAngle = 0f;
+        Vector3 rot = m_mainChild.localEulerAngles;
+        if (targetObject.transform.position.y > transform.position.y + verticalTollerance)
         {
-            applyForce = thrusterForce;
-            m_rb.drag = 1f;
+            targetAngle = -strafePitchAngle;
+            applyForce.y = verticalForce;
         }
-        m_rb.AddForce(directionToTarget * applyForce * Time.deltaTime, ForceMode.Impulse);
+        else if (targetObject.transform.position.y < transform.position.y - verticalTollerance)
+        {
+            targetAngle = strafePitchAngle;
+            applyForce.y = -verticalForce;
+        }
+        else { targetAngle = 0f; }
+        targetAngle = Mathf.LerpAngle(rot.x, targetAngle, 1f * Time.deltaTime);
+        m_rb.AddForce(applyForce * Time.deltaTime, ForceMode.Impulse);
+        m_mainChild.localEulerAngles = new Vector3(targetAngle, rot.y, rot.z);
     }
 }
 
 public enum sg_ShipMovementType
 {
-    Regular,
-    Strafe
+    Fighter,
+    Frigate
 }

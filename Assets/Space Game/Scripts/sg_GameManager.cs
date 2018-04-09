@@ -17,6 +17,8 @@ public class sg_GameManager : MonoBehaviour {
 
     public GameObject shipPrefab;
 
+    public bool doSpawn = false;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) { NextWave(); }
@@ -47,6 +49,8 @@ public class sg_GameManager : MonoBehaviour {
     }
     public void SpawnEnemy(sg_ShipData data)
     {
+        if (!doSpawn) return;
+
         GameObject newObject = shipPrefab;
         sg_ShipAi shipAi = newObject.GetComponent<sg_ShipAi>();
         shipAi.gm = this;
