@@ -24,6 +24,8 @@ public class sg_ShipAi : MonoBehaviour {
 
     public sg_GameManager gm;
 
+    public bool invincible = false;
+
     private void OnEnable()
     {
         m_movement = GetComponent<sg_ShipMovement>();
@@ -41,7 +43,7 @@ public class sg_ShipAi : MonoBehaviour {
     private void PlayerPrep()
     {
         isPlayer = true;
-        m_movement.targetObject = GameObject.Find("Player Target");
+        m_movement.targetObject = GameObject.FindGameObjectWithTag("Player Target");
         gameObject.transform.tag = "Player";
         gameObject.transform.name = "Player";
         foreach(Renderer r in renderers)
@@ -142,6 +144,8 @@ public class sg_ShipAi : MonoBehaviour {
 
     public void Damage(int dmg)
     {
+        if (invincible) return;
+
         data.health -= dmg;
 
         if(data.health <= 0)

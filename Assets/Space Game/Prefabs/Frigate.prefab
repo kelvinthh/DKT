@@ -1242,12 +1242,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementType: 1
-  thrusterForce: 30
-  verticalForce: 10
+  thrusterForce: 300
+  verticalForce: 100
   turningSpeed: 1
   tollerance: 5
   verticalTollerance: 0.75
-  strafePitchAngle: 15
+  pitchAngle: 15
   decelerationDrag: 7
   targetObject: {fileID: 0}
   m_distanceFromTarget: 0
@@ -1270,7 +1270,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   decelerationDistance: 5
-  applyForce: 0
 --- !u!114 &114808058028909300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1283,10 +1282,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    health: 100
-    maxHealth: 100
-    name: Frigate
-    type: 1
+    health: 66
+    maxHealth: 66
+    name: Ronald
+    type: 2
     shipId: 0
   m_allTargets: []
   m_targetsInRange: []
@@ -1311,3 +1310,4 @@ MonoBehaviour:
   - {fileID: 23946709868864870}
   - {fileID: 23459884751994102}
   gm: {fileID: 0}
+  invincible: 1

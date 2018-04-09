@@ -1193,7 +1193,7 @@ MonoBehaviour:
   turningSpeed: 5
   tollerance: 0.5
   verticalTollerance: 1
-  strafePitchAngle: 15
+  pitchAngle: 15
   decelerationDrag: 7
   targetObject: {fileID: 0}
   m_distanceFromTarget: 0
@@ -1216,7 +1216,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   decelerationDistance: 5
-  applyForce: 0
 --- !u!114 &114967103845602816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1246,6 +1245,7 @@ MonoBehaviour:
   - {fileID: 23485782389984734}
   - {fileID: 23248979890766110}
   gm: {fileID: 0}
+  invincible: 1
 --- !u!135 &135499749901283374
 SphereCollider:
   m_ObjectHideFlags: 1
