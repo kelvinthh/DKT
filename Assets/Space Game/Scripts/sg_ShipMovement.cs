@@ -6,24 +6,22 @@ using UnityEngine;
 public class sg_ShipMovement : MonoBehaviour {
 
     public sg_ShipMovementType movementType;
-    public float thrusterForce = 10f;
-    public float verticalForce = 2.0f;
-    public float turningSpeed = 10f;
-    public float tollerance = 0f;
-    public float verticalTollerance = 0.75f;
-    public float strafePitchAngle = 15f;
-    public float decelerationDrag = 4.0f;
-    public GameObject targetObject;
-    private Transform m_transform;
-    private Rigidbody m_rb;
-    private Transform m_mainChild;
+    public float thrusterForce = 10f;           //  How much force to apply for directional thrust.
+    public float verticalForce = 2.0f;          //  How much force to apply for vertical thrust (frigate).
+    public float turningSpeed = 10f;            //  How fast to turn.
+    public float tollerance = 5f;               //
+    public float verticalTollerance = 0.75f;    //
+    public float pitchAngle = 15f;              //  The maximum x-axis pitching angle from 0 (frigate).
+    public float decelerationDrag = 4.0f;       //  The drag to apply when decelerating (fighter).
+    public GameObject targetObject;             //  The 'target' to follow.
+    private Transform m_transform;              //  The ship's main transform.
+    private Rigidbody m_rb;                     //  The ship's rigidbody.
+    private Transform m_mainChild;              //  The main child of the main transform, e.g. for pitching.
     [SerializeField]
-    private float m_distanceFromTarget;
+    private float m_distanceFromTarget;         //  The approximate distance between the ship and the target.
     public AnimationCurve decelerationRamp;     //  The curve the ship uses to control it's deceleration.
     public float decelerationDistance;          //  How close the ship must be from the target before it decelerates.
-    [SerializeField]
-    private float applyForce = 0f;
-    private Vector3 dir;
+    private Vector3 m_directionToTarget;        //  The normalised vector between the ship and the target.
 
     private void Start()
     {
@@ -37,7 +35,7 @@ public class sg_ShipMovement : MonoBehaviour {
         if (targetObject != null)
         {
             m_distanceFromTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
-            dir = Vector3.Normalize(targetObject.transform.position - m_transform.position);
+            m_directionToTarget = Vector3.Normalize(targetObject.transform.position - m_transform.position);
             switch (movementType)
             {
                 case sg_ShipMovementType.Fighter:
@@ -55,6 +53,8 @@ public class sg_ShipMovement : MonoBehaviour {
 
     private void FighterMove()
     {
+        float applyForce = 0f;
+
         if (m_distanceFromTarget >= tollerance)
         {
             float distanceToTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
@@ -70,7 +70,7 @@ public class sg_ShipMovement : MonoBehaviour {
                 applyForce = thrusterForce;
                 m_rb.drag = 1f;
             }
-            m_rb.AddForce(dir * applyForce * Time.deltaTime, ForceMode.Impulse);
+            m_rb.AddForce(m_directionToTarget * applyForce * Time.deltaTime, ForceMode.Impulse);
             if (m_distanceFromTarget >= tollerance)
             {
                 Vector3 targetDir = targetObject.transform.position - m_transform.position;
@@ -84,14 +84,13 @@ public class sg_ShipMovement : MonoBehaviour {
 
     private void FrigateMove()
     {
-        float distanceToTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
         Vector3 applyForce = Vector3.zero;
 
-        if (distanceToTarget >= tollerance)
+        if (m_distanceFromTarget >= tollerance)
         {
-            Vector3 forceDirection = new Vector3(dir.x, 0, dir.z);
-            applyForce.x = dir.x * thrusterForce;
-            applyForce.z = dir.z * thrusterForce;
+            Vector3 forceDirection = new Vector3(m_directionToTarget.x, 0, m_directionToTarget.z);
+            applyForce.x = m_directionToTarget.x * thrusterForce;
+            applyForce.z = m_directionToTarget.z * thrusterForce;
 
             Quaternion look = Quaternion.LookRotation(applyForce, Vector3.up);
             Vector3 l = m_transform.eulerAngles;
@@ -103,12 +102,12 @@ public class sg_ShipMovement : MonoBehaviour {
         Vector3 rot = m_mainChild.localEulerAngles;
         if (targetObject.transform.position.y > transform.position.y + verticalTollerance)
         {
-            targetAngle = -strafePitchAngle;
+            targetAngle = -pitchAngle;
             applyForce.y = verticalForce;
         }
         else if (targetObject.transform.position.y < transform.position.y - verticalTollerance)
         {
-            targetAngle = strafePitchAngle;
+            targetAngle = pitchAngle;
             applyForce.y = -verticalForce;
         }
         else { targetAngle = 0f; }
