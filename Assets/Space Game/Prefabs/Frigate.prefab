@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 54721340103440302}
   - component: {fileID: 114149625428642218}
   - component: {fileID: 114808058028909300}
+  - component: {fileID: 114666897009561610}
   m_Layer: 0
   m_Name: Frigate
   m_TagString: Untagged
@@ -1270,6 +1271,25 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   decelerationDistance: 5
+--- !u!114 &114666897009561610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980160382814360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271ae94f4a5a958438229fb6a5169f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 1
+  inaccuracy: 0
+  primaryAxisObject: {fileID: 1619240192816578}
+  secondaryAxisObject: {fileID: 1952196041662766}
+  primaryAxisDirection: 1
+  secondaryAxisDirection: 0
+  target: {fileID: 0}
+  aim: 1
 --- !u!114 &114808058028909300
 MonoBehaviour:
   m_ObjectHideFlags: 1
