@@ -9,7 +9,7 @@ Material:
   m_Name: sg_DarkGrey_mat
   m_Shader: {fileID: 4800000, guid: fbfea7a093f9ec3418c77b881eae789d, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1

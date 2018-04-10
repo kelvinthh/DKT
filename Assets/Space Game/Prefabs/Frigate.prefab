@@ -322,10 +322,6 @@ GameObject:
   - component: {fileID: 54721340103440302}
   - component: {fileID: 114149625428642218}
   - component: {fileID: 114808058028909300}
-  - component: {fileID: 65070476081766248}
-  - component: {fileID: 65320499507085642}
-  - component: {fileID: 65936677341714322}
-  - component: {fileID: 65562163790645190}
   m_Layer: 0
   m_Name: Frigate
   m_TagString: Untagged
@@ -1234,54 +1230,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65070476081766248
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1980160382814360}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.0883656, y: 1.8678932, z: 5.2174125}
-  m_Center: {x: 0, y: 0.48818874, z: 0.53565145}
---- !u!65 &65320499507085642
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1980160382814360}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.936135, y: 1.5288734, z: 2.4238868}
-  m_Center: {x: 0, y: 0.65769863, z: -3.2613747}
---- !u!65 &65562163790645190
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1980160382814360}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.83727205, y: 0.6338587, z: 1.0949297}
-  m_Center: {x: 0, y: 1.6611991, z: 0.90179396}
---- !u!65 &65936677341714322
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1980160382814360}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.6373596, y: 0.82371044, z: 0.83727264}
-  m_Center: {x: 0, y: 1.756125, z: -2.7799654}
 --- !u!114 &114149625428642218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1294,7 +1242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementType: 1
-  thrusterForce: 300
+  thrusterForce: 100
   verticalForce: 100
   turningSpeed: 1
   tollerance: 5
@@ -1364,3 +1312,4 @@ MonoBehaviour:
   - {fileID: 23459884751994102}
   gm: {fileID: 0}
   invincible: 1
+  autoTarget: 1

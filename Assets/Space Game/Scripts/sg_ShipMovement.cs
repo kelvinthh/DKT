@@ -98,21 +98,26 @@ public class sg_ShipMovement : MonoBehaviour {
             m_transform.eulerAngles = l;
         }
 
-        float targetAngle = 0f;
+        float targetPitch = 0f;
         Vector3 rot = m_mainChild.localEulerAngles;
         if (targetObject.transform.position.y > transform.position.y + verticalTollerance)
         {
-            targetAngle = -pitchAngle;
+            targetPitch = -pitchAngle;
             applyForce.y = verticalForce;
         }
         else if (targetObject.transform.position.y < transform.position.y - verticalTollerance)
         {
-            targetAngle = pitchAngle;
+            targetPitch = pitchAngle;
             applyForce.y = -verticalForce;
         }
-        else { targetAngle = 0f; }
-        targetAngle = Mathf.LerpAngle(rot.x, targetAngle, 1f * Time.deltaTime);
+        else { targetPitch = 0f; }
+        targetPitch = Mathf.LerpAngle(rot.x, targetPitch, 1f * Time.deltaTime);
         m_rb.AddForce(applyForce * Time.deltaTime, ForceMode.Impulse);
-        m_mainChild.localEulerAngles = new Vector3(targetAngle, rot.y, rot.z);
+        m_mainChild.localEulerAngles = new Vector3(targetPitch, rot.y, rot.z);
+
+        //rot = m_transform.eulerAngles;
+        //rot.x = 0;
+        //rot.z = 0;
+        //m_transform.eulerAngles = rot;
     }
 }

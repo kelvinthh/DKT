@@ -25,6 +25,7 @@ public class sg_ShipAi : MonoBehaviour {
     public sg_GameManager gm;
 
     public bool invincible = false;
+    public bool autoTarget = true;
 
     private void OnEnable()
     {
@@ -56,7 +57,6 @@ public class sg_ShipAi : MonoBehaviour {
     {
         gameObject.transform.tag = "Enemy";
         gameObject.transform.name = "Enemy";
-        m_movement.thrusterForce = 20f;
     }
 
     private void Update()
@@ -76,17 +76,20 @@ public class sg_ShipAi : MonoBehaviour {
         GetAllTargets();
         GetTargetsInRange();
 
-        if (isPlayer)
+        if (autoTarget)
         {
-            if(m_targetsInRange.Count >= 1)
+            if (isPlayer)
             {
-                GetPriorityTarget();
+                if (m_targetsInRange.Count >= 1)
+                {
+                    GetPriorityTarget();
+                }
             }
-        }
-        else
-        {
-            currentTarget = m_allTargets[0];
-            m_movement.targetObject = currentTarget;
+            else
+            {
+                currentTarget = m_allTargets[0];
+                m_movement.targetObject = currentTarget;
+            } 
         }
 
         tickTimer = 0.0f;
