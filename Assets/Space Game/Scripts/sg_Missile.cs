@@ -58,7 +58,7 @@ public class sg_Missile : MonoBehaviour {
 
     void Contact(sg_ShipAi ai)
     {
-        if (ai.data.type == sg_ShipType.Player && shotFromPlayer) return;
+        if (ai.data.difficulty == sg_ShipDifficulty.Player && shotFromPlayer) return;
 
         ai.Damage(damage);
     }

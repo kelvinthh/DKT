@@ -15,7 +15,8 @@ public class sg_GameManager : MonoBehaviour {
 
     public List<sg_Level> levels;
 
-    public GameObject shipPrefab;
+    public GameObject fighterPrefab;
+    public GameObject frigatePrefab;
 
     public bool doSpawn = false;
 
@@ -26,7 +27,7 @@ public class sg_GameManager : MonoBehaviour {
 
     public void NotifyOfDeath(sg_ShipAi ship)
     {
-        if(ship.data.type == sg_ShipType.Player)
+        if(ship.data.difficulty == sg_ShipDifficulty.Player)
         {
             GameObject.Destroy(ship.gameObject);
 
@@ -51,23 +52,37 @@ public class sg_GameManager : MonoBehaviour {
     {
         if (!doSpawn) return;
 
-        GameObject newObject = shipPrefab;
-        sg_ShipAi shipAi = newObject.GetComponent<sg_ShipAi>();
+        GameObject newShip;
+
+        switch (data.shipClass)
+        {
+            case sg_ShipClass.Fighter:
+                newShip = fighterPrefab;
+                break;
+            case sg_ShipClass.Frigate:
+                newShip = frigatePrefab;
+                break;
+            default:
+                newShip = fighterPrefab;
+                break;
+        }
+
+        sg_ShipAi shipAi = newShip.GetComponent<sg_ShipAi>();
         shipAi.gm = this;
         shipAi.data = data;
-        GameObject newShip = Instantiate(newObject);
+        newShip = Instantiate(newShip);
     }
 
     private GameObject SpawnPlayer()
     {
-        GameObject newObject = shipPrefab;
+        GameObject newObject = fighterPrefab;
         sg_ShipAi shipAi = newObject.GetComponent<sg_ShipAi>();
         shipAi.gm = this;
         shipAi.data.name = "Player";
         shipAi.data.maxHealth = 100;
         shipAi.data.health = 100;
         shipAi.data.shipId = 0;
-        shipAi.data.type = sg_ShipType.Player;
+        shipAi.data.difficulty = sg_ShipDifficulty.Player;
 
         return GameObject.Instantiate(newObject);
     }

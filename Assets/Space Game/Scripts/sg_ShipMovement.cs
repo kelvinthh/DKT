@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class sg_ShipMovement : MonoBehaviour {
 
-    public sg_ShipMovementType movementType;
+    public sg_ShipClass movementType;
     public float thrusterForce = 10f;           //  How much force to apply for directional thrust.
     public float verticalForce = 2.0f;          //  How much force to apply for vertical thrust (frigate).
     public float turningSpeed = 10f;            //  How fast to turn.
@@ -38,10 +38,10 @@ public class sg_ShipMovement : MonoBehaviour {
             m_directionToTarget = Vector3.Normalize(targetObject.transform.position - m_transform.position);
             switch (movementType)
             {
-                case sg_ShipMovementType.Fighter:
+                case sg_ShipClass.Fighter:
                     FighterMove();
                     break;
-                case sg_ShipMovementType.Frigate:
+                case sg_ShipClass.Frigate:
                     FrigateMove();
                     break;
                 default:
@@ -115,10 +115,4 @@ public class sg_ShipMovement : MonoBehaviour {
         m_rb.AddForce(applyForce * Time.deltaTime, ForceMode.Impulse);
         m_mainChild.localEulerAngles = new Vector3(targetAngle, rot.y, rot.z);
     }
-}
-
-public enum sg_ShipMovementType
-{
-    Fighter,
-    Frigate
 }

@@ -30,7 +30,7 @@ public class sg_ShipAi : MonoBehaviour {
     {
         m_movement = GetComponent<sg_ShipMovement>();
 
-        if (data.type == sg_ShipType.Player)
+        if (data.difficulty == sg_ShipDifficulty.Player)
         {
             PlayerPrep();
         }
