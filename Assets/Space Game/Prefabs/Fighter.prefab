@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 54831311414530232}
   - component: {fileID: 114454926402941004}
   - component: {fileID: 114967103845602816}
+  - component: {fileID: 114561306575093226}
   m_Layer: 2
   m_Name: Fighter
   m_TagString: Player
@@ -1216,6 +1217,21 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   decelerationDistance: 5
+--- !u!114 &114561306575093226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132137427620660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f16c9248bfb607a4cae2a8c1ab68b0ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletDamage: 1
+  fireRate: 5
+  bulletSpawnPoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
 --- !u!114 &114967103845602816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1228,10 +1244,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    health: 30
-    maxHealth: 30
-    name: Fighter
-    type: 0
+    health: 66
+    maxHealth: 66
+    name: Ronald
+    shipClass: 0
+    difficulty: 1
     shipId: 0
   m_allTargets: []
   m_targetsInRange: []
@@ -1246,6 +1263,7 @@ MonoBehaviour:
   - {fileID: 23248979890766110}
   gm: {fileID: 0}
   invincible: 1
+  autoTarget: 1
 --- !u!135 &135499749901283374
 SphereCollider:
   m_ObjectHideFlags: 1

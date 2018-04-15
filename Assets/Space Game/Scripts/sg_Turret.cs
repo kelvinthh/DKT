@@ -46,7 +46,7 @@ public class sg_Turret : MonoBehaviour {
                 float angleRad = Mathf.Atan2(from.x - to.x, from.z - to.z);
                 float angleDeg = Mathf.Rad2Deg * angleRad;
 
-                Debug.Log("CURRENT ANGLE : " + currentAngle + "      TARGET ANGLE : " + angleDeg);
+                //Debug.Log("CURRENT ANGLE : " + currentAngle + "      TARGET ANGLE : " + angleDeg);
 
                 if(angleDeg >= 0f)
                 {

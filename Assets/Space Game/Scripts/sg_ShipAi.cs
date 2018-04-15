@@ -27,9 +27,12 @@ public class sg_ShipAi : MonoBehaviour {
     public bool invincible = false;
     public bool autoTarget = true;
 
+    public sg_Weapon weapon;
+
     private void OnEnable()
     {
         m_movement = GetComponent<sg_ShipMovement>();
+        weapon = GetComponent<sg_Weapon>();
 
         if (data.difficulty == sg_ShipDifficulty.Player)
         {
@@ -68,6 +71,11 @@ public class sg_ShipAi : MonoBehaviour {
         else
         {
             tickTimer += Time.deltaTime;
+        }
+
+        if (currentTarget)
+        {
+            if (weapon != null) weapon.TryShoot();
         }
     }
 
@@ -125,24 +133,9 @@ public class sg_ShipAi : MonoBehaviour {
             }
         }
     }
-
-    private float shootDelay = 0.2f;
-    private float shootTimer = 0f;
     private void GetPriorityTarget()
     {
         currentTarget = m_targetsInRange[0];
-
-        if(shootTimer <= shootDelay)
-        {
-            Debug.DrawLine(transform.position, currentTarget.transform.position, Color.yellow);
-            shootTimer += Time.deltaTime;
-        }
-        else
-        {
-            Debug.DrawLine(transform.position, currentTarget.transform.position, Color.red, 0.15f);
-            shootTimer = 0.0f;
-            currentTarget.GetComponent<sg_ShipAi>().Damage(1);
-        }
     }
 
     public void Damage(int dmg)
@@ -155,5 +148,10 @@ public class sg_ShipAi : MonoBehaviour {
         {
             gm.NotifyOfDeath(this);
         }
+    }
+
+    public bool IsPlayer()
+    {
+        return isPlayer;
     }
 }

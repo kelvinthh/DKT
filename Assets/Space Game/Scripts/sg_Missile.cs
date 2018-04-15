@@ -23,6 +23,7 @@ public class sg_Missile : MonoBehaviour {
         m_transform = GetComponent<Transform>();
         m_body = GetComponent<Rigidbody>();
         GameObject.Destroy(gameObject, deathTimer);
+        target = GameObject.Find("Player").transform;
     }
 
     private void FixedUpdate()
@@ -70,6 +71,6 @@ public class sg_Missile : MonoBehaviour {
 
     void Explode()
     {
-
+        GameObject.Destroy(gameObject);
     }
 }
