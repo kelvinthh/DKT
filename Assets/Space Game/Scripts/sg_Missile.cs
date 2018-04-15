@@ -19,6 +19,7 @@ public class sg_Missile : MonoBehaviour {
     public float deathTimer = 10f;
 
     private sg_BulletPool m_bulletPool;
+    private int m_shipId = 0;
 
     private void Start()
     {
@@ -61,20 +62,19 @@ public class sg_Missile : MonoBehaviour {
         sg_ShipAi ai = other.gameObject.GetComponent<sg_ShipAi>();
 
         if (ai) Contact(ai);
-
-        Explode();
     }
 
     void Contact(sg_ShipAi ai)
     {
-        if (ai.data.difficulty == sg_ShipDifficulty.Player && shotFromPlayer) return;
+        if (ai.data.shipId == m_shipId) return;
 
         ai.Damage(damage);
+        Explode();
     }
 
     void Explode()
     {
-        //m_bulletPool.Despawn(gameObject);
+        m_bulletPool.Despawn(gameObject);
     }
 
     IEnumerator AutoDeath()

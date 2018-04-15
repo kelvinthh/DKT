@@ -69,7 +69,7 @@ Material:
     m_Floats:
     - _ASEOutlineWidth: 0
     - _BumpScale: 1
-    - _Cutoff: 0.5
+    - _Cutoff: 0.8
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EdgeLength: 15
@@ -85,7 +85,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Spread: 0
-    - _SpreadEnd: 9
+    - _SpreadEnd: 1
     - _SpreadStart: 0
     - _SrcBlend: 1
     - _UVSec: 0
