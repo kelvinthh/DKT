@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class sg_Missile : MonoBehaviour {
 
     public int damage = 10;
@@ -45,11 +46,12 @@ public class sg_Missile : MonoBehaviour {
         {
             m_body.MoveRotation(Quaternion.RotateTowards(m_transform.rotation, targetRotation, Mathf.Abs(turnSpeedCurve.Evaluate(range / maxRange) * turnSpeed)));
         }
+        m_body.AddForce(m_transform.forward * speed * Time.fixedDeltaTime, ForceMode.Impulse);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        sg_ShipAi ai = collision.gameObject.GetComponent<sg_ShipAi>();
+        sg_ShipAi ai = other.gameObject.GetComponent<sg_ShipAi>();
 
         if (ai) Contact(ai);
 
