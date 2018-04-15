@@ -47,7 +47,7 @@ public class sg_ShipAi : MonoBehaviour {
     private void PlayerPrep()
     {
         isPlayer = true;
-        m_movement.targetObject = GameObject.FindGameObjectWithTag("Player Target");
+        m_movement.targetObject = GameObject.Find("Player Target");
         gameObject.transform.tag = "Player";
         gameObject.transform.name = "Player";
         foreach(Renderer r in renderers)

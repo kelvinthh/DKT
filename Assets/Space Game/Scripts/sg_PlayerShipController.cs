@@ -7,23 +7,25 @@ public class sg_PlayerShipController : MonoBehaviour {
     public Transform shipTarget;
     public LayerMask mask;
     public float restingDistance = 5f;
-    private Camera cam;
+    public Transform cam;
 
     private void Start()
     {
-        cam = Camera.main;
+        if(!cam) cam = Camera.main.transform;
     }
 
     private void Update()
     {
-        RaycastHit hit;
-        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, mask))
-        {
-            shipTarget.transform.position = hit.point;
-        }
-        else
-        {
-            shipTarget.transform.position = cam.transform.forward * restingDistance;
-        }
+        //RaycastHit hit;
+        //if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, mask))
+        //{
+        //    shipTarget.transform.position = hit.point;
+        //}
+        //else
+        //{
+        //    shipTarget.transform.position = cam.transform.forward * restingDistance;
+        //}
+
+        Debug.DrawLine(cam.transform.position, shipTarget.transform.position, Color.green);
     }
 }
