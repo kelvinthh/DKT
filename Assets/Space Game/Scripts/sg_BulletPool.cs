@@ -7,39 +7,54 @@ public class sg_BulletPool : MonoBehaviour {
     public GameObject bulletPrefab;
     public int poolSize = 100;
 
-    public List<GameObject> m_bullets;
+    private List<GameObject> m_inactiveBullets;
+    private List<GameObject> m_activeBullets;
     private GameObject m_poolObject;
 
     private void Awake()
     {
         m_poolObject = new GameObject("~ Bullet Pool ~");
+        m_inactiveBullets = new List<GameObject>();
+        m_activeBullets = new List<GameObject>();
 
-        for(int i = 0; i < poolSize; i++)
+        for (int i = 0; i < poolSize; i++)
         {
             GameObject newBullet = GameObject.Instantiate(bulletPrefab, m_poolObject.transform);
             newBullet.SetActive(false);
-            m_bullets.Add(newBullet);
+            m_inactiveBullets.Add(newBullet);
         }
     }
 
     public GameObject Spawn(Vector3 position, Quaternion rotation)
     {
-        GameObject bullet = m_bullets[0];
+        if(m_inactiveBullets.Count <= 0)
+        {
+            Despawn(m_activeBullets[0]);
+        }
+
+        GameObject bullet = m_inactiveBullets[0];
         bullet.transform.SetParent(null);
         bullet.transform.position = position;
         bullet.transform.rotation = rotation;
-        m_bullets.Remove(bullet);
+        m_inactiveBullets.Remove(bullet);
         bullet.SetActive(true);
+        m_activeBullets.Add(bullet);
         return bullet;
     }
     public GameObject Spawn(Vector3 position, Quaternion rotation, bool doSpawn)
     {
-        GameObject bullet = m_bullets[0];
+        if (m_inactiveBullets.Count <= 0)
+        {
+            Despawn(m_activeBullets[0]);
+        }
+
+        GameObject bullet = m_inactiveBullets[0];
         bullet.transform.SetParent(null);
         bullet.transform.position = position;
         bullet.transform.rotation = rotation;
-        m_bullets.Remove(bullet);
+        m_inactiveBullets.Remove(bullet);
         bullet.SetActive(doSpawn);
+        m_activeBullets.Add(bullet);
         return bullet;
     }
 
@@ -49,6 +64,7 @@ public class sg_BulletPool : MonoBehaviour {
         bullet.transform.SetParent(m_poolObject.transform);
         bullet.transform.position = Vector3.zero;
         bullet.transform.rotation = Quaternion.identity;
-        m_bullets.Add(bullet);
+        m_inactiveBullets.Add(bullet);
+        m_activeBullets.Remove(bullet);
     }
 }
