@@ -11,6 +11,12 @@ public class sg_Weapon : MonoBehaviour
 
     private sg_ShipAi m_ai;
     private float m_shootTimer = 0f;
+    private sg_BulletPool m_bulletPool;
+
+    private void Start()
+    {
+        m_bulletPool = GameObject.Find("GM").GetComponent<sg_BulletPool>();
+    }
 
     private void OnEnable()
     {
@@ -32,12 +38,12 @@ public class sg_Weapon : MonoBehaviour
 
     private void DoShoot()
     {
-        Debug.Log("SHOOTY SHOOTY");
-        GameObject newBullet = bulletPrefab;
+        GameObject newBullet = m_bulletPool.Spawn(bulletSpawnPoint.position, bulletSpawnPoint.rotation, false);
         sg_Missile missile = newBullet.GetComponent<sg_Missile>();
         missile.damage = bulletDamage;
         missile.shotFromPlayer = m_ai.IsPlayer();
-        GameObject.Instantiate(newBullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        newBullet.SetActive(true);
         m_shootTimer = (1.0f / fireRate);
+        Debug.Log("SHOT A BULLET");
     }
 }

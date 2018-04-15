@@ -464,6 +464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 513480267}
   - component: {fileID: 513480266}
+  - component: {fileID: 513480268}
   m_Layer: 0
   m_Name: GM
   m_TagString: Untagged
@@ -546,6 +547,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &513480268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 513480265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 374223e94faad4349903a967525b761f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1711578487214246, guid: 91a47132fb91fb6438c16559c35b757a,
+    type: 2}
+  poolSize: 100
 --- !u!1 &679796147
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,11 +18,14 @@ public class sg_Missile : MonoBehaviour {
 
     public float deathTimer = 10f;
 
-    private void OnEnable()
+    private sg_BulletPool m_bulletPool;
+
+    private void Start()
     {
+        m_bulletPool = GameObject.Find("GM").GetComponent<sg_BulletPool>();
         m_transform = GetComponent<Transform>();
         m_body = GetComponent<Rigidbody>();
-        GameObject.Destroy(gameObject, deathTimer);
+        StartCoroutine(AutoDeath());
         target = GameObject.Find("Player").transform;
     }
 
@@ -71,6 +74,13 @@ public class sg_Missile : MonoBehaviour {
 
     void Explode()
     {
-        GameObject.Destroy(gameObject);
+        //m_bulletPool.Despawn(gameObject);
+    }
+
+    IEnumerator AutoDeath()
+    {
+        yield return new WaitForSeconds(deathTimer);
+        m_bulletPool.Despawn(gameObject);
+        yield return null;
     }
 }
