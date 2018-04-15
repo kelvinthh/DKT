@@ -16,10 +16,13 @@ public class sg_Missile : MonoBehaviour {
     private Transform m_transform;
     public bool shotFromPlayer = false;
 
+    public float deathTimer = 10f;
+
     private void OnEnable()
     {
         m_transform = GetComponent<Transform>();
         m_body = GetComponent<Rigidbody>();
+        GameObject.Destroy(gameObject, deathTimer);
     }
 
     private void FixedUpdate()
