@@ -33,7 +33,7 @@ public class sg_Missile : MonoBehaviour {
     {
         if (target)
         {
-            MissileStuff();
+            Movement();
         }
         else
         {
@@ -44,7 +44,7 @@ public class sg_Missile : MonoBehaviour {
         }
     }
 
-    void MissileStuff()
+    void Movement()
     {
         float range = Vector3.Distance(m_transform.position, target.position);
         m_body.velocity = m_transform.forward * speed;

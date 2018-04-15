@@ -7,7 +7,6 @@ public class sg_Weapon : MonoBehaviour
     public int bulletDamage = 5;
     public float fireRate = 5f;
     public Transform bulletSpawnPoint;
-    public GameObject bulletPrefab;
 
     private sg_ShipAi m_ai;
     private float m_shootTimer = 0f;
@@ -25,7 +24,7 @@ public class sg_Weapon : MonoBehaviour
 
     public void TryShoot()
     {
-        if(m_shootTimer <= 0 && bulletSpawnPoint && bulletPrefab)
+        if(m_shootTimer <= 0 && bulletSpawnPoint)
         {
             DoShoot();
         }
@@ -44,6 +43,5 @@ public class sg_Weapon : MonoBehaviour
         missile.shotFromPlayer = m_ai.IsPlayer();
         newBullet.SetActive(true);
         m_shootTimer = (1.0f / fireRate);
-        Debug.Log("SHOT A BULLET");
     }
 }

@@ -10,6 +10,7 @@ public class sg_GameManager : MonoBehaviour {
     private int currentWave, waveCount;
     [SerializeField]
     private int m_remainingEnemies;
+    private int m_lastShipId = 0;
 
     public GameObject m_playerShip;
 
@@ -69,6 +70,8 @@ public class sg_GameManager : MonoBehaviour {
 
         sg_ShipAi shipAi = newShip.GetComponent<sg_ShipAi>();
         shipAi.gm = this;
+        m_lastShipId++;
+        data.shipId = m_lastShipId;
         shipAi.data = data;
         newShip = Instantiate(newShip);
     }
