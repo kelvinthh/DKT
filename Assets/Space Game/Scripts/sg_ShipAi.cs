@@ -167,4 +167,19 @@ public class sg_ShipAi : MonoBehaviour {
     {
         return isPlayer;
     }
+
+    public void Select()
+    {
+        foreach (Renderer r in renderers)
+        {
+            r.material.SetInt("_Highlight", 1);
+        }
+    }
+    public void Deselect()
+    {
+        foreach (Renderer r in renderers)
+        {
+            r.material.SetInt("_Highlight", 0);
+        }
+    }
 }

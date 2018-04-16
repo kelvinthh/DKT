@@ -379,6 +379,7 @@ GameObject:
   - component: {fileID: 114808058028909300}
   - component: {fileID: 114666897009561610}
   - component: {fileID: 114583336295123998}
+  - component: {fileID: 65384534412878320}
   m_Layer: 8
   m_Name: Frigate
   m_TagString: Enemy
@@ -523,7 +524,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1980160382814360}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4271547929627582}
@@ -707,7 +708,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1bd4573e3ff120f43a59fe36f1fa8d67, type: 2}
+  - {fileID: 2100000, guid: 8904ef4f6ababd0439c79992322ce918, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -775,7 +776,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1bd4573e3ff120f43a59fe36f1fa8d67, type: 2}
+  - {fileID: 2100000, guid: 8904ef4f6ababd0439c79992322ce918, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -809,7 +810,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1307f00663de0164cb77a0bb2fad2777, type: 2}
+  - {fileID: 2100000, guid: 1bd4573e3ff120f43a59fe36f1fa8d67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -843,7 +844,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1307f00663de0164cb77a0bb2fad2777, type: 2}
+  - {fileID: 2100000, guid: 1bd4573e3ff120f43a59fe36f1fa8d67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -877,10 +878,10 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6d44b6296cc85cf428e09352141a51e8, type: 2}
+  - {fileID: 2100000, guid: 56d09b6f747462b469117db4ff5fe792, type: 2}
   - {fileID: 2100000, guid: 8904ef4f6ababd0439c79992322ce918, type: 2}
   - {fileID: 2100000, guid: 23c4baecdd78e2e4e804a5091a67e965, type: 2}
-  - {fileID: 2100000, guid: 1bd4573e3ff120f43a59fe36f1fa8d67, type: 2}
+  - {fileID: 2100000, guid: 8904ef4f6ababd0439c79992322ce918, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -948,7 +949,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1bd4573e3ff120f43a59fe36f1fa8d67, type: 2}
+  - {fileID: 2100000, guid: 8904ef4f6ababd0439c79992322ce918, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -982,7 +983,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1bd4573e3ff120f43a59fe36f1fa8d67, type: 2}
+  - {fileID: 2100000, guid: 8904ef4f6ababd0439c79992322ce918, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1016,8 +1017,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6d44b6296cc85cf428e09352141a51e8, type: 2}
-  - {fileID: 2100000, guid: 1bd4573e3ff120f43a59fe36f1fa8d67, type: 2}
+  - {fileID: 2100000, guid: 56d09b6f747462b469117db4ff5fe792, type: 2}
+  - {fileID: 2100000, guid: 8904ef4f6ababd0439c79992322ce918, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1085,7 +1086,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1307f00663de0164cb77a0bb2fad2777, type: 2}
+  - {fileID: 2100000, guid: 8904ef4f6ababd0439c79992322ce918, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1119,7 +1120,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1bd4573e3ff120f43a59fe36f1fa8d67, type: 2}
+  - {fileID: 2100000, guid: 8904ef4f6ababd0439c79992322ce918, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1187,7 +1188,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 1307f00663de0164cb77a0bb2fad2777, type: 2}
+  - {fileID: 2100000, guid: 1bd4573e3ff120f43a59fe36f1fa8d67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1221,7 +1222,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6d44b6296cc85cf428e09352141a51e8, type: 2}
+  - {fileID: 2100000, guid: 56d09b6f747462b469117db4ff5fe792, type: 2}
   - {fileID: 2100000, guid: 8904ef4f6ababd0439c79992322ce918, type: 2}
   - {fileID: 2100000, guid: 1bd4573e3ff120f43a59fe36f1fa8d67, type: 2}
   m_StaticBatchInfo:
@@ -1442,6 +1443,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7400729, y: 0.7019772, z: 0.69053143}
   m_Center: {x: 0, y: -0.01690539, z: 0.3452658}
+--- !u!65 &65384534412878320
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980160382814360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 3, z: 9}
+  m_Center: {x: 0, y: 0.48973083, z: -0.5078685}
 --- !u!65 &65509298983806642
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1576,15 +1589,15 @@ MonoBehaviour:
   - {fileID: 23613211869628702}
   - {fileID: 23079934094857246}
   - {fileID: 23781620470419572}
-  - {fileID: 23368265340043868}
+  - {fileID: 23726356971503314}
   - {fileID: 23946709868864870}
   - {fileID: 23459884751994102}
+  - {fileID: 23368265340043868}
   gm: {fileID: 0}
   invincible: 1
   autoTarget: 1
   weapon: {fileID: 114583336295123998}
   allChildren:
-  - {fileID: 1980160382814360}
   - {fileID: 1360446940602034}
   - {fileID: 1513372477630420}
   - {fileID: 1378586654559030}
@@ -1600,7 +1613,9 @@ MonoBehaviour:
   - {fileID: 1000934336921622}
   - {fileID: 1864122171488942}
   - {fileID: 1619240192816578}
-  - {fileID: 1416294290997410}
+  - {fileID: 1392623017230626}
+  - {fileID: 1805926692479888}
   - {fileID: 1952196041662766}
   - {fileID: 1956732683932402}
   - {fileID: 1831537290497736}
+  - {fileID: 1416294290997410}
