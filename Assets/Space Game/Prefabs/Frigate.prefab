@@ -1531,7 +1531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271ae94f4a5a958438229fb6a5169f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 10
+  turnSpeed: 200
   inaccuracy: 0
   primaryAxisObject: {fileID: 4669279776604710}
   secondaryAxisObject: {fileID: 4395652425874290}

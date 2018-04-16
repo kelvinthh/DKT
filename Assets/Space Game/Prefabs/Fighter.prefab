@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114454926402941004}
   - component: {fileID: 114967103845602816}
   - component: {fileID: 114561306575093226}
+  - component: {fileID: 114867427967718530}
   m_Layer: 8
   m_Name: Fighter
   m_TagString: Enemy
@@ -131,6 +132,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1829314730223622
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4532385189569416}
+  m_Layer: 8
+  m_Name: y
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1886821356473436
 GameObject:
   m_ObjectHideFlags: 1
@@ -144,6 +160,21 @@ GameObject:
   m_Layer: 8
   m_Name: Cockpit
   m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1899123438008600
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4574110613922614}
+  m_Layer: 8
+  m_Name: x
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,6 +237,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4505264725154334}
+  - {fileID: 4532385189569416}
   m_Father: {fileID: 4387865586920758}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -230,12 +262,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192418724051572}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.79800045, y: 0, z: 0.24200006}
-  m_LocalScale: {x: 2.028665, y: 1.3133532, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.12300052, y: 0, z: 0.01600008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4410813956114508}
-  m_RootOrder: 2
+  m_Father: {fileID: 4574110613922614}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4387865586920758
 Transform:
@@ -276,7 +308,6 @@ Transform:
   m_Children:
   - {fileID: 4027669702917336}
   - {fileID: 4400804099561532}
-  - {fileID: 4371462090461366}
   m_Father: {fileID: 4505264725154334}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -295,6 +326,34 @@ Transform:
   m_Father: {fileID: 4133466139671240}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!4 &4532385189569416
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1829314730223622}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.00218305, z: 1.1497836}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4574110613922614}
+  m_Father: {fileID: 4133466139671240}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4574110613922614
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1899123438008600}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4371462090461366}
+  m_Father: {fileID: 4532385189569416}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4686855335003178
 Transform:
   m_ObjectHideFlags: 1
@@ -701,6 +760,25 @@ MonoBehaviour:
   bulletDamage: 1
   fireRate: 5
   bulletSpawnPoint: {fileID: 4371462090461366}
+--- !u!114 &114867427967718530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132137427620660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271ae94f4a5a958438229fb6a5169f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 200
+  inaccuracy: 0
+  primaryAxisObject: {fileID: 4532385189569416}
+  secondaryAxisObject: {fileID: 4574110613922614}
+  yLimit: 10
+  xLimit: 10
+  targetObject: {fileID: 0}
+  aim: 1
 --- !u!114 &114967103845602816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -713,12 +791,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    health: 66
-    maxHealth: 66
-    name: Ronald
+    health: 100
+    maxHealth: 100
+    name: Player
     shipClass: 0
-    difficulty: 1
-    shipId: 4
+    difficulty: 4
+    shipId: 0
   m_allTargets: []
   m_targetsInRange: []
   currentTarget: {fileID: 0}
