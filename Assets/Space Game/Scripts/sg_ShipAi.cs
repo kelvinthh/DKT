@@ -17,6 +17,7 @@ public class sg_ShipAi : MonoBehaviour {
     public float tickTimer = 0.0f;
 
     private sg_ShipMovement m_movement;
+    private sg_Turret m_turret;
 
     private bool isPlayer = false;
 
@@ -34,6 +35,7 @@ public class sg_ShipAi : MonoBehaviour {
     private void OnEnable()
     {
         m_movement = GetComponent<sg_ShipMovement>();
+        m_turret = GetComponent<sg_Turret>();
         weapon = GetComponent<sg_Weapon>();
 
         if (data.difficulty == sg_ShipDifficulty.Player)
@@ -85,6 +87,7 @@ public class sg_ShipAi : MonoBehaviour {
 
         if (currentTarget)
         {
+            m_turret.targetObject = currentTarget;
             if (weapon != null) weapon.TryShoot();
         }
     }

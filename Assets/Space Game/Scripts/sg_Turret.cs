@@ -7,177 +7,56 @@ public class sg_Turret : MonoBehaviour {
     public float turnSpeed = 1.0f;  //  The speed at which the turret turns/aims.
     public float inaccuracy = 0.0f;   //  The inaccuracy (in degrees?) of the turret.
 
-    public GameObject primaryAxisObject, secondaryAxisObject;
-    public sg_TurretAxis primaryAxisDirection = sg_TurretAxis.y, secondaryAxisDirection = sg_TurretAxis.x;
-    public Vector3 adjustPrimary, adjustSecondary;
+    public Transform primaryAxisObject, secondaryAxisObject;
+    private Quaternion adjustPrimary, adjustSecondary;
+    public float yLimit = 90f;
+    public float xLimit = 90f;
 
-    public Transform target;
+    public GameObject targetObject;
+    private Vector3 target;
 
     public bool aim = true;
 
     private void Start()
     {
-        adjustPrimary = primaryAxisObject.transform.localEulerAngles;
-        adjustSecondary = secondaryAxisObject.transform.localEulerAngles;
+        adjustPrimary = primaryAxisObject.transform.localRotation;
+        adjustSecondary = secondaryAxisObject.transform.localRotation;
     }
 
     private void Update()
     {
-        if (aim && target) Aim();
+        if (aim) Aim();
     }
 
     private void Aim()
     {
-        if (primaryAxisObject) AimPrimary();
-        if (secondaryAxisObject) AimSecondary();
-    }
+        if (targetObject) target = targetObject.transform.position;
 
-    private void AimPrimary()
-    {
-        switch (primaryAxisDirection)
+        float difference = 0.0f;
+
+        Vector3 targetPosition = Vector3.zero;
+        Quaternion targetRotation = Quaternion.identity;
+
+        if (primaryAxisObject && (yLimit != 0f))
         {
-            case sg_TurretAxis.x:
+            targetPosition = primaryAxisObject.InverseTransformPoint(target);
+            difference = Mathf.Atan2(targetPosition.x, targetPosition.z) * Mathf.Rad2Deg;
+            if (difference >= 180f) difference = 180f - difference;
+            if (difference <= -180f) difference = -180f + difference;
+            targetRotation = primaryAxisObject.rotation * Quaternion.Euler(0f, Mathf.Clamp(difference, -turnSpeed * Time.deltaTime, turnSpeed * Time.deltaTime), 0f);
+            if ((yLimit < 360f) && (yLimit > 0f)) primaryAxisObject.rotation = Quaternion.RotateTowards(primaryAxisObject.parent.rotation * adjustPrimary, targetRotation, yLimit);
+            else primaryAxisObject.rotation = targetRotation;
+        }
 
-                break;
-            case sg_TurretAxis.y:
-                float currentAngle = primaryAxisObject.transform.eulerAngles.y;
-                Vector3 from = primaryAxisObject.transform.position;
-                Vector3 to = new Vector3(target.position.x, from.y, target.position.z);
-                float angleRad = Mathf.Atan2(from.x - to.x, from.z - to.z);
-                float angleDeg = Mathf.Rad2Deg * angleRad;
-
-                //Debug.Log("CURRENT ANGLE : " + currentAngle + "      TARGET ANGLE : " + angleDeg);
-
-                if(angleDeg >= 0f)
-                {
-                    if(Mathf.Abs(currentAngle) >= 90f)
-                    {
-                        if(Mathf.Abs(currentAngle) >= Mathf.Abs(angleDeg))
-                        {
-                            primaryAxisObject.transform.localEulerAngles -= new Vector3(0, turnSpeed * Time.deltaTime, 0);
-                        }
-                        else
-                        {
-                            primaryAxisObject.transform.localEulerAngles += new Vector3(0, turnSpeed * Time.deltaTime, 0);
-                        }
-                    }
-                    else
-                    {
-                        if (Mathf.Abs(currentAngle) >= Mathf.Abs(angleDeg))
-                        {
-                            primaryAxisObject.transform.localEulerAngles -= new Vector3(0, turnSpeed * Time.deltaTime, 0);
-                        }
-                        else
-                        {
-                            primaryAxisObject.transform.localEulerAngles += new Vector3(0, turnSpeed * Time.deltaTime, 0);
-                        }
-                    }
-                }
-                else
-                {
-                    if (Mathf.Abs(currentAngle) >= 90f)
-                    {
-                        if (Mathf.Abs(currentAngle) >= Mathf.Abs(angleDeg))
-                        {
-                            primaryAxisObject.transform.localEulerAngles += new Vector3(0, turnSpeed * Time.deltaTime, 0);
-                        }
-                        else
-                        {
-                            primaryAxisObject.transform.localEulerAngles -= new Vector3(0, turnSpeed * Time.deltaTime, 0);
-                        }
-                    }
-                    else
-                    {
-                        if (Mathf.Abs(currentAngle) >= Mathf.Abs(angleDeg))
-                        {
-                            primaryAxisObject.transform.localEulerAngles += new Vector3(0, turnSpeed * Time.deltaTime, 0);
-                        }
-                        else
-                        {
-                            primaryAxisObject.transform.localEulerAngles -= new Vector3(0, turnSpeed * Time.deltaTime, 0);
-                        }
-                    }
-                }
-
-                //if(angleDeg >= currentAngle + inaccuracy || angleDeg <= currentAngle - inaccuracy)
-                //{
-                //    Debug.Log("Current Angle : " + currentAngle + "     Target Angle : " + angleDeg);
-                //    Debug.DrawLine(from, to, Color.yellow);
-                //    if(angleDeg >= 0)
-                //    {
-                //        //primaryAxisObject.transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-                //        primaryAxisObject.transform.localEulerAngles -= new Vector3(0, turnSpeed * Time.deltaTime, 0);
-                //    }
-                //    else
-                //    {
-                //        //primaryAxisObject.transform.Rotate(Vector3.down, turnSpeed * Time.deltaTime);
-                //        primaryAxisObject.transform.localEulerAngles += new Vector3(0, turnSpeed * Time.deltaTime, 0);
-                //    }
-                //}
-                //else
-                //{
-                //    Debug.DrawLine(from, to, Color.green);
-                //}
-
-                break;
-            case sg_TurretAxis.z:
-
-                break;
-            default:
-                break;
+        if (secondaryAxisObject && (xLimit != 0f))
+        {
+            targetPosition = secondaryAxisObject.InverseTransformPoint(target);
+            difference = -Mathf.Atan2(targetPosition.y, targetPosition.z) * Mathf.Rad2Deg;
+            if (difference >= 180f) difference = 180f - difference;
+            if (difference <= -180f) difference = -180f + difference;
+            targetRotation = secondaryAxisObject.rotation * Quaternion.Euler(Mathf.Clamp(difference, -turnSpeed * Time.deltaTime, turnSpeed * Time.deltaTime), 0f, 0f);
+            if ((xLimit < 360f) && (xLimit > 0f)) secondaryAxisObject.rotation = Quaternion.RotateTowards(secondaryAxisObject.parent.rotation * adjustSecondary, targetRotation, xLimit);
+            else secondaryAxisObject.rotation = targetRotation;
         }
     }
-    private void AimSecondary()
-    {
-        Vector3 targetPosition = secondaryAxisObject.transform.forward;
-
-        switch (secondaryAxisDirection)
-        {
-            case sg_TurretAxis.x:
-                targetPosition = new Vector3(primaryAxisObject.transform.position.x, target.position.y, target.position.z);
-                secondaryAxisObject.transform.LookAt(targetPosition, TurretAxisToVector(secondaryAxisDirection));
-                float x = secondaryAxisObject.transform.localEulerAngles.x;
-                secondaryAxisObject.transform.localEulerAngles = new Vector3(x, adjustSecondary.y, adjustSecondary.z);
-                break;
-            case sg_TurretAxis.y:
-                targetPosition = new Vector3(target.position.x, primaryAxisObject.transform.position.y, target.position.z);
-                secondaryAxisObject.transform.LookAt(targetPosition, TurretAxisToVector(secondaryAxisDirection));
-                float y = secondaryAxisObject.transform.localEulerAngles.y;
-                secondaryAxisObject.transform.localEulerAngles = new Vector3(adjustSecondary.x, y, adjustSecondary.z);
-                break;
-            case sg_TurretAxis.z:
-                targetPosition = new Vector3(target.position.x, target.position.y, primaryAxisObject.transform.position.z);
-                secondaryAxisObject.transform.LookAt(targetPosition, TurretAxisToVector(secondaryAxisDirection));
-                float z = secondaryAxisObject.transform.localEulerAngles.z;
-                secondaryAxisObject.transform.localEulerAngles = new Vector3(adjustSecondary.x, adjustSecondary.y, z);
-                break;
-            default:
-                break;
-        }
-    }
-
-    private Vector3 TurretAxisToVector(sg_TurretAxis axis)
-    {
-        Vector3 result = Vector3.zero;
-        switch (axis)
-        {
-            case sg_TurretAxis.x:
-                result = Vector3.right;
-                break;
-            case sg_TurretAxis.y:
-                result = Vector3.up;
-                break;
-            case sg_TurretAxis.z:
-                result = Vector3.forward;
-                break;
-            default:
-                break;
-        }
-        return result;
-    }
-}
-
-public enum sg_TurretAxis
-{
-    x,y,z
 }
