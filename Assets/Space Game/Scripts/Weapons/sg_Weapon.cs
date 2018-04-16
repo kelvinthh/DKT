@@ -40,7 +40,7 @@ public class sg_Weapon : MonoBehaviour
         GameObject newBullet = m_bulletPool.Spawn(bulletSpawnPoint.position, bulletSpawnPoint.rotation, false);
         sg_Missile missile = newBullet.GetComponent<sg_Missile>();
         missile.damage = bulletDamage;
-        missile.shotFromPlayer = m_ai.IsPlayer();
+        missile.shipId = m_ai.data.shipId;
         newBullet.SetActive(true);
         m_shootTimer = (1.0f / fireRate);
     }

@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114967103845602816}
   - component: {fileID: 114561306575093226}
   - component: {fileID: 114867427967718530}
+  - component: {fileID: 135571088057252608}
   m_Layer: 8
   m_Name: Fighter
   m_TagString: Enemy
@@ -809,7 +810,7 @@ MonoBehaviour:
   - {fileID: 23485782389984734}
   - {fileID: 23248979890766110}
   gm: {fileID: 0}
-  invincible: 1
+  invincible: 0
   autoTarget: 1
   weapon: {fileID: 0}
   allChildren:
@@ -823,3 +824,15 @@ MonoBehaviour:
   - {fileID: 1325301776776186}
   - {fileID: 1886821356473436}
   - {fileID: 1192418724051572}
+--- !u!135 &135571088057252608
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132137427620660}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}

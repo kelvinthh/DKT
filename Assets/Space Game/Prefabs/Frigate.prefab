@@ -1594,7 +1594,7 @@ MonoBehaviour:
   - {fileID: 23459884751994102}
   - {fileID: 23368265340043868}
   gm: {fileID: 0}
-  invincible: 1
+  invincible: 0
   autoTarget: 1
   weapon: {fileID: 114583336295123998}
   allChildren:

@@ -31,7 +31,7 @@ public class sg_GameManager : MonoBehaviour {
         if(ship.data.difficulty == sg_ShipDifficulty.Player)
         {
             GameObject.Destroy(ship.gameObject);
-
+            Debug.Log("PLAYER DIED");
             m_playerShip = SpawnPlayer();
         }
         else

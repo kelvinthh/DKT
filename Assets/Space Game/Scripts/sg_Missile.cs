@@ -14,12 +14,11 @@ public class sg_Missile : MonoBehaviour {
 
     private Rigidbody m_body;
     private Transform m_transform;
-    public bool shotFromPlayer = false;
 
     public float deathTimer = 10f;
 
     private sg_BulletPool m_bulletPool;
-    private int m_shipId = 0;
+    public int shipId = 0;
 
     private void Start()
     {
@@ -66,9 +65,10 @@ public class sg_Missile : MonoBehaviour {
 
     void Contact(sg_ShipAi ai)
     {
-        if (ai.data.shipId == m_shipId) return;
+        if (ai.data.shipId == shipId) return;
 
         ai.Damage(damage);
+        Debug.Log("Bullet " + shipId + " Damaged " + ai.data.shipId + " For " + damage + " Points");
         Explode();
     }
 
