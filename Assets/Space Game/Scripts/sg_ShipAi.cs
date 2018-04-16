@@ -88,7 +88,12 @@ public class sg_ShipAi : MonoBehaviour {
         if (currentTarget)
         {
             m_turret.targetObject = currentTarget;
-            if (weapon != null) weapon.TryShoot();
+
+            Vector3 targetDir = currentTarget.transform.position - weapon.bulletSpawnPoint.transform.position;
+            if (Vector3.Angle(targetDir, weapon.bulletSpawnPoint.transform.forward) <= 90f)
+            {
+                if (weapon != null) weapon.TryShoot();
+            }
         }
     }
 
