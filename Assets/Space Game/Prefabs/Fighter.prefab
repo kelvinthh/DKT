@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114967103845602816}
   - component: {fileID: 114561306575093226}
   - component: {fileID: 114867427967718530}
-  - component: {fileID: 135571088057252608}
+  - component: {fileID: 65247708227448838}
   m_Layer: 8
   m_Name: Fighter
   m_TagString: Enemy
@@ -666,6 +666,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7362501, y: 0.21462166, z: 0.39}
   m_Center: {x: -0.56265676, y: 0.3626892, z: -8.904078e-16}
+--- !u!65 &65247708227448838
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132137427620660}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5285273, y: 0.38264394, z: 1.9859928}
+  m_Center: {x: 0, y: 0, z: 0.30201584}
 --- !u!65 &65269857265434682
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -758,7 +770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16c9248bfb607a4cae2a8c1ab68b0ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDamage: 1
+  bulletDamage: 2
   fireRate: 5
   bulletSpawnPoint: {fileID: 4371462090461366}
 --- !u!114 &114867427967718530
@@ -824,15 +836,3 @@ MonoBehaviour:
   - {fileID: 1325301776776186}
   - {fileID: 1886821356473436}
   - {fileID: 1192418724051572}
---- !u!135 &135571088057252608
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1132137427620660}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}

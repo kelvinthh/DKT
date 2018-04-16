@@ -73,7 +73,9 @@ public class sg_GameManager : MonoBehaviour {
         m_lastShipId++;
         data.shipId = m_lastShipId;
         shipAi.data = data;
-        newShip = Instantiate(newShip);
+        shipAi.invincible = false;
+        Vector3 pos = new Vector3(Random.Range(-30, 30), Random.Range(-30, 30), Random.Range(-30, 30));
+        newShip = Instantiate(newShip, pos, Quaternion.identity);
     }
 
     private GameObject SpawnPlayer()
@@ -86,7 +88,7 @@ public class sg_GameManager : MonoBehaviour {
         shipAi.data.health = 100;
         shipAi.data.shipId = 0;
         shipAi.data.difficulty = sg_ShipDifficulty.Player;
-
+        shipAi.invincible = true;
         return GameObject.Instantiate(newObject);
     }
 

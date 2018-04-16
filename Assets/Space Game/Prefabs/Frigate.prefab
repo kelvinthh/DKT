@@ -1531,7 +1531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 5
-  fireRate: 2
+  fireRate: 3
   bulletSpawnPoint: {fileID: 4232541278008302}
 --- !u!114 &114666897009561610
 MonoBehaviour:
@@ -1569,7 +1569,7 @@ MonoBehaviour:
     name: Ronald
     shipClass: 1
     difficulty: 1
-    shipId: 1
+    shipId: 3
   m_allTargets: []
   m_targetsInRange: []
   currentTarget: {fileID: 0}
