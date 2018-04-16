@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4288914361653914}
   - component: {fileID: 33555909359774570}
   - component: {fileID: 23364103579471070}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Back
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,9 +40,9 @@ GameObject:
   - component: {fileID: 114454926402941004}
   - component: {fileID: 114967103845602816}
   - component: {fileID: 114561306575093226}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Fighter
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,9 +55,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4371462090461366}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Bulet Spawn Point
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,9 +72,9 @@ GameObject:
   - component: {fileID: 4410813956114508}
   - component: {fileID: 33811284160410270}
   - component: {fileID: 23248979890766110}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Front
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,9 +92,9 @@ GameObject:
   - component: {fileID: 65074536548366264}
   - component: {fileID: 65389544764892562}
   - component: {fileID: 65233053078109554}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: sg_ship_player_1_model
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,9 +109,9 @@ GameObject:
   - component: {fileID: 4027669702917336}
   - component: {fileID: 33381221607692480}
   - component: {fileID: 23945001009766052}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,9 +124,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4133466139671240}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,9 +141,9 @@ GameObject:
   - component: {fileID: 4400804099561532}
   - component: {fileID: 33141493394656314}
   - component: {fileID: 23183493883673984}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Cockpit
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,9 +158,9 @@ GameObject:
   - component: {fileID: 4686855335003178}
   - component: {fileID: 33605144706077030}
   - component: {fileID: 23836985345349488}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Fin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,9 +175,9 @@ GameObject:
   - component: {fileID: 4734674663345290}
   - component: {fileID: 33196044360306032}
   - component: {fileID: 23485782389984734}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Fin 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -718,7 +718,7 @@ MonoBehaviour:
     name: Ronald
     shipClass: 0
     difficulty: 1
-    shipId: 0
+    shipId: 4
   m_allTargets: []
   m_targetsInRange: []
   currentTarget: {fileID: 0}
@@ -734,3 +734,14 @@ MonoBehaviour:
   invincible: 1
   autoTarget: 1
   weapon: {fileID: 0}
+  allChildren:
+  - {fileID: 1132137427620660}
+  - {fileID: 1604405577366688}
+  - {fileID: 1257236366261394}
+  - {fileID: 1115736477835462}
+  - {fileID: 1900806683396248}
+  - {fileID: 1964977319838948}
+  - {fileID: 1221298263947912}
+  - {fileID: 1325301776776186}
+  - {fileID: 1886821356473436}
+  - {fileID: 1192418724051572}

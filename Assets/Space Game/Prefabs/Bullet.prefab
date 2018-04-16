@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 135091333058890918}
   - component: {fileID: 54594712734877094}
   - component: {fileID: 114225313130799274}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  speed: 20
+  speed: 50
   turnSpeed: 0
   turnSpeedCurve:
     serializedVersion: 2

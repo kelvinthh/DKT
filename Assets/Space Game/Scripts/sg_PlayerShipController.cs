@@ -16,16 +16,17 @@ public class sg_PlayerShipController : MonoBehaviour {
 
     private void Update()
     {
-        //RaycastHit hit;
-        //if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, mask))
-        //{
-        //    shipTarget.transform.position = hit.point;
-        //}
-        //else
-        //{
-        //    shipTarget.transform.position = cam.transform.forward * restingDistance;
-        //}
-
-        Debug.DrawLine(cam.transform.position, shipTarget.transform.position, Color.green);
+        RaycastHit hit;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity, mask))
+        {
+            GameObject hitObject = hit.collider.gameObject;
+            shipTarget.transform.position = hit.point;
+            Debug.DrawLine(cam.transform.position, hit.point, Color.green);
+        }
+        else
+        {
+            shipTarget.transform.position = cam.transform.forward * restingDistance;
+            Debug.DrawLine(cam.transform.position, shipTarget.transform.position, Color.yellow);
+        }
     }
 }

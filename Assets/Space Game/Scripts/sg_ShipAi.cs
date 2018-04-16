@@ -29,6 +29,8 @@ public class sg_ShipAi : MonoBehaviour {
 
     public sg_Weapon weapon;
 
+    public GameObject[] allChildren;
+
     private void OnEnable()
     {
         m_movement = GetComponent<sg_ShipMovement>();
@@ -48,8 +50,12 @@ public class sg_ShipAi : MonoBehaviour {
     {
         isPlayer = true;
         m_movement.targetObject = GameObject.Find("Player Target");
-        gameObject.transform.tag = "Player";
         gameObject.transform.name = "Player";
+        foreach(GameObject child in allChildren)
+        {
+            child.transform.tag = "Player";
+            child.layer = LayerMask.NameToLayer("Player Ship");
+        }
         foreach(Renderer r in renderers)
         {
             r.material.color = Color.blue;
@@ -58,8 +64,12 @@ public class sg_ShipAi : MonoBehaviour {
 
     private void EnemyPrep()
     {
-        gameObject.transform.tag = "Enemy";
         gameObject.transform.name = "Enemy";
+        foreach (GameObject child in allChildren)
+        {
+            child.transform.tag = "Enemy";
+            child.layer = LayerMask.NameToLayer("Enemy Ship");
+        }
     }
 
     private void Update()
