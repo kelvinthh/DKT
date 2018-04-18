@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114967103845602816}
   - component: {fileID: 114561306575093226}
   - component: {fileID: 114867427967718530}
-  - component: {fileID: 65247708227448838}
+  - component: {fileID: 135479013160347988}
   m_Layer: 8
   m_Name: Fighter
   m_TagString: Enemy
@@ -90,10 +90,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4505264725154334}
   - component: {fileID: 95338790240167992}
-  - component: {fileID: 65269857265434682}
-  - component: {fileID: 65074536548366264}
-  - component: {fileID: 65389544764892562}
-  - component: {fileID: 65233053078109554}
   m_Layer: 8
   m_Name: sg_ship_player_1_model
   m_TagString: Enemy
@@ -642,66 +638,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65074536548366264
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1257236366261394}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.38, z: 0.53}
-  m_Center: {x: 0.49, y: 0.14, z: 0}
---- !u!65 &65233053078109554
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1257236366261394}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7362501, y: 0.21462166, z: 0.39}
-  m_Center: {x: -0.56265676, y: 0.3626892, z: -8.904078e-16}
---- !u!65 &65247708227448838
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1132137427620660}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5285273, y: 0.38264394, z: 1.9859928}
-  m_Center: {x: 0, y: 0, z: 0.30201584}
---- !u!65 &65269857265434682
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1257236366261394}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.33, z: 1.49}
-  m_Center: {x: -0.68, y: 0.14, z: 0}
---- !u!65 &65389544764892562
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1257236366261394}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 0.43, z: 0.65}
-  m_Center: {x: -0.43, y: 0.14, z: 0}
 --- !u!95 &95338790240167992
 Animator:
   serializedVersion: 3
@@ -804,12 +740,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    health: 100
-    maxHealth: 100
-    name: Player
+    health: 20
+    maxHealth: 20
+    name: Fighter
     shipClass: 0
-    difficulty: 4
-    shipId: 0
+    difficulty: 0
+    shipId: 16
   m_allTargets: []
   m_targetsInRange: []
   currentTarget: {fileID: 0}
@@ -836,3 +772,15 @@ MonoBehaviour:
   - {fileID: 1325301776776186}
   - {fileID: 1886821356473436}
   - {fileID: 1192418724051572}
+--- !u!135 &135479013160347988
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132137427620660}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
