@@ -1403,7 +1403,7 @@ MonoBehaviour:
   thrusterForce: 100
   verticalForce: 100
   turningSpeed: 1
-  tollerance: 5
+  tollerance: 20
   verticalTollerance: 0.75
   pitchAngle: 15
   decelerationDrag: 7
@@ -1478,7 +1478,7 @@ MonoBehaviour:
     name: Frigate
     shipClass: 1
     difficulty: 0
-    shipId: 9
+    shipId: 1
   m_allTargets: []
   m_targetsInRange: []
   currentTarget: {fileID: 0}

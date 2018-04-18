@@ -38,6 +38,8 @@ public class sg_GameManager : MonoBehaviour {
         {
             GameObject.Destroy(ship.gameObject);
 
+            m_remainingEnemies--;
+
             if (m_remainingEnemies <= 0)
             {
                 NextWave();
@@ -76,6 +78,8 @@ public class sg_GameManager : MonoBehaviour {
         shipAi.invincible = false;
         Vector3 pos = new Vector3(Random.Range(-30, 30), Random.Range(-30, 30), Random.Range(-30, 30));
         newShip = Instantiate(newShip, pos, Quaternion.identity);
+
+        m_remainingEnemies++;
     }
 
     private GameObject SpawnPlayer()

@@ -85,8 +85,8 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _Spread: 0
-    - _SpreadEnd: 1
-    - _SpreadStart: 0
+    - _SpreadEnd: 1.25
+    - _SpreadStart: 0.25
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
