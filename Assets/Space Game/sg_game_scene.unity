@@ -2034,6 +2034,7 @@ MonoBehaviour:
   playerTarget: {fileID: 1756483159}
   areaRadius: 10
   areaHeight: 10
+  mode: 0
   debug: 1
 --- !u!4 &1714560182 stripped
 Transform:
@@ -2618,6 +2619,37 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 224987274547618844, guid: e34fb610b1b036b49a0cf06e58c6e0c1,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224987274547618844, guid: e34fb610b1b036b49a0cf06e58c6e0c1,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224987274547618844, guid: e34fb610b1b036b49a0cf06e58c6e0c1,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224987274547618844, guid: e34fb610b1b036b49a0cf06e58c6e0c1,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224987274547618844, guid: e34fb610b1b036b49a0cf06e58c6e0c1,
+        type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224987274547618844, guid: e34fb610b1b036b49a0cf06e58c6e0c1,
+        type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 92835689545017962, guid: e34fb610b1b036b49a0cf06e58c6e0c1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e34fb610b1b036b49a0cf06e58c6e0c1, type: 2}
   m_IsPrefabParent: 0

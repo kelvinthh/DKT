@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class sg_PlayerControllerNew : MonoBehaviour
+public class sg_SuperPlayerController : MonoBehaviour
 {
     public GameObject playerTarget;
     private Transform m_transform;
 
     public float areaRadius = 10f;
     public float areaHeight = 10f;
+
+    public PlayerControlMode mode;
 
     [Header("")]
     public bool debug = false;
@@ -23,12 +25,25 @@ public class sg_PlayerControllerNew : MonoBehaviour
 
     private void Update()
     {
-        if(playerTarget) playerTarget.transform.position = CalculatePosition(gameObject.transform.forward * 10);
-
-        if (debug) DebugLines();
+        if (playerTarget)
+        {
+            switch (mode)
+            {
+                case PlayerControlMode.Cylinder:
+                    playerTarget.transform.position = CalculatePosOnCylinder(gameObject.transform.forward * 10);
+                    if (debug) DebugCylinder();
+                    break;
+                case PlayerControlMode.Plane:
+                    break;
+                case PlayerControlMode.Sphere:
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
-    public Vector3 CalculatePosition(Vector3 input)
+    public Vector3 CalculatePosOnCylinder(Vector3 input)
     {
         Vector3 result = input;
         input = input - m_transform.position;
@@ -42,7 +57,7 @@ public class sg_PlayerControllerNew : MonoBehaviour
         return result;
     }
 
-    private void DebugLines()
+    private void DebugCylinder()
     {
         Vector3 origin = m_transform.position;
 
@@ -70,4 +85,11 @@ public class sg_PlayerControllerNew : MonoBehaviour
             theta += deltaTheta;
         }
     }
+}
+
+public enum PlayerControlMode
+{
+    Cylinder,
+    Plane,
+    Sphere
 }
