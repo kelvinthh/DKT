@@ -99,7 +99,7 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
     // Use this for initialization
     void Start () {
         GetProgressBarDuration();
-        player = GameObject.Find("PlayerWithRadialProg").GetComponent<Transform>();
+        player = GameObject.Find("Player").GetComponent<Transform>();
         gazeTimerToEdit = gazeTimer;
         UpdateBarProgress();
         if(buttonAction == ButtonType.DISPLAY_UI_ON_GAZE && overlay != null)
