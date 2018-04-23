@@ -173,11 +173,13 @@ public class GvrReticlePointer : GvrBasePointer {
             
             if(interactible.gameObject.tag == "Action")
             {
+                progressBar = interactible.gameObject.GetComponent<Image>();
                 speed = 50.0f; //2 second bar fill
                 UpdateProgressBar();
             }
             else if (interactible.gameObject.tag == "ActionShort")
             {
+                progressBar = interactible.gameObject.GetComponent<Image>();
                 speed = 66.6f; //1.5 second bar fill
                 UpdateProgressBar();
             }
