@@ -176,7 +176,7 @@ Shader "Space Game/Ship Shader"
 }
 /*ASEBEGIN
 Version=15101
--1913;30;1906;1004;-98.65952;383.3196;1.3;True;True
+7;29;2145;1209;-98.65952;383.3196;1.3;True;True
 Node;AmplifyShaderEditor.GrabScreenPosition;22;-960,400;Float;False;0;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.RangedFloatNode;38;-736,512;Fixed;False;Property;_Rotation;Rotation;3;0;Create;True;0;0;False;0;-45;-45;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RadiansOpNode;45;-544,512;Float;False;1;0;FLOAT;0;False;1;FLOAT;0
@@ -192,7 +192,7 @@ Node;AmplifyShaderEditor.SimpleAddOpNode;50;64,320;Float;False;2;2;0;FLOAT2;0,0;
 Node;AmplifyShaderEditor.RangedFloatNode;90;944,640;Float;False;Constant;_Float1;Float 1;9;0;Create;True;0;0;False;0;3;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.FresnelNode;74;1040,352;Float;True;Tangent;4;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;5;False;1;FLOAT;0
 Node;AmplifyShaderEditor.IntNode;55;334.9453,544.8234;Float;False;Property;_Highlight;Highlight;6;0;Create;True;0;0;False;0;0;0;0;1;INT;0
-Node;AmplifyShaderEditor.SamplerNode;28;224,304;Float;True;Property;_HighlightPattern;Highlight Pattern;0;0;Create;True;0;0;False;0;63efcc999428262488a50d488da90e3c;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;28;224,304;Float;True;Property;_HighlightPattern;Highlight Pattern;0;0;Create;True;0;0;False;0;63efcc999428262488a50d488da90e3c;63efcc999428262488a50d488da90e3c;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;6;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.TFHCCompareGreaterEqual;58;527.8195,507.2829;Float;False;4;0;INT;0;False;1;FLOAT;1;False;2;FLOAT;1;False;3;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.OneMinusNode;81;1336.799,366.2999;Float;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.FresnelNode;89;1088,576;Float;False;Tangent;4;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;5;False;1;FLOAT;0
@@ -240,4 +240,4 @@ WireConnection;88;1;80;0
 WireConnection;0;0;88;0
 WireConnection;0;2;53;0
 ASEEND*/
-//CHKSM=63CF1152646BC3404260C66746723613236B9364
+//CHKSM=D25E4F8E0BF7D1E1E706A2F8AFF84A7CFAE3C8DD

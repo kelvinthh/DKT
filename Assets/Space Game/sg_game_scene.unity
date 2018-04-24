@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00012466114, g: 0.006333441, b: 0.024836335, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.0070285387, b: 0.028074289, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -474,6 +474,7 @@ GameObject:
   - component: {fileID: 513480267}
   - component: {fileID: 513480266}
   - component: {fileID: 513480268}
+  - component: {fileID: 513480269}
   m_Layer: 0
   m_Name: GM
   m_TagString: Untagged
@@ -559,6 +560,26 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1711578487214246, guid: 91a47132fb91fb6438c16559c35b757a,
     type: 2}
   poolSize: 300
+--- !u!114 &513480269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 513480265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a707487566c5f9b4f9efcb44264e2d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 1884271353338724, guid: 2cf60e51469b11c469bdb9e8c61e271b, type: 2}
+  - {fileID: 1451187346685882, guid: 5bbd3a01d3ace7e4ab84009620ea80d9, type: 2}
+  - {fileID: 1964786560951232, guid: c4fc426dfdc330c4689c5b5c1787abcc, type: 2}
+  poolSize: 50
+  inactive: []
+  active: []
+  all: []
+  spawnArea: {x: 50, y: 50, z: 50}
 --- !u!1001 &560862798
 Prefab:
   m_ObjectHideFlags: 0
