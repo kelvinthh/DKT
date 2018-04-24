@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor.UI;
 using UnityEngine.SceneManagement;
-public enum ButtonType { LOADSCENE_ON_ACTION, TELEPORT_ON_ACTION, DISPLAY_UI_ON_GAZE, DISPLAY_UI_ON_ACTION };
+public enum ButtonType { LOADSCENE_ON_ACTION, TELEPORT_ON_ACTION, DISPLAY_UI_ON_GAZE, DISPLAY_UI_ON_ACTION, QUIT_ON_ACTION };
 
 public class MasterButton : MonoBehaviour, IInteractiveObject {
 
@@ -36,6 +36,9 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
                 player.position = teleportTo.position;
                 break;
             case ButtonType.DISPLAY_UI_ON_GAZE:
+                break;
+            case ButtonType.QUIT_ON_ACTION:
+                Application.Quit();
                 break;
         }
     }

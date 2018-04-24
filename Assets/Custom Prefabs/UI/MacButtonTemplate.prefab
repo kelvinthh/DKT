@@ -274,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1742066665996088}
   m_LocalRotation: {x: -0, y: -0.70708823, z: -0, w: 0.7071253}
-  m_LocalPosition: {x: 0.479, y: 0.352, z: 11.014}
+  m_LocalPosition: {x: -1.205, y: 0.352, z: 11.014}
   m_LocalScale: {x: 2.999999, y: 3, z: 2.999999}
   m_Children:
   - {fileID: 4870683325145600}
@@ -477,8 +477,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -534308151
-  m_SortingLayer: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 1
 --- !u!23 &23735205172614428
 MeshRenderer:
@@ -743,7 +743,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 0.482
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!114 &114293530891413574
@@ -1200,7 +1200,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: -534308151
+  m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &224014967876651506
@@ -1228,7 +1228,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1199713408706684}
   m_LocalRotation: {x: 0.0000000018626449, y: 0.70708823, z: 2.032152e-10, w: 0.70712537}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0029}
   m_LocalScale: {x: 0.33333322, y: 0.33333334, z: 0.33333322}
   m_Children:
   - {fileID: 224884921601733832}
@@ -1237,7 +1237,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.0505, y: 0.0705}
+  m_AnchoredPosition: {x: -0.053700134, y: 0.0704}
   m_SizeDelta: {x: 1.06, y: 0.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224884921601733832

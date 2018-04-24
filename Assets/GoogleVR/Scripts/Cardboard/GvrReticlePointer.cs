@@ -29,7 +29,7 @@ public class GvrReticlePointer : GvrBasePointer {
   public const float RETICLE_MIN_INNER_ANGLE = 0.0f;
 
   /// Minimum outer angle of the reticle (in degrees).
-  public const float RETICLE_MIN_OUTER_ANGLE = 0.5f;
+  public const float RETICLE_MIN_OUTER_ANGLE = 0.3f;
 
   /// Angle at which to expand the reticle when intersecting with an object (in degrees).
   public const float RETICLE_GROWTH_ANGLE = 1.5f;
