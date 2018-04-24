@@ -16,6 +16,10 @@ public class sg_AsteroidPool : MonoBehaviour
 
     private void Start()
     {
+        all = new List<GameObject>();
+        active = new List<GameObject>();
+        inactive = new List<GameObject>();
+        
         m_transform = gameObject.transform;
         for(int i = 0; i < poolSize; i++)
         {
@@ -30,6 +34,20 @@ public class sg_AsteroidPool : MonoBehaviour
             newAsteroid.transform.name = "Asteroid_" + i;
             all.Add(newAsteroid);
             active.Add(newAsteroid);
+        }
+    }
+
+    public void Despawn(GameObject ast)
+    {
+        foreach(GameObject obj in active)
+        {
+            if(obj.name == ast.name)
+            {
+                inactive.Remove(ast);
+                active.Add(ast);
+                ast.SetActive(false);
+                return;
+            }
         }
     }
 }

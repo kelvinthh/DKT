@@ -19,8 +19,6 @@ public class sg_ShipAi : MonoBehaviour {
     private sg_ShipMovement m_movement;
     private sg_Turret m_turret;
 
-    private bool isPlayer = false;
-
     public Renderer[] renderers;
 
     public sg_GameManager gm;
@@ -50,7 +48,6 @@ public class sg_ShipAi : MonoBehaviour {
 
     private void PlayerPrep()
     {
-        isPlayer = true;
         m_movement.targetObject = GameObject.Find("Player Target");
         gameObject.transform.name = "Player";
         foreach(GameObject child in allChildren)
@@ -62,6 +59,7 @@ public class sg_ShipAi : MonoBehaviour {
         {
             r.material.color = Color.blue;
         }
+        gm.m_playerShip = gameObject;
     }
 
     private void EnemyPrep()
@@ -104,7 +102,7 @@ public class sg_ShipAi : MonoBehaviour {
 
         if (autoTarget)
         {
-            if (isPlayer)
+            if (data.difficulty == sg_ShipDifficulty.Player)
             {
                 if (m_targetsInRange.Count >= 1)
                 {
@@ -123,7 +121,7 @@ public class sg_ShipAi : MonoBehaviour {
 
     private void GetAllTargets()
     {
-        if(isPlayer)
+        if(data.difficulty == sg_ShipDifficulty.Player)
         {
             m_allTargets.Clear();
 
@@ -170,7 +168,7 @@ public class sg_ShipAi : MonoBehaviour {
 
     public bool IsPlayer()
     {
-        return isPlayer;
+        return data.difficulty == sg_ShipDifficulty.Player;
     }
 
     public void Select()

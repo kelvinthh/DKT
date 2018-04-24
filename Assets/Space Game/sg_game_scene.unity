@@ -532,7 +532,7 @@ MonoBehaviour:
     type: 2}
   frigatePrefab: {fileID: 1980160382814360, guid: 336ffe69b9659694a94ffc39b946b3ca,
     type: 2}
-  doSpawn: 0
+  doSpawn: 1
 --- !u!4 &513480267
 Transform:
   m_ObjectHideFlags: 0
