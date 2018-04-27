@@ -27,7 +27,7 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         switch(buttonAction)
         {
             case ButtonType.LOADSCENE_ON_ACTION:
-                SceneManager.LoadScene(sceneIndex);
+                StartCoroutine(LoadNewScene());
                 break;
 
             case ButtonType.TELEPORT_ON_ACTION:
@@ -95,6 +95,24 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
     private float GetProgressBarDuration()
     {
         return 100 / gazeTimer;
+    }
+
+    IEnumerator LoadNewScene()
+    {
+
+        SceneManager.LoadScene(1);
+
+        yield return new WaitForSeconds(5);
+
+        // Start an asynchronous operation to load the scene that was passed to the LoadNewScene coroutine.
+        AsyncOperation async = SceneManager.LoadSceneAsync(sceneIndex);
+
+        // While the asynchronous operation to load the new scene is not yet complete, continue waiting until it's done.
+        while (!async.isDone)
+        {
+            yield return null;
+        }
+
     }
 
     // Use this for initialization
