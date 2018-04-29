@@ -27,7 +27,8 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         switch(buttonAction)
         {
             case ButtonType.LOADSCENE_ON_ACTION:
-                StartCoroutine(LoadNewScene());
+                SceneToLoad.SceneIndexToLoad = sceneIndex;
+                SceneManager.LoadScene(sceneIndex);
                 break;
 
             case ButtonType.TELEPORT_ON_ACTION:
@@ -99,11 +100,7 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
 
     IEnumerator LoadNewScene()
     {
-
-        SceneManager.LoadScene(1);
-
-        yield return new WaitForSeconds(5);
-
+        SceneManager.LoadScene(sceneIndex);
         // Start an asynchronous operation to load the scene that was passed to the LoadNewScene coroutine.
         AsyncOperation async = SceneManager.LoadSceneAsync(sceneIndex);
 
@@ -118,7 +115,7 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
     // Use this for initialization
     void Start () {
         GetProgressBarDuration();
-        player = GameObject.Find("Player").GetComponent<Transform>();
+        player = GameObject.Find("PlayerNew").GetComponent<Transform>();
         gazeTimerToEdit = gazeTimer;
         UpdateBarProgress();
         if(buttonAction == ButtonType.DISPLAY_UI_ON_GAZE && overlay != null)
