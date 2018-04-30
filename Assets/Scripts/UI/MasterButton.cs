@@ -28,7 +28,7 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         {
             case ButtonType.LOADSCENE_ON_ACTION:
                 SceneToLoad.SceneIndexToLoad = sceneIndex;
-                SceneManager.LoadScene(sceneIndex);
+                SceneManager.LoadScene(1);
                 break;
 
             case ButtonType.TELEPORT_ON_ACTION:
