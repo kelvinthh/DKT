@@ -39857,7 +39857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chairCollider: {fileID: 1229671861}
-  blockMacsCollider: {fileID: 0}
+  blockMacsCollider: {fileID: 1229671861}
 --- !u!65 &1744283770
 BoxCollider:
   m_ObjectHideFlags: 0
