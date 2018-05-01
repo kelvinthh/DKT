@@ -9,7 +9,6 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
 
     [SerializeField] private ButtonType buttonAction;
     [SerializeField] private float gazeTimer = 2.0f;
-    [SerializeField] private bool hasProgressBar;
     private float gazeTimerToEdit;
     [SerializeField] private int sceneIndex;
     [SerializeField] private Image progressBar;
@@ -131,4 +130,5 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         GazeTimer();
         
 	}
+
 }

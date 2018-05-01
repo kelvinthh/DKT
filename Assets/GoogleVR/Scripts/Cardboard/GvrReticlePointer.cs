@@ -169,7 +169,6 @@ public class GvrReticlePointer : GvrBasePointer {
       ReticleOuterAngle = RETICLE_MIN_OUTER_ANGLE + RETICLE_GROWTH_ANGLE;
 
             //CODE TO ANIMATE PROGRESS BAR
-            print(interactible.gameObject.tag);
             
             if(interactible.gameObject.tag == "Action")
             {

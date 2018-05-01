@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DisableColliderOnCollision : MonoBehaviour {
 
-    [SerializeField] private BoxCollider bc;
+    [SerializeField] private BoxCollider chairCollider;
+    [SerializeField] private BoxCollider blockMacsCollider;
+
     private bool playerIsPresent = false;
 
 	// Use this for initialization
@@ -19,20 +21,20 @@ public class DisableColliderOnCollision : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        print("playermovedhere");
+        print("playermovedhere (trig)");
         playerIsPresent = true;
-        bc.enabled = false;
+        blockMacsCollider.enabled = false;
+        chairCollider.enabled = false;
     }
+
 
     private void OnTriggerExit(Collider other)
     {
+
         playerIsPresent = false;
-        bc.enabled = true;
+        blockMacsCollider.enabled = true;
+        chairCollider.enabled = true;
     }
-    public void EnableBoxCollider()
-    {
-        playerIsPresent = false;
-        bc.enabled = true;
-    }
+   
 
 }
