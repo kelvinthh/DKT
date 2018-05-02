@@ -17,6 +17,8 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
     private float barProgress = 0.0f;
     private float barSpeed = 50.0f;
 
+    private AudioSource onHoverSound;
+
     [SerializeField] Transform player;
 
     private bool gazingAt = false;
@@ -44,11 +46,14 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
     public void GazeEnter()
     {
         gazingAt = true;
+        print("Gazing");
 
         if (buttonAction == ButtonType.DISPLAY_UI_ON_GAZE && overlay != null)
         {
             overlay.SetActive(true);
         }
+
+        onHoverSound.Play();
     }
 
     public void GazeExit()
@@ -57,7 +62,6 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         barProgress = 0.0f;
         UpdateBarProgress();
         gazeTimerToEdit = gazeTimer;
-
         if (buttonAction == ButtonType.DISPLAY_UI_ON_GAZE && overlay != null)
         {
             overlay.SetActive(false);
@@ -121,7 +125,8 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         {
             overlay.SetActive(false);
         }
-            
+        
+        onHoverSound = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
