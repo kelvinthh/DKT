@@ -52,8 +52,11 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         {
             overlay.SetActive(true);
         }
-
-        onHoverSound.Play();
+        if (onHoverSound != null)
+        {
+            onHoverSound.Play();
+        }
+        
     }
 
     public void GazeExit()
