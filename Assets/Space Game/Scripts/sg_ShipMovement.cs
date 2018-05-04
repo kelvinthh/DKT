@@ -7,6 +7,7 @@ public class sg_ShipMovement : MonoBehaviour {
 
     public sg_ShipClass movementType;
     private sg_ShipAi m_ai;
+    public float minimumDistance = 15f;
     public float thrusterForce = 10f;           //  How much force to apply for directional thrust.
     public float verticalForce = 2.0f;          //  How much force to apply for vertical thrust (frigate).
     public float turningSpeed = 10f;            //  How fast to turn.
@@ -99,7 +100,9 @@ public class sg_ShipMovement : MonoBehaviour {
     {
         Vector3 applyForce = Vector3.zero;
 
-        if (m_distanceFromTarget >= tollerance)
+        float currentRadius = new Vector2(m_transform.position.x, m_transform.position.z).magnitude;
+
+        if (m_distanceFromTarget >= tollerance && currentRadius > minimumDistance)
         {
             Vector3 forceDirection = new Vector3(m_directionToTarget.x, 0, m_directionToTarget.z);
             applyForce.x = m_directionToTarget.x * thrusterForce;

@@ -1400,10 +1400,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementType: 1
+  minimumDistance: 30
   thrusterForce: 100
   verticalForce: 100
   turningSpeed: 1
-  tollerance: 20
+  tollerance: 10
   verticalTollerance: 0.75
   pitchAngle: 15
   decelerationDrag: 7
