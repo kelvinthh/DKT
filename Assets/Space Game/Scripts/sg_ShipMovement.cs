@@ -69,11 +69,13 @@ public class sg_ShipMovement : MonoBehaviour {
     {
         float applyForce = 0f;
 
+        float currentRadius = new Vector2(m_transform.position.x, m_transform.position.z).magnitude;
+
         if (m_distanceFromTarget >= tollerance)
         {
             float distanceToTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
 
-            if (m_distanceFromTarget <= decelerationDistance)
+            if (m_distanceFromTarget <= decelerationDistance && currentRadius > minimumDistance)
             {
                 //  Decelerate
                 applyForce = 2f;
