@@ -52,7 +52,7 @@ public class sg_SuperPlayerController : MonoBehaviour
         xyz.y = Mathf.Clamp(input.y, -areaHeight, areaHeight);
         result = xyz;
 
-        Debug.DrawLine(m_transform.position, result, Color.yellow);
+        //Debug.DrawLine(m_transform.position, result, Color.yellow);
 
         return result;
     }
@@ -76,7 +76,6 @@ public class sg_SuperPlayerController : MonoBehaviour
             for(int j = -horizontalLines; j < horizontalLines + 1; j++)
             {
                 hY = (areaHeight / horizontalLines) * j;
-
                 Debug.DrawLine(new Vector3(oldPos.x, hY, oldPos.z) + origin, new Vector3(x, hY, z) + origin, Color.cyan);
             }
 

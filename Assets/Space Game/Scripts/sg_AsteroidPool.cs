@@ -10,7 +10,9 @@ public class sg_AsteroidPool : MonoBehaviour
 
     public List<GameObject> inactive, active, all;
 
-    public Vector3 spawnArea;
+    public float minRadius = 20f;
+    public float maxRadius = 30f;
+    public float spawnAreaHeight = 30f;
 
     private Transform m_transform;
 
@@ -23,18 +25,30 @@ public class sg_AsteroidPool : MonoBehaviour
         m_transform = gameObject.transform;
         for(int i = 0; i < poolSize; i++)
         {
-            float x, y, z, w;
-            x = Random.Range(-spawnArea.x, spawnArea.x);
-            y = Random.Range(-spawnArea.y, spawnArea.y);
-            z = Random.Range(-spawnArea.z, spawnArea.z);
-            w = Random.Range(-100f, 100f);
+            Vector3 pos = FindSpawnPosition();
+            float w = Random.Range(-1000f, 1000f);
 
             int j = Random.Range(0, 2);
-            GameObject newAsteroid = Instantiate(prefabs[j], new Vector3(x, y, z), Quaternion.Euler(x * w, y * w, z * w), m_transform);
+            GameObject newAsteroid = Instantiate(prefabs[j], new Vector3(pos.x, pos.y, pos.z), Quaternion.Euler(pos.x * w, pos.y * w, pos.z * w), m_transform);
             newAsteroid.transform.name = "Asteroid_" + i;
             all.Add(newAsteroid);
             active.Add(newAsteroid);
         }
+    }
+
+    private Vector3 FindSpawnPosition()
+    {
+        Vector3 result = Vector3.zero;
+        float x = 0, y = 0, z = 0;
+        while(Vector3.Magnitude(result) < minRadius || Vector3.Magnitude(result) > maxRadius)
+        {
+            x = Random.Range(-maxRadius, maxRadius);
+            z = Random.Range(-maxRadius, maxRadius);
+            result = new Vector3(x, 0, z);
+        }
+        y = Random.Range(-spawnAreaHeight, spawnAreaHeight);
+        result.y = y;
+        return result;
     }
 
     public void Despawn(GameObject ast)

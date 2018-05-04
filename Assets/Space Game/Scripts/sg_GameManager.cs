@@ -18,6 +18,7 @@ public class sg_GameManager : MonoBehaviour {
 
     public GameObject fighterPrefab;
     public GameObject frigatePrefab;
+    public GameObject playerPrefab;
 
     public bool doSpawn = false;
 
@@ -84,7 +85,7 @@ public class sg_GameManager : MonoBehaviour {
 
     private GameObject SpawnPlayer()
     {
-        GameObject newObject = fighterPrefab;
+        GameObject newObject = playerPrefab;
         sg_ShipAi shipAi = newObject.GetComponent<sg_ShipAi>();
         shipAi.gm = this;
         shipAi.data.name = "Player";

@@ -6,6 +6,7 @@ using UnityEngine;
 public class sg_ShipMovement : MonoBehaviour {
 
     public sg_ShipClass movementType;
+    private sg_ShipAi m_ai;
     public float thrusterForce = 10f;           //  How much force to apply for directional thrust.
     public float verticalForce = 2.0f;          //  How much force to apply for vertical thrust (frigate).
     public float turningSpeed = 10f;            //  How fast to turn.
@@ -22,10 +23,12 @@ public class sg_ShipMovement : MonoBehaviour {
     public AnimationCurve decelerationRamp;     //  The curve the ship uses to control it's deceleration.
     public float decelerationDistance;          //  How close the ship must be from the target before it decelerates.
     private Vector3 m_directionToTarget;        //  The normalised vector between the ship and the target.
+    private Vector3 m_lookAtPosition;
 
     private void Start()
     {
         m_rb = GetComponent<Rigidbody>();
+        m_ai = GetComponent<sg_ShipAi>();
         m_transform = GetComponent<Transform>();
         m_mainChild = transform.GetChild(0);
     }
@@ -36,16 +39,26 @@ public class sg_ShipMovement : MonoBehaviour {
         {
             m_distanceFromTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
             m_directionToTarget = Vector3.Normalize(targetObject.transform.position - m_transform.position);
-            switch (movementType)
+
+            switch (m_ai.data.difficulty)
             {
-                case sg_ShipClass.Fighter:
-                    FighterMove();
+                case sg_ShipDifficulty.Player:
+                    PlayerMove();
                     break;
-                case sg_ShipClass.Frigate:
-                    FrigateMove();
-                    break;
+
                 default:
-                    FighterMove();
+                    switch (movementType)
+                    {
+                        case sg_ShipClass.Fighter:
+                            FighterMove();
+                            break;
+                        case sg_ShipClass.Frigate:
+                            FrigateMove();
+                            break;
+                        default:
+                            FighterMove();
+                            break;
+                    }
                     break;
             }
         }
@@ -114,5 +127,42 @@ public class sg_ShipMovement : MonoBehaviour {
         targetPitch = Mathf.LerpAngle(rot.x, targetPitch, 1f * Time.deltaTime);
         m_rb.AddForce(applyForce * Time.deltaTime, ForceMode.Impulse);
         m_mainChild.localEulerAngles = new Vector3(targetPitch, rot.y, rot.z);
+    }
+
+
+    private void PlayerMove()
+    {
+        m_distanceFromTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
+        m_directionToTarget = Vector3.Normalize(targetObject.transform.position - m_transform.position);
+        m_lookAtPosition = targetObject.transform.position * 50;
+        m_lookAtPosition.y = targetObject.transform.position.y;
+
+        float applyForce = 0f;
+
+        if (m_distanceFromTarget >= tollerance)
+        {
+            float distanceToTarget = Vector3.Distance(m_transform.position, targetObject.transform.position);
+
+            if (m_distanceFromTarget <= decelerationDistance)
+            {
+                //  Decelerate
+                applyForce = 2f;
+                m_rb.drag = (decelerationRamp.Evaluate(1 - m_distanceFromTarget / decelerationDistance)) * decelerationDrag;
+            }
+            else
+            {
+                applyForce = thrusterForce;
+                m_rb.drag = 1f;
+            }
+            m_rb.AddForce(m_directionToTarget * applyForce * Time.deltaTime, ForceMode.Impulse);
+        }
+        if (m_distanceFromTarget >= tollerance)
+        {
+            Vector3 targetDir = m_lookAtPosition - m_transform.position;
+            float step = turningSpeed * Time.deltaTime;
+            Vector3 newDir = Vector3.RotateTowards(m_mainChild.forward, targetDir, step, 0.0f);
+            Debug.DrawRay(transform.position, newDir, Color.red);
+            m_mainChild.rotation = Quaternion.LookRotation(newDir);
+        }
     }
 }
