@@ -92,3 +92,21 @@ public enum PlayerControlMode
     Plane,
     Sphere
 }
+
+public static class RadiusTools
+{
+    public static Vector3 FindSpawnPosition(float minRadius, float maxRadius, float height)
+    {
+        Vector3 result = Vector3.zero;
+        float x = 0, y = 0, z = 0;
+        while (Vector3.Magnitude(result) < minRadius || Vector3.Magnitude(result) > maxRadius)
+        {
+            x = Random.Range(-maxRadius, maxRadius);
+            z = Random.Range(-maxRadius, maxRadius);
+            result = new Vector3(x, 0, z);
+        }
+        y = Random.Range(-height, height);
+        result.y = y;
+        return result;
+    }
+}

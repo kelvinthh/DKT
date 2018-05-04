@@ -25,7 +25,7 @@ public class sg_AsteroidPool : MonoBehaviour
         m_transform = gameObject.transform;
         for(int i = 0; i < poolSize; i++)
         {
-            Vector3 pos = FindSpawnPosition();
+            Vector3 pos = RadiusTools.FindSpawnPosition(minRadius, maxRadius, spawnAreaHeight);
             float w = Random.Range(-1000f, 1000f);
 
             int j = Random.Range(0, 2);
@@ -34,21 +34,6 @@ public class sg_AsteroidPool : MonoBehaviour
             all.Add(newAsteroid);
             active.Add(newAsteroid);
         }
-    }
-
-    private Vector3 FindSpawnPosition()
-    {
-        Vector3 result = Vector3.zero;
-        float x = 0, y = 0, z = 0;
-        while(Vector3.Magnitude(result) < minRadius || Vector3.Magnitude(result) > maxRadius)
-        {
-            x = Random.Range(-maxRadius, maxRadius);
-            z = Random.Range(-maxRadius, maxRadius);
-            result = new Vector3(x, 0, z);
-        }
-        y = Random.Range(-spawnAreaHeight, spawnAreaHeight);
-        result.y = y;
-        return result;
     }
 
     public void Despawn(GameObject ast)

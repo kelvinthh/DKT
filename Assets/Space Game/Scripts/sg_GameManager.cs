@@ -77,7 +77,7 @@ public class sg_GameManager : MonoBehaviour {
         data.shipId = m_lastShipId;
         shipAi.data = data;
         shipAi.invincible = false;
-        Vector3 pos = new Vector3(Random.Range(-30, 30), Random.Range(-30, 30), Random.Range(-30, 30));
+        Vector3 pos = RadiusTools.FindSpawnPosition(30, 40, 10);
         newShip = Instantiate(newShip, pos, Quaternion.identity);
 
         m_remainingEnemies++;
