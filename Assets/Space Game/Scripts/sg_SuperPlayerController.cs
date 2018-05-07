@@ -6,6 +6,7 @@ using UnityEngine;
 public class sg_SuperPlayerController : MonoBehaviour
 {
     public GameObject playerTarget;
+    [SerializeField]
     private Transform m_transform;
 
     public float areaRadius = 10f;
@@ -20,7 +21,7 @@ public class sg_SuperPlayerController : MonoBehaviour
 
     private void Start()
     {
-        m_transform = transform;
+        m_transform = GetComponent<Transform>();
     }
 
     private void Update()
