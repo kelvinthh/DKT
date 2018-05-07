@@ -164,12 +164,19 @@ public class sg_ShipAi : MonoBehaviour {
 
         data.health -= dmg;
 
-        if (IsPlayer()) { m_healthBar.fillAmount = Mathf.Clamp01((float)data.health / (float)data.maxHealth); }
-
         if(data.health <= 0)
         {
-            gm.NotifyOfDeath(this);
+            if (IsPlayer())
+            {
+                data.health = data.maxHealth;
+            }
+            else
+            {
+                gm.NotifyOfDeath(this);
+            }
         }
+
+        if (IsPlayer()) { m_healthBar.fillAmount = Mathf.Clamp01((float)data.health / (float)data.maxHealth); }
     }
 
     public bool IsPlayer()

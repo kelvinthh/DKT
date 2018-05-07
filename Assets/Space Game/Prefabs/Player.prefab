@@ -681,6 +681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementType: 0
+  minimumDistance: 15
   thrusterForce: 50
   verticalForce: 30
   turningSpeed: 5
@@ -758,7 +759,7 @@ MonoBehaviour:
   - {fileID: 23635481458402282}
   - {fileID: 23501330855629396}
   gm: {fileID: 0}
-  invincible: 1
+  invincible: 0
   autoTarget: 1
   weapon: {fileID: 0}
   allChildren:

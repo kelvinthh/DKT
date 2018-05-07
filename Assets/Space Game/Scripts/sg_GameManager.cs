@@ -93,7 +93,7 @@ public class sg_GameManager : MonoBehaviour {
         shipAi.data.health = 100;
         shipAi.data.shipId = 0;
         shipAi.data.difficulty = sg_ShipDifficulty.Player;
-        shipAi.invincible = true;
+        shipAi.invincible = false;
         return GameObject.Instantiate(newObject);
     }
 
