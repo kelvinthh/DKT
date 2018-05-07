@@ -8,6 +8,7 @@ public class sg_LerpRotation : MonoBehaviour {
     public float lerpSpeed = 10.0f;
     public bool doFollow = true;
     private Transform m_transform;
+    public sg_RotationFollowType followType;
 
     private void Start()
     {
@@ -20,7 +21,23 @@ public class sg_LerpRotation : MonoBehaviour {
         {
             Quaternion a = m_transform.rotation;
             Quaternion b = followTransform.rotation;
-            m_transform.rotation = Quaternion.Lerp(a, b, lerpSpeed * Time.deltaTime);
+
+            switch (followType)
+            {
+                case sg_RotationFollowType.lerp:
+                    m_transform.rotation = Quaternion.Lerp(a, b, lerpSpeed * Time.deltaTime);
+                    break;
+
+                case sg_RotationFollowType.slerp:
+                    m_transform.rotation = Quaternion.Slerp(a, b, lerpSpeed * Time.deltaTime);
+                    break;
+
+                default:
+                    m_transform.rotation = Quaternion.Lerp(a, b, lerpSpeed * Time.deltaTime);
+                    break;
+            }
         }
     }
+
+    public enum sg_RotationFollowType { lerp, slerp }
 }
