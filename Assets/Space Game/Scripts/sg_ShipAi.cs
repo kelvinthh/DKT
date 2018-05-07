@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class sg_ShipAi : MonoBehaviour {
 
@@ -29,6 +30,8 @@ public class sg_ShipAi : MonoBehaviour {
     public sg_Weapon weapon;
 
     public GameObject[] allChildren;
+
+    private Image m_healthBar;
 
     private void OnEnable()
     {
@@ -60,6 +63,7 @@ public class sg_ShipAi : MonoBehaviour {
             r.material.color = Color.blue;
         }
         gm.m_playerShip = gameObject;
+        m_healthBar = GameObject.Find("Health Bar").GetComponent<Image>();
     }
 
     private void EnemyPrep()
@@ -159,6 +163,8 @@ public class sg_ShipAi : MonoBehaviour {
         if (invincible) return;
 
         data.health -= dmg;
+
+        if (IsPlayer()) { m_healthBar.fillAmount = Mathf.Clamp01((float)data.health / (float)data.maxHealth); }
 
         if(data.health <= 0)
         {
