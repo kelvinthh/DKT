@@ -12,14 +12,11 @@ EditorBuildSettings:
     path: Assets/LoadingScreen.unity
     guid: 029aaf46b275676449e8616999ce1661
   - enabled: 1
-    path: Assets/Original Files/Picturescene1.unity
-    guid: ab7340f2230c35a419130842541f381d
-  - enabled: 1
     path: Assets/360 Video/Scenes/AlternateHistory.unity
     guid: 2c02700c3cf063a45b60a72e242649b9
   - enabled: 1
-    path: Assets/Original Files/Picturescene3.unity
-    guid: 3f4dd564fc690e842a43d11d4b6bf17a
-  - enabled: 1
     path: Assets/360 Video/Scenes/HighNoon.unity
     guid: b5cb2da449cc8084e851209c6b1dfea8
+  - enabled: 1
+    path: Assets/ImageScenes/Scenes/Room Scene 1.unity
+    guid: 77d47133c62793e4f930555264db2d16
