@@ -68,7 +68,6 @@ public class sg_Missile : MonoBehaviour {
         if (ai.data.shipId == shipId) return;
 
         ai.Damage(damage);
-        Debug.Log("Bullet " + shipId + " Damaged " + ai.data.shipId + " For " + damage + " Points");
         Explode();
     }
 

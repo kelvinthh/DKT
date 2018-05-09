@@ -8,6 +8,7 @@ public class sg_SuperPlayerController : MonoBehaviour
     public GameObject playerTarget;
     [SerializeField]
     private Transform m_transform;
+    private sg_ShipAi m_playerShipAi;
 
     public float areaRadius = 10f;
     public float areaHeight = 10f;
@@ -18,6 +19,9 @@ public class sg_SuperPlayerController : MonoBehaviour
     public bool debug = false;
     private int verticalLines = 30;
     private int horizontalLines = 5;
+
+    public GameObject targetObject;
+    public LayerMask targetMask;
 
     private void Start()
     {
@@ -42,6 +46,42 @@ public class sg_SuperPlayerController : MonoBehaviour
                     break;
             }
         }
+
+        Target();
+    }
+
+    private void Target()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(m_transform.position, m_transform.forward, out hit, Mathf.Infinity, targetMask))
+        {
+            GameObject hitObject = hit.collider.gameObject;
+            if (hitObject.GetComponent<sg_ShipAi>())
+            {
+                if (hitObject != targetObject)
+                {
+                    if (targetObject) targetObject.GetComponent<sg_ShipAi>().Deselect();
+                    targetObject = hitObject;
+                    targetObject.GetComponent<sg_ShipAi>().Select();
+                }
+                Debug.DrawLine(m_transform.position, hitObject.transform.position, Color.green);
+            }
+            else
+            {
+                if (targetObject) targetObject.GetComponent<sg_ShipAi>().Deselect();
+                targetObject = null;
+            }
+        }
+        else
+        {
+            if (targetObject) targetObject.GetComponent<sg_ShipAi>().Deselect();
+            targetObject = null;
+        }
+    }
+
+    public void SetPlayerShip(sg_ShipAi ai)
+    {
+        m_playerShipAi = ai;
     }
 }
 

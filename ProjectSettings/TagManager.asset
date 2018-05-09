@@ -11,6 +11,7 @@ TagManager:
   - Exit
   - Action
   - Player Target
+  - Asteroid
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Enemy Ship
   - Player Ship
   - Bullet
-  - 
+  - Asteroid
   - 
   - 
   - 
