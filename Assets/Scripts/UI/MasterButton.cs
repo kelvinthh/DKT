@@ -38,7 +38,6 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
                 SceneToLoad.SceneIndexToLoad = sceneIndex;
                 SceneManager.LoadScene(1);
                 break;
-
             case ButtonType.TELEPORT_ON_ACTION:
                 player.position = teleportTo.position;
                 break;
@@ -48,10 +47,7 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
                 Application.Quit();
                 break;
             case ButtonType.PLAY_PAUSE_VIDEO:
-                if (vc != null)
-                {
-                    vc.playAndPause();
-                }
+                if (vc != null) { vc.playAndPause(); }
                 break;
         }
     }
