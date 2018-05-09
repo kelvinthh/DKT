@@ -28,7 +28,6 @@ public class DisplayContextUI : MonoBehaviour
 
         if (!displayed) //if UI is not currently displayed...
         {
-            
 
             if (CheckAngle() > displayAngle && CheckAngle() < 100) //evaluate the cameras current X value to be below a certain threshold...
             {

@@ -24,11 +24,12 @@ public class VideoController : MonoBehaviour {
     }
     public void playAndPause()
     {
+        print("playpause called");
         if (videoPlayer.isPlaying)
         {
             videoPlayer.Pause();
             spriteRenderer.sprite = playIcon;
-        }else
+        } else
         {
             videoPlayer.Play();
             spriteRenderer.sprite = pauseIcon;

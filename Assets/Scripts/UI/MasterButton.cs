@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-public enum ButtonType { LOADSCENE_ON_ACTION, TELEPORT_ON_ACTION, DISPLAY_UI_ON_GAZE, DISPLAY_UI_ON_ACTION, QUIT_ON_ACTION };
+public enum ButtonType { LOADSCENE_ON_ACTION, TELEPORT_ON_ACTION, DISPLAY_UI_ON_GAZE, DISPLAY_UI_ON_ACTION, QUIT_ON_ACTION, PLAY_PAUSE_VIDEO };
 
 public class MasterButton : MonoBehaviour, IInteractiveObject {
+
+    [TextArea]
+    public string scriptNotes = "*Point 1\n*Point 2\n*Point 3";
 
     [SerializeField] private ButtonType buttonAction;
     [SerializeField] private float gazeTimer = 2.0f;
@@ -21,7 +24,11 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
 
     [SerializeField] Transform player;
 
+    private VideoController vc = null;
+
     private bool gazingAt = false;
+
+    
 
     public void Action()
     {
@@ -39,6 +46,12 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
                 break;
             case ButtonType.QUIT_ON_ACTION:
                 Application.Quit();
+                break;
+            case ButtonType.PLAY_PAUSE_VIDEO:
+                if (vc != null)
+                {
+                    vc.playAndPause();
+                }
                 break;
         }
     }
@@ -120,7 +133,7 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
 
     // Use this for initialization
     void Start () {
-        GetProgressBarDuration();
+        
         player = GameObject.Find("PlayerNew").GetComponent<Transform>();
         gazeTimerToEdit = gazeTimer;
         UpdateBarProgress();
@@ -130,6 +143,8 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         }
         
         onHoverSound = GetComponent<AudioSource>();
+        vc = GetComponent<VideoController>();
+        barSpeed = GetProgressBarDuration();
     }
 	
 	// Update is called once per frame
