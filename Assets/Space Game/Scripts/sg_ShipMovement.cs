@@ -71,7 +71,10 @@ public class sg_ShipMovement : MonoBehaviour {
 
         float currentRadius = new Vector2(m_transform.position.x, m_transform.position.z).magnitude;
 
-        Vector3 targetPosOnCylinder = RadiusTools.CalculatePosOnCylinder(targetObject.transform.position, Vector3.zero, tollerance, 10);
+        Vector3 targetPosOnCylinder = RadiusTools.CalculatePosOnCylinder(targetObject.transform.position, Vector3.zero, minimumDistance, 10);
+
+        m_distanceFromTarget = Vector3.Distance(m_transform.position, targetPosOnCylinder);
+        m_directionToTarget = Vector3.Normalize(targetPosOnCylinder - m_transform.position);
 
         if (m_distanceFromTarget >= tollerance)
         {
@@ -91,7 +94,7 @@ public class sg_ShipMovement : MonoBehaviour {
             m_rb.AddForce(m_directionToTarget * applyForce * Time.deltaTime, ForceMode.Impulse);
             if (m_distanceFromTarget >= tollerance)
             {
-                Vector3 targetDir = targetPosOnCylinder - m_transform.position;
+                Vector3 targetDir = targetObject.transform.position - m_transform.position;
                 float step = turningSpeed * Time.deltaTime;
                 Vector3 newDir = Vector3.RotateTowards(m_mainChild.forward, targetDir, step, 0.0f);
                 Debug.DrawRay(transform.position, newDir, Color.red);

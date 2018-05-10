@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00012466114, g: 0.006333441, b: 0.024836335, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.0070285387, b: 0.028074289, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1169,13 +1169,13 @@ MonoBehaviour:
   - {fileID: 1884271353338724, guid: 2cf60e51469b11c469bdb9e8c61e271b, type: 2}
   - {fileID: 1451187346685882, guid: 5bbd3a01d3ace7e4ab84009620ea80d9, type: 2}
   - {fileID: 1964786560951232, guid: c4fc426dfdc330c4689c5b5c1787abcc, type: 2}
-  poolSize: 30
+  poolSize: 50
   inactive: []
   active: []
   all: []
   minRadius: 13
   maxRadius: 40
-  spawnAreaHeight: 10
+  spawnAreaHeight: 20
 --- !u!1 &550766206
 GameObject:
   m_ObjectHideFlags: 0

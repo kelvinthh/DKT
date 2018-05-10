@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementType: 0
-  minimumDistance: 25
+  minimumDistance: 20
   thrusterForce: 30
   verticalForce: 2
   turningSpeed: 5
@@ -741,13 +741,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    health: 20
-    maxHealth: 20
+    health: 10
+    maxHealth: 10
     name: Fighter
     shipClass: 0
     difficulty: 0
-    shipId: 4
-    scoreValue: 2
+    shipId: 24
+    scoreValue: 5
   m_allTargets: []
   m_targetsInRange: []
   currentTarget: {fileID: 0}

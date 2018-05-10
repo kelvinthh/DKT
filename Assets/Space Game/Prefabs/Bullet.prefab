@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  speed: 50
+  speed: 10
   turnSpeed: 0
   turnSpeedCurve:
     serializedVersion: 2
