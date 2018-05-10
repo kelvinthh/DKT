@@ -19,6 +19,7 @@ public class sg_ShipAi : MonoBehaviour {
 
     private sg_ShipMovement m_movement;
     private sg_Turret m_turret;
+    private float autoShootAngle = 15f;
 
     public Renderer[] renderers;
 
@@ -92,7 +93,7 @@ public class sg_ShipAi : MonoBehaviour {
             m_turret.targetObject = currentTarget;
 
             Vector3 targetDir = currentTarget.transform.position - weapon.bulletSpawnPoint.transform.position;
-            if (Vector3.Angle(targetDir, weapon.bulletSpawnPoint.transform.forward) <= 90f)
+            if (Vector3.Angle(targetDir, weapon.bulletSpawnPoint.transform.forward) <= autoShootAngle)
             {
                 if (weapon != null) weapon.TryShoot();
             }

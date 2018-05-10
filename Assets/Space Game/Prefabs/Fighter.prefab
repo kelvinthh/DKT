@@ -708,7 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDamage: 2
-  fireRate: 4
+  fireRate: 2
   bulletSpawnPoint: {fileID: 4371462090461366}
 --- !u!114 &114867427967718530
 MonoBehaviour:
@@ -741,12 +741,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    health: 10
-    maxHealth: 10
+    health: 20
+    maxHealth: 20
     name: Fighter
     shipClass: 0
     difficulty: 0
-    shipId: 24
+    shipId: 16
     scoreValue: 5
   m_allTargets: []
   m_targetsInRange: []

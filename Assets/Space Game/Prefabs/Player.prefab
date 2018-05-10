@@ -697,19 +697,19 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 1
+      outSlope: 1
       tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 1
+      outSlope: 1
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  decelerationDistance: 2
+  decelerationDistance: 1
 --- !u!114 &114804101941396006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -747,6 +747,7 @@ MonoBehaviour:
     shipClass: 0
     difficulty: 4
     shipId: 0
+    scoreValue: 5
   m_allTargets: []
   m_targetsInRange: []
   currentTarget: {fileID: 0}
