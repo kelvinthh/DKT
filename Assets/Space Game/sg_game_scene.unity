@@ -820,6 +820,7 @@ MonoBehaviour:
         shipClass: 1
         difficulty: 0
         shipId: 0
+        scoreValue: 5
     - enemies:
       - health: 20
         maxHealth: 20
@@ -827,18 +828,21 @@ MonoBehaviour:
         shipClass: 0
         difficulty: 0
         shipId: 0
+        scoreValue: 5
       - health: 20
         maxHealth: 20
         name: Fighter
         shipClass: 0
         difficulty: 0
         shipId: 0
+        scoreValue: 5
       - health: 20
         maxHealth: 20
         name: Fighter
         shipClass: 0
         difficulty: 0
         shipId: 0
+        scoreValue: 5
   fighterPrefab: {fileID: 1132137427620660, guid: d934e0a47be96844097511acbfc55d4c,
     type: 2}
   frigatePrefab: {fileID: 1980160382814360, guid: 336ffe69b9659694a94ffc39b946b3ca,
@@ -846,6 +850,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 1549624889767276, guid: cc94e28fceda4244398a142f9dbe8089,
     type: 2}
   doSpawn: 1
+  gameScore: 0
 --- !u!4 &513480267
 Transform:
   m_ObjectHideFlags: 0
@@ -2244,7 +2249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTransform: {fileID: 1714067565}
-  lerpSpeed: 20
+  lerpSpeed: 10
   doFollow: 1
   followType: 0
 --- !u!1 &1170959879
@@ -3237,6 +3242,7 @@ GameObject:
   - component: {fileID: 1714067568}
   - component: {fileID: 1714067566}
   - component: {fileID: 1714067572}
+  - component: {fileID: 1714067571}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3329,6 +3335,18 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1714067571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1714067564}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad962933a2ad1c419e0a60fcb35dec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blend: 1
 --- !u!114 &1714067572
 MonoBehaviour:
   m_ObjectHideFlags: 0
