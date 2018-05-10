@@ -747,6 +747,7 @@ MonoBehaviour:
     shipClass: 0
     difficulty: 0
     shipId: 4
+    scoreValue: 2
   m_allTargets: []
   m_targetsInRange: []
   currentTarget: {fileID: 0}

@@ -10,6 +10,7 @@ public class sg_ShipData
     public sg_ShipClass shipClass;
     public sg_ShipDifficulty difficulty;
     public int shipId;
+    public int scoreValue;
 
     public sg_ShipData()
     {
@@ -19,6 +20,7 @@ public class sg_ShipData
         shipClass = sg_ShipClass.Fighter;
         difficulty = sg_ShipDifficulty.Normal;
         shipId = 0;
+        scoreValue = 5;
     }
 }
 

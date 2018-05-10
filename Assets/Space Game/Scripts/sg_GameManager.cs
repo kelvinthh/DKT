@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class sg_GameManager : MonoBehaviour {
 
@@ -22,6 +23,11 @@ public class sg_GameManager : MonoBehaviour {
 
     public bool doSpawn = false;
 
+    private Text m_ScoreText;
+    private Text m_RoundText;
+
+    public int gameScore = 0;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) { NextWave(); }
@@ -40,6 +46,9 @@ public class sg_GameManager : MonoBehaviour {
             GameObject.Destroy(ship.gameObject);
 
             m_remainingEnemies--;
+
+            gameScore += ship.data.scoreValue;
+            m_ScoreText.text = "Score: " + gameScore.ToString();
 
             if (m_remainingEnemies <= 0)
             {
@@ -100,8 +109,9 @@ public class sg_GameManager : MonoBehaviour {
 
     private void Start()
     {
+        m_RoundText = GameObject.Find("Wave Text").GetComponent<Text>();
+        m_ScoreText = GameObject.Find("Score Text").GetComponent<Text>();
         m_playerShip = SpawnPlayer();
-
         NextWave();
     }
 
@@ -141,5 +151,7 @@ public class sg_GameManager : MonoBehaviour {
 
             currentWave++;
         }
+
+        m_RoundText.text = "Wave: " + currentWave.ToString() + " / " + waveCount.ToString();
     }
 }
