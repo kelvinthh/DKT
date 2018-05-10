@@ -28,7 +28,7 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
 
     private bool gazingAt = false;
 
-    
+
 
     public void Action()
     {
@@ -47,7 +47,7 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
                 Application.Quit();
                 break;
             case ButtonType.PLAY_PAUSE_VIDEO:
-                if (vc != null) { vc.playAndPause(); }
+                if (vc != null) { vc.PlayAndPause(); }
                 break;
         }
     }
@@ -77,6 +77,11 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         if (buttonAction == ButtonType.DISPLAY_UI_ON_GAZE && overlay != null)
         {
             overlay.SetActive(false);
+        }
+
+        if(buttonAction == ButtonType.PLAY_PAUSE_VIDEO && vc != null)
+        {
+            vc.UnpressButton();
         }
     }
 

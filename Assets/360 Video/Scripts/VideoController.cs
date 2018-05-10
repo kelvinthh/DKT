@@ -15,25 +15,38 @@ public class VideoController : MonoBehaviour {
     [SerializeField] private Sprite pauseIcon;
 
     [SerializeField] private GameObject statusText;
-    
+
+    private bool buttonPressed = false;
     // Use this for initialization
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
-    public void playAndPause()
+    public void PlayAndPause()
     {
         print("playpause called");
-        if (videoPlayer.isPlaying)
+        if (videoPlayer.isPlaying && !buttonPressed)
         {
             videoPlayer.Pause();
             spriteRenderer.sprite = playIcon;
-        } else
-        {
-            videoPlayer.Play();
-            spriteRenderer.sprite = pauseIcon;
+            buttonPressed = true;
         }
+        else
+        {
+            if (!buttonPressed)
+            {
+                videoPlayer.Play();
+                spriteRenderer.sprite = pauseIcon;
+                buttonPressed = true;
+            }
+         
+        }
+    }
+
+    public void UnpressButton()
+    {
+        buttonPressed = false;
     }
 
     public void Back()
