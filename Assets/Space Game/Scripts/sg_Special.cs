@@ -13,14 +13,29 @@ public class sg_Special : MonoBehaviour {
     private SpriteRenderer m_renderer;
 
     public float rotateSpeed = 50f;
+    public float despawnTime = 10f;
+    private float m_despawnTimer = 0f;
 
     private Transform m_chiild;
 
+    private sg_GameManager gm;
+
     private void Start()
     {
+        gm = GameObject.Find("GM").GetComponent<sg_GameManager>();
         m_chiild = transform.GetChild(0).GetComponent<Transform>();
         m_renderer = m_chiild.GetComponent<SpriteRenderer>();
         SetImage();
+    }
+
+    private void OnEnable()
+    {
+        m_despawnTimer = 0f;
+    }
+
+    private void OnDisable()
+    {
+        m_despawnTimer = 0f;
     }
 
     private void SetImage()
@@ -48,6 +63,13 @@ public class sg_Special : MonoBehaviour {
         m_chiild.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
 
         if (m_prevType != type) SetImage();
+
+        m_despawnTimer += Time.deltaTime;
+        if(m_despawnTimer >= despawnTime)
+        {
+            gm.DespawnSpecial(this.gameObject);
+            m_despawnTimer = 0f;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -69,7 +91,7 @@ public class sg_Special : MonoBehaviour {
                     break;
             }
 
-            GameObject.Destroy(gameObject);
+            gm.DespawnSpecial(this.gameObject);
         }
     }
 }

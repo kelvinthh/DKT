@@ -849,6 +849,10 @@ MonoBehaviour:
     type: 2}
   playerPrefab: {fileID: 1549624889767276, guid: cc94e28fceda4244398a142f9dbe8089,
     type: 2}
+  specialPrefab: {fileID: 1282736181865714, guid: 2fa9bf3e17a9fbe4887a141157a77c66,
+    type: 2}
+  specialSpawnTime: 5
+  m_specialPool: []
   doSpawn: 1
   gameScore: 0
 --- !u!4 &513480267

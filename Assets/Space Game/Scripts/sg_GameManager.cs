@@ -20,6 +20,10 @@ public class sg_GameManager : MonoBehaviour {
     public GameObject fighterPrefab;
     public GameObject frigatePrefab;
     public GameObject playerPrefab;
+    public GameObject specialPrefab;
+    public float specialSpawnTime = 20f;
+    private float m_specialSpawnTimer;
+    public List<GameObject> m_specialPool;
 
     public bool doSpawn = false;
 
@@ -31,6 +35,20 @@ public class sg_GameManager : MonoBehaviour {
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) { NextWave(); }
+
+        if (doSpawn)
+        {
+            m_specialSpawnTimer += Time.deltaTime;
+            if(m_specialSpawnTimer >= specialSpawnTime)
+            {
+                SpawnSpecial(sg_SpecialType.Health);
+                m_specialSpawnTimer = 0f;
+            }
+        }
+        else
+        {
+            m_specialSpawnTimer = 0f;
+        }
     }
 
     public void NotifyOfDeath(sg_ShipAi ship)
@@ -109,6 +127,15 @@ public class sg_GameManager : MonoBehaviour {
 
     private void Start()
     {
+        m_specialPool = new List<GameObject>();
+        {
+            for(int i = 0; i < 5; i++)
+            {
+                m_specialPool.Add(Instantiate(specialPrefab));
+                m_specialPool[i].SetActive(false);
+            }
+        }
+
         m_RoundText = GameObject.Find("Wave Text").GetComponent<Text>();
         m_ScoreText = GameObject.Find("Score Text").GetComponent<Text>();
         m_playerShip = SpawnPlayer();
@@ -153,5 +180,21 @@ public class sg_GameManager : MonoBehaviour {
         }
 
         m_RoundText.text = "Wave: " + currentWave.ToString() + " / " + waveCount.ToString();
+    }
+
+    public void SpawnSpecial(sg_SpecialType type)
+    {
+        if (m_specialPool.Count == 0) return;
+        GameObject obj = m_specialPool[0];
+        obj.GetComponent<sg_Special>().type = type;
+        obj.transform.position = RadiusTools.FindSpawnPosition(10f, 10f, 10f);
+        m_specialPool.RemoveAt(0);
+        obj.SetActive(true);
+        Debug.Log("Spawned a special (" + type + ")!");
+    }
+    public void DespawnSpecial(GameObject obj)
+    {
+        m_specialPool.Add(obj);
+        obj.SetActive(false);
     }
 }
