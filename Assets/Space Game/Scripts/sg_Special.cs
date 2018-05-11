@@ -1,23 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class sg_Special : MonoBehaviour {
 
     public int value;
     public sg_SpecialType type;
+    private sg_SpecialType m_prevType;
     public Sprite healthSprite, damageSprite, shieldSprite;
 
-    public Image myImage;
+    private SpriteRenderer m_renderer;
 
-    public float rotateSpeed = 0.5f;
+    public float rotateSpeed = 50f;
 
-    private Transform m_transform;
+    private Transform m_chiild;
 
     private void Start()
     {
-        m_transform = GetComponent<Transform>();
+        m_chiild = transform.GetChild(0).GetComponent<Transform>();
+        m_renderer = m_chiild.GetComponent<SpriteRenderer>();
         SetImage();
     }
 
@@ -26,22 +28,26 @@ public class sg_Special : MonoBehaviour {
         switch (type)
         {
             case sg_SpecialType.Health:
-                myImage.sprite = healthSprite;
+                m_renderer.sprite = healthSprite;
                 break;
             case sg_SpecialType.Damage:
-                myImage.sprite = damageSprite;
+                m_renderer.sprite = damageSprite;
                 break;
             case sg_SpecialType.Shield:
-                myImage.sprite = shieldSprite;
+                m_renderer.sprite = shieldSprite;
                 break;
             default:
                 break;
         }
+
+        m_prevType = type;
     }
 
     private void Update()
     {
-        m_transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
+        m_chiild.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
+
+        if (m_prevType != type) SetImage();
     }
 }
 
