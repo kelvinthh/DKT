@@ -88,7 +88,9 @@ MonoBehaviour:
   damageSprite: {fileID: 21300000, guid: 8ddcb58e159e6074e82025c79df477ca, type: 3}
   shieldSprite: {fileID: 21300000, guid: ecefca2e4347b644aa35f6dd7bf8cb0a, type: 3}
   rotateSpeed: 50
+  spawnTime: 5
   despawnTime: 10
+  spawned: 0
 --- !u!135 &135387084394044652
 SphereCollider:
   m_ObjectHideFlags: 1

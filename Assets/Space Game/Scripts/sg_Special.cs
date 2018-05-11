@@ -13,29 +13,30 @@ public class sg_Special : MonoBehaviour {
     private SpriteRenderer m_renderer;
 
     public float rotateSpeed = 50f;
+    public float spawnTime = 5f;
     public float despawnTime = 10f;
     private float m_despawnTimer = 0f;
 
-    private Transform m_chiild;
+    private Transform m_child;
+    private SphereCollider m_col;
 
     private sg_GameManager gm;
 
+    public bool spawned = false;
+
     private void Start()
     {
+        Setup();
+    }
+
+    private void Setup()
+    {
+        m_col = GetComponent<SphereCollider>();
         gm = GameObject.Find("GM").GetComponent<sg_GameManager>();
-        m_chiild = transform.GetChild(0).GetComponent<Transform>();
-        m_renderer = m_chiild.GetComponent<SpriteRenderer>();
+        m_child = transform.GetChild(0).GetComponent<Transform>();
+        m_renderer = m_child.GetComponent<SpriteRenderer>();
         SetImage();
-    }
-
-    private void OnEnable()
-    {
-        m_despawnTimer = 0f;
-    }
-
-    private void OnDisable()
-    {
-        m_despawnTimer = 0f;
+        Spawn();
     }
 
     private void SetImage()
@@ -60,15 +61,24 @@ public class sg_Special : MonoBehaviour {
 
     private void Update()
     {
-        m_chiild.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
+        m_child.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
 
         if (m_prevType != type) SetImage();
 
         m_despawnTimer += Time.deltaTime;
-        if(m_despawnTimer >= despawnTime)
+        if (spawned)
         {
-            gm.DespawnSpecial(this.gameObject);
-            m_despawnTimer = 0f;
+            if (m_despawnTimer >= despawnTime)
+            {
+                Despawn();
+            }
+        }
+        else
+        {
+            if (m_despawnTimer >= spawnTime)
+            {
+                Spawn();
+            }
         }
     }
 
@@ -91,8 +101,35 @@ public class sg_Special : MonoBehaviour {
                     break;
             }
 
-            gm.DespawnSpecial(this.gameObject);
+            Despawn();
         }
+    }
+
+    public void Spawn()
+    {
+        if(!m_col || !m_renderer)
+        {
+            Setup();
+        }
+
+        transform.position = RadiusTools.FindSpawnPosition(10, 10, 10);
+
+        m_col.enabled = true;
+        m_renderer.color = new Color(1, 1, 1, 1);
+        m_despawnTimer = 0f;
+        spawned = true;
+    }
+    public void Despawn()
+    {
+        if (!m_col || !m_renderer)
+        {
+            Setup();
+        }
+
+        m_col.enabled = false;
+        m_renderer.color = new Color(1, 1, 1, 0);
+        m_despawnTimer = 0f;
+        spawned = false;
     }
 }
 
