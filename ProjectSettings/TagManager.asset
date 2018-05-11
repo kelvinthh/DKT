@@ -12,6 +12,7 @@ TagManager:
   - Action
   - Player Target
   - Asteroid
+  - Special
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Player Ship
   - Bullet
   - Asteroid
-  - 
+  - Special
   - 
   - 
   - 

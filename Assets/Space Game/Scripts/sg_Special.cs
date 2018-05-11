@@ -49,6 +49,29 @@ public class sg_Special : MonoBehaviour {
 
         if (m_prevType != type) SetImage();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        sg_ShipAi ship = other.gameObject.GetComponent<sg_ShipAi>();
+        if (ship != null && other.gameObject.CompareTag("Player"))
+        {
+            switch (type)
+            {
+                case sg_SpecialType.Health:
+                    ship.data.health = Mathf.Clamp(ship.data.health + value, 0, ship.data.maxHealth);
+                    Debug.Log("Applied " + value + " health to '" + ship.data.name + "'");
+                    break;
+                case sg_SpecialType.Damage:
+                    break;
+                case sg_SpecialType.Shield:
+                    break;
+                default:
+                    break;
+            }
+
+            GameObject.Destroy(gameObject);
+        }
+    }
 }
 
 public enum sg_SpecialType
