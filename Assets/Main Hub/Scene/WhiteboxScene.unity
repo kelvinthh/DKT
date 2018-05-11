@@ -2290,17 +2290,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aa8668d9c85434e85f81438094df69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptNotes: '*Point 1
-
-    *Point 2
-
-    *Point 3'
+  scriptNotes: "*DO NOT EDIT*\nThe fields:\n\tProgress Bar\n\tOverlay UI\nwill only
+    display if they are not null.\n\nThe remaining fields will need to be filled based
+    on the button function.\nLOADSCENE: sceneIndex\nTELEPORT: Teleoport To\nDISPLAY
+    UI: overlay UI\n"
   buttonAction: 1
   gazeTimer: 2
   sceneIndex: 0
   progressBar: {fileID: 1016640984}
   teleportTo: {fileID: 1106510974}
-  overlay: {fileID: 0}
+  overlayUI: {fileID: 0}
   player: {fileID: 0}
 --- !u!82 &161347687
 AudioSource:
@@ -17122,17 +17121,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aa8668d9c85434e85f81438094df69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptNotes: '*Point 1
-
-    *Point 2
-
-    *Point 3'
+  scriptNotes: "*DO NOT EDIT*\nThe fields:\n\tProgress Bar\n\tOverlay UI\nwill only
+    display if they are not null.\n\nThe remaining fields will need to be filled based
+    on the button function.\nLOADSCENE: sceneIndex\nTELEPORT: Teleoport To\nDISPLAY
+    UI: overlay UI\n"
   buttonAction: 1
   gazeTimer: 2
   sceneIndex: 0
   progressBar: {fileID: 751111058}
   teleportTo: {fileID: 1008346702}
-  overlay: {fileID: 0}
+  overlayUI: {fileID: 0}
   player: {fileID: 0}
 --- !u!65 &853941119
 BoxCollider:
@@ -18821,6 +18819,15 @@ Prefab:
         type: 2}
       propertyPath: sceneIndex
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114293530891413574, guid: 744f06f2fcf1b844b9537263118afa8b,
+        type: 2}
+      propertyPath: scriptNotes
+      value: '*Point 1
+
+        *Point 2
+
+        *Point 3'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 744f06f2fcf1b844b9537263118afa8b, type: 2}
@@ -21754,17 +21761,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aa8668d9c85434e85f81438094df69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptNotes: '*Point 1
-
-    *Point 2
-
-    *Point 3'
+  scriptNotes: "*DO NOT EDIT*\nThe fields:\n\tProgress Bar\n\tOverlay UI\nwill only
+    display if they are not null.\n\nThe remaining fields will need to be filled based
+    on the button function.\nLOADSCENE: sceneIndex\nTELEPORT: Teleoport To\nDISPLAY
+    UI: overlay UI\n"
   buttonAction: 1
   gazeTimer: 2
   sceneIndex: 0
   progressBar: {fileID: 751111058}
   teleportTo: {fileID: 1008346702}
-  overlay: {fileID: 0}
+  overlayUI: {fileID: 0}
   player: {fileID: 0}
 --- !u!4 &1008891841 stripped
 Transform:
@@ -23821,17 +23827,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aa8668d9c85434e85f81438094df69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptNotes: '*Point 1
-
-    *Point 2
-
-    *Point 3'
+  scriptNotes: "*DO NOT EDIT*\nThe fields:\n\tProgress Bar\n\tOverlay UI\nwill only
+    display if they are not null.\n\nThe remaining fields will need to be filled based
+    on the button function.\nLOADSCENE: sceneIndex\nTELEPORT: Teleoport To\nDISPLAY
+    UI: overlay UI\n"
   buttonAction: 0
   gazeTimer: 2
   sceneIndex: 3
   progressBar: {fileID: 1169578126}
   teleportTo: {fileID: 0}
-  overlay: {fileID: 0}
+  overlayUI: {fileID: 0}
   player: {fileID: 0}
 --- !u!65 &1169578125
 BoxCollider:
@@ -25658,17 +25663,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aa8668d9c85434e85f81438094df69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptNotes: '*Point 1
-
-    *Point 2
-
-    *Point 3'
+  scriptNotes: "*DO NOT EDIT*\nThe fields:\n\tProgress Bar\n\tOverlay UI\nwill only
+    display if they are not null.\n\nThe remaining fields will need to be filled based
+    on the button function.\nLOADSCENE: sceneIndex\nTELEPORT: Teleoport To\nDISPLAY
+    UI: overlay UI\n"
   buttonAction: 1
   gazeTimer: 2
   sceneIndex: 0
   progressBar: {fileID: 871915747}
   teleportTo: {fileID: 80488837}
-  overlay: {fileID: 0}
+  overlayUI: {fileID: 0}
   player: {fileID: 0}
 --- !u!82 &1229671864
 AudioSource:
@@ -29688,17 +29692,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aa8668d9c85434e85f81438094df69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptNotes: '*Point 1
-
-    *Point 2
-
-    *Point 3'
+  scriptNotes: "*DO NOT EDIT*\nThe fields:\n\tProgress Bar\n\tOverlay UI\nwill only
+    display if they are not null.\n\nThe remaining fields will need to be filled based
+    on the button function.\nLOADSCENE: sceneIndex\nTELEPORT: Teleoport To\nDISPLAY
+    UI: overlay UI\n"
   buttonAction: 4
   gazeTimer: 2
   sceneIndex: 0
   progressBar: {fileID: 1169578126}
   teleportTo: {fileID: 0}
-  overlay: {fileID: 0}
+  overlayUI: {fileID: 0}
   player: {fileID: 0}
 --- !u!65 &1353011192
 BoxCollider:
@@ -33953,17 +33956,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aa8668d9c85434e85f81438094df69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptNotes: '*Point 1
-
-    *Point 2
-
-    *Point 3'
+  scriptNotes: "*DO NOT EDIT*\nThe fields:\n\tProgress Bar\n\tOverlay UI\nwill only
+    display if they are not null.\n\nThe remaining fields will need to be filled based
+    on the button function.\nLOADSCENE: sceneIndex\nTELEPORT: Teleoport To\nDISPLAY
+    UI: overlay UI\n"
   buttonAction: 1
   gazeTimer: 2
   sceneIndex: 0
   progressBar: {fileID: 866201539}
   teleportTo: {fileID: 1012249867}
-  overlay: {fileID: 0}
+  overlayUI: {fileID: 0}
   player: {fileID: 0}
 --- !u!65 &1504047053
 BoxCollider:

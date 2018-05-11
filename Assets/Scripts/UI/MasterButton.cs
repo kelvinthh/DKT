@@ -8,7 +8,7 @@ public enum ButtonType { LOADSCENE_ON_ACTION, TELEPORT_ON_ACTION, DISPLAY_UI_ON_
 public class MasterButton : MonoBehaviour, IInteractiveObject {
 
     [TextArea]
-    public string scriptNotes = "*Point 1\n*Point 2\n*Point 3";
+    public string scriptNotes = "*DO NOT EDIT*\nThe fields:\n\tProgress Bar\n\tOverlay UI\nwill only display if they are not null.\n\nThe remaining fields will need to be filled based on the button function.\nLOADSCENE: sceneIndex\nTELEPORT: Teleoport To\nDISPLAY UI: overlay UI\n";
 
     [SerializeField] private ButtonType buttonAction;
     [SerializeField] private float gazeTimer = 2.0f;
@@ -16,7 +16,7 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
     [SerializeField] private int sceneIndex;
     [SerializeField] private Image progressBar;
     [SerializeField] private Transform teleportTo;
-    [SerializeField] private GameObject overlay;
+    [SerializeField] private GameObject overlayUI;
     private float barProgress = 0.0f;
     private float barSpeed = 50.0f;
 
@@ -57,9 +57,9 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         gazingAt = true;
         print("Gazing");
 
-        if (buttonAction == ButtonType.DISPLAY_UI_ON_GAZE && overlay != null)
+        if (buttonAction == ButtonType.DISPLAY_UI_ON_GAZE && overlayUI != null)
         {
-            overlay.SetActive(true);
+            overlayUI.SetActive(true);
         }
         if (onHoverSound != null)
         {
@@ -74,9 +74,9 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         barProgress = 0.0f;
         UpdateBarProgress();
         gazeTimerToEdit = gazeTimer;
-        if (buttonAction == ButtonType.DISPLAY_UI_ON_GAZE && overlay != null)
+        if (buttonAction == ButtonType.DISPLAY_UI_ON_GAZE && overlayUI != null)
         {
-            overlay.SetActive(false);
+            overlayUI.SetActive(false);
         }
 
         if(buttonAction == ButtonType.PLAY_PAUSE_VIDEO && vc != null)
@@ -138,9 +138,9 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         player = GameObject.Find("PlayerNew").GetComponent<Transform>();
         gazeTimerToEdit = gazeTimer;
         UpdateBarProgress();
-        if(buttonAction == ButtonType.DISPLAY_UI_ON_GAZE && overlay != null)
+        if(buttonAction == ButtonType.DISPLAY_UI_ON_GAZE && overlayUI != null)
         {
-            overlay.SetActive(false);
+            overlayUI.SetActive(false);
         }
         
         onHoverSound = GetComponent<AudioSource>();
