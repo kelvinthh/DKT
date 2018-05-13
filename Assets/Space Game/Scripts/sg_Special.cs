@@ -112,12 +112,14 @@ public class sg_Special : MonoBehaviour {
             Setup();
         }
 
-        transform.position = RadiusTools.FindSpawnPosition(10, 10, 10);
+        transform.position = RadiusTools.SpecialRandomPosition();
 
         m_col.enabled = true;
         m_renderer.color = new Color(1, 1, 1, 1);
         m_despawnTimer = 0f;
         spawned = true;
+
+        Debug.Log("Spawned " + type + " special " + transform.position);
     }
     public void Despawn()
     {

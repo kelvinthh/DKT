@@ -28,6 +28,11 @@ public class sg_GameManager : MonoBehaviour {
 
     public int gameScore = 0;
 
+    private void Awake()
+    {
+        RadiusTools.Init(50);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) { NextWave(); }

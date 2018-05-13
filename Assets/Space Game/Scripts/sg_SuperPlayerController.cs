@@ -94,6 +94,22 @@ public enum PlayerControlMode
 
 public static class RadiusTools
 {
+    private static Vector3[] m_specialRandomPositions;
+    public static void Init(int specialPositionCount)
+    {
+        m_specialRandomPositions = new Vector3[specialPositionCount];
+        for(int i = 0; i < m_specialRandomPositions.Length; i++)
+        {
+            m_specialRandomPositions[i] = FindSpawnPosition(10, 30, 10);
+        }
+    }
+
+    public static Vector3 SpecialRandomPosition()
+    {
+        int i = Random.Range(0, m_specialRandomPositions.Length - 1);
+        return m_specialRandomPositions[i];
+    }
+
     public static Vector3 FindSpawnPosition(float minRadius, float maxRadius, float height)
     {
         Vector3 result = Vector3.zero;
