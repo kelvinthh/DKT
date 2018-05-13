@@ -100,7 +100,7 @@ public static class RadiusTools
         m_specialRandomPositions = new Vector3[specialPositionCount];
         for(int i = 0; i < m_specialRandomPositions.Length; i++)
         {
-            m_specialRandomPositions[i] = FindSpawnPosition(10, 30, 10);
+            m_specialRandomPositions[i] = FindSpawnPosition(9, 11, 7);
         }
     }
 
