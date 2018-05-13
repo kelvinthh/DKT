@@ -7,6 +7,8 @@ public class sg_Weapon : MonoBehaviour
     public int bulletDamage = 5;
     public float fireRate = 5f;
     public Transform bulletSpawnPoint;
+    public AudioClip shootSound;
+    private AudioSource m_audiosource;
 
     private sg_ShipAi m_ai;
     private float m_shootTimer = 0f;
@@ -15,6 +17,7 @@ public class sg_Weapon : MonoBehaviour
     private void Start()
     {
         m_bulletPool = GameObject.Find("GM").GetComponent<sg_BulletPool>();
+        m_audiosource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -42,6 +45,7 @@ public class sg_Weapon : MonoBehaviour
         missile.damage = bulletDamage;
         missile.shipId = m_ai.data.shipId;
         newBullet.SetActive(true);
+        if (m_audiosource && shootSound) m_audiosource.PlayOneShot(shootSound);
         m_shootTimer = (1.0f / fireRate);
     }
 }

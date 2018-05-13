@@ -23,9 +23,12 @@ public class sg_SuperPlayerController : MonoBehaviour
     public GameObject targetObject;
     public LayerMask targetMask;
 
+    public sg_LerpRotation hudFollow;
+
     private void Start()
     {
         m_transform = GetComponent<Transform>();
+        if (hudFollow) hudFollow.followTransform = m_transform;
     }
 
     private void Update()
