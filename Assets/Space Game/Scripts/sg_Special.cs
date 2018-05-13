@@ -115,7 +115,7 @@ public class sg_Special : MonoBehaviour {
         transform.position = RadiusTools.SpecialRandomPosition();
 
         m_col.enabled = true;
-        m_renderer.color = new Color(1, 1, 1, 1);
+        m_renderer.enabled = true;
         m_despawnTimer = 0f;
         spawned = true;
 
@@ -129,7 +129,7 @@ public class sg_Special : MonoBehaviour {
         }
 
         m_col.enabled = false;
-        m_renderer.color = new Color(1, 1, 1, 0);
+        m_renderer.enabled = false;
         m_despawnTimer = 0f;
         spawned = false;
     }
