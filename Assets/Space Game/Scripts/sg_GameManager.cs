@@ -31,6 +31,7 @@ public class sg_GameManager : MonoBehaviour {
     private void Awake()
     {
         RadiusTools.Init(50);
+        PhysicalButtonManager.Init();
     }
 
     private void Update()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(BoxCollider))]
 public class sg_PhysicalButton : MonoBehaviour {
 
     private Transform m_transform;
@@ -23,28 +24,26 @@ public class sg_PhysicalButton : MonoBehaviour {
     public AudioClip lookAtSound;
     public AudioClip clickSound;
     
-    public Material activeMaterial, inactiveMaterial, nonInteractbleMaterial;
+    public Color activeColor = Color.magenta, inactiveColor = Color.red, nonInteractbleColor = Color.grey;
     private Renderer m_renderer;
 
     public Vector3 activeScale, inactiveScale;
     public float scaleSpeed = 3f;
-
-    public List<sg_PhysicalButton> otherButtons;
 
     private void Start()
     {
         m_transform = GetComponent<Transform>();
         m_renderer = GetComponent<Renderer>();
         m_audiosource = GetComponent<AudioSource>();
-        if (!activeMaterial) activeMaterial = m_renderer.material;
-        if (!inactiveMaterial) inactiveMaterial = m_renderer.material;
+        inactiveColor = m_renderer.material.color;
+        PhysicalButtonManager.Add(this);
     }
 
     private void Update()
     {
         if (!interactable)
         {
-            m_renderer.material = nonInteractbleMaterial;
+            m_renderer.material.color = nonInteractbleColor;
             return;
         }
 
@@ -78,21 +77,18 @@ public class sg_PhysicalButton : MonoBehaviour {
         if(isBeingLookedAt && !m_prevBeingLookedAt)
         {
             m_prevBeingLookedAt = true;
-            m_renderer.material = activeMaterial;
+            m_renderer.material.color = activeColor;
             m_triggerTimer = 0f;
             if (m_audiosource && clickSound) m_audiosource.PlayOneShot(lookAtSound);
 
-            foreach(sg_PhysicalButton b in otherButtons)
-            {
-                b.LookAwayFrom();
-            }
+            PhysicalButtonManager.LookAwayFromOthers(this);
 
             OnLookedAt.Invoke();
         }
         else if(!isBeingLookedAt && m_prevBeingLookedAt)
         {
             m_prevBeingLookedAt = false;
-            m_renderer.material = inactiveMaterial;
+            m_renderer.material.color = inactiveColor;
             OnLookedAway.Invoke();
             m_triggerTimer = 0f;
         }
@@ -105,5 +101,31 @@ public class sg_PhysicalButton : MonoBehaviour {
     public void LookAwayFrom()
     {
         isBeingLookedAt = false;
+    }
+}
+
+public static class PhysicalButtonManager
+{
+    public static List<sg_PhysicalButton> allButtons;
+
+    public static void Init()
+    {
+        allButtons = new List<sg_PhysicalButton>();
+    }
+
+    public static void Add(sg_PhysicalButton b)
+    {
+        allButtons.Add(b);
+    }
+
+    public static void LookAwayFromOthers(sg_PhysicalButton b)
+    {
+        foreach(sg_PhysicalButton other in allButtons)
+        {
+            if(b != other)
+            {
+                other.LookAwayFrom();
+            }
+        }
     }
 }
