@@ -43,6 +43,7 @@ public class sg_PhysicalButton : MonoBehaviour {
         PhysicalButtonManager.Add(this);
         m_Completion = 0f;
         m_renderer.material.SetFloat("_Max", GetComponent<BoxCollider>().size.x);
+        m_renderer.material.SetFloat("_Input", m_Completion);
     }
 
     private void Update()
@@ -74,7 +75,8 @@ public class sg_PhysicalButton : MonoBehaviour {
         {
             targetScale = inactiveScale;
             m_triggerTimer += Time.deltaTime;
-            m_Completion = Mathf.Clamp01(1.0f - (m_triggerTimer / deselectTime));
+            m_Completion -= Time.deltaTime * (1.0f / deselectTime);
+            m_Completion = Mathf.Clamp01(m_Completion);
 
         }
 

@@ -227,6 +227,11 @@ Prefab:
       propertyPath: hudFollow
       value: 
       objectReference: {fileID: 1088843952}
+    - target: {fileID: 114019095505462678, guid: e34fb610b1b036b49a0cf06e58c6e0c1,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e34fb610b1b036b49a0cf06e58c6e0c1, type: 2}
   m_IsPrefabParent: 0
@@ -1118,7 +1123,7 @@ MonoBehaviour:
   interactable: 1
   isBeingLookedAt: 0
   triggerTime: 2
-  deselectTime: 0.3
+  deselectTime: 0.75
   OnLookedAt:
     m_PersistentCalls:
       m_Calls: []
@@ -1715,7 +1720,7 @@ MonoBehaviour:
   interactable: 1
   isBeingLookedAt: 0
   triggerTime: 1
-  deselectTime: 0.3
+  deselectTime: 0.75
   OnLookedAt:
     m_PersistentCalls:
       m_Calls: []
@@ -2252,7 +2257,7 @@ MonoBehaviour:
   interactable: 1
   isBeingLookedAt: 0
   triggerTime: 1
-  deselectTime: 0.3
+  deselectTime: 0.75
   OnLookedAt:
     m_PersistentCalls:
       m_Calls: []
@@ -2462,7 +2467,7 @@ MonoBehaviour:
   interactable: 1
   isBeingLookedAt: 0
   triggerTime: 2
-  deselectTime: 0.3
+  deselectTime: 0.75
   OnLookedAt:
     m_PersistentCalls:
       m_Calls: []
@@ -2666,7 +2671,7 @@ MonoBehaviour:
   interactable: 1
   isBeingLookedAt: 0
   triggerTime: 2
-  deselectTime: 0.3
+  deselectTime: 0.75
   OnLookedAt:
     m_PersistentCalls:
       m_Calls: []
@@ -2909,7 +2914,7 @@ MonoBehaviour:
   interactable: 1
   isBeingLookedAt: 0
   triggerTime: 1
-  deselectTime: 0.3
+  deselectTime: 0.75
   OnLookedAt:
     m_PersistentCalls:
       m_Calls: []
@@ -3059,7 +3064,7 @@ MonoBehaviour:
   interactable: 1
   isBeingLookedAt: 0
   triggerTime: 1
-  deselectTime: 0.3
+  deselectTime: 0.75
   OnLookedAt:
     m_PersistentCalls:
       m_Calls: []
@@ -3828,7 +3833,7 @@ MonoBehaviour:
   interactable: 1
   isBeingLookedAt: 0
   triggerTime: 1
-  deselectTime: 0.3
+  deselectTime: 0.75
   OnLookedAt:
     m_PersistentCalls:
       m_Calls: []
@@ -4210,8 +4215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 0
   isBeingLookedAt: 0
-  triggerTime: 2
-  deselectTime: 0.3
+  triggerTime: 3
+  deselectTime: 0.75
   OnLookedAt:
     m_PersistentCalls:
       m_Calls: []
@@ -4531,7 +4536,7 @@ MonoBehaviour:
   interactable: 1
   isBeingLookedAt: 0
   triggerTime: 1
-  deselectTime: 0.3
+  deselectTime: 0.75
   OnLookedAt:
     m_PersistentCalls:
       m_Calls: []
