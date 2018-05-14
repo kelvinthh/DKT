@@ -36,6 +36,7 @@ public class sg_PhysicalButton : MonoBehaviour {
         m_renderer = GetComponent<Renderer>();
         m_audiosource = GetComponent<AudioSource>();
         inactiveColor = m_renderer.material.color;
+        gameObject.layer = LayerMask.NameToLayer("UI");
         PhysicalButtonManager.Add(this);
     }
 

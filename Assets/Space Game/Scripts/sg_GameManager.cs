@@ -39,6 +39,12 @@ public class sg_GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space)) { NextWave(); }
     }
 
+    public void StartGame()
+    {
+        doSpawn = true;
+        NextWave();
+    }
+
     public void NotifyOfDeath(sg_ShipAi ship)
     {
         if(ship.data.difficulty == sg_ShipDifficulty.Player)
@@ -120,7 +126,6 @@ public class sg_GameManager : MonoBehaviour {
         m_RoundText = GameObject.Find("Wave Text").GetComponent<Text>();
         m_ScoreText = GameObject.Find("Score Text").GetComponent<Text>();
         m_playerShip = SpawnPlayer();
-        NextWave();
     }
 
     public void NextLevel()

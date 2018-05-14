@@ -20,6 +20,7 @@ ModelImporter:
     100024: 5
     100026: BACK
     100028: QUALITY
+    100030: 6
     400000: //RootNode
     400002: TextPlus001
     400004: TextPlus002
@@ -35,6 +36,7 @@ ModelImporter:
     400024: 5
     400026: BACK
     400028: QUALITY
+    400030: 6
     2100000: No Name
     2300000: //RootNode
     2300002: TextPlus001
@@ -51,6 +53,7 @@ ModelImporter:
     2300024: 5
     2300026: BACK
     2300028: QUALITY
+    2300030: 6
     3300000: //RootNode
     3300002: TextPlus001
     3300004: TextPlus002
@@ -66,6 +69,7 @@ ModelImporter:
     3300024: 5
     3300026: BACK
     3300028: QUALITY
+    3300030: 6
     4300000: TextPlus001
     4300002: TextPlus002
     4300004: TextPlus003
@@ -80,6 +84,7 @@ ModelImporter:
     4300022: 4
     4300024: 5
     4300026: BACK
+    4300028: 6
     9500000: //RootNode
   externalObjects: {}
   materials:
