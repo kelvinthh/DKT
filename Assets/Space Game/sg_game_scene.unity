@@ -1175,6 +1175,7 @@ MonoBehaviour:
   activeScale: {x: 1, y: 1, z: 1}
   inactiveScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleSpeed: 3.3333333
+  m_Completion: 0
 --- !u!82 &827190969
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1713,7 +1714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   isBeingLookedAt: 0
-  triggerTime: 2
+  triggerTime: 1
   deselectTime: 0.3
   OnLookedAt:
     m_PersistentCalls:
@@ -1749,6 +1750,7 @@ MonoBehaviour:
   activeScale: {x: 1, y: 1, z: 1}
   inactiveScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleSpeed: 3.3333333
+  m_Completion: 0
 --- !u!65 &998811725
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2249,7 +2251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   isBeingLookedAt: 0
-  triggerTime: 2
+  triggerTime: 1
   deselectTime: 0.3
   OnLookedAt:
     m_PersistentCalls:
@@ -2285,6 +2287,7 @@ MonoBehaviour:
   activeScale: {x: 1, y: 1, z: 1}
   inactiveScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleSpeed: 3.3333333
+  m_Completion: 0
 --- !u!23 &1193441144
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2505,6 +2508,7 @@ MonoBehaviour:
   activeScale: {x: 1, y: 1, z: 1}
   inactiveScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleSpeed: 3.3333333
+  m_Completion: 0
 --- !u!23 &1283444802
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2708,6 +2712,7 @@ MonoBehaviour:
   activeScale: {x: 1, y: 1, z: 1}
   inactiveScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleSpeed: 3.3333333
+  m_Completion: 0
 --- !u!82 &1298741673
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2903,7 +2908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   isBeingLookedAt: 0
-  triggerTime: 2
+  triggerTime: 1
   deselectTime: 0.3
   OnLookedAt:
     m_PersistentCalls:
@@ -2939,6 +2944,7 @@ MonoBehaviour:
   activeScale: {x: 1, y: 1, z: 1}
   inactiveScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleSpeed: 3.3333333
+  m_Completion: 0
 --- !u!23 &1323184223
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3052,7 +3058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   isBeingLookedAt: 0
-  triggerTime: 2
+  triggerTime: 1
   deselectTime: 0.3
   OnLookedAt:
     m_PersistentCalls:
@@ -3088,6 +3094,7 @@ MonoBehaviour:
   activeScale: {x: 1, y: 1, z: 1}
   inactiveScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleSpeed: 3.3333333
+  m_Completion: 0
 --- !u!23 &1361907334
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3820,7 +3827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   isBeingLookedAt: 0
-  triggerTime: 2
+  triggerTime: 1
   deselectTime: 0.3
   OnLookedAt:
     m_PersistentCalls:
@@ -3856,6 +3863,7 @@ MonoBehaviour:
   activeScale: {x: 1, y: 1, z: 1}
   inactiveScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleSpeed: 3.3333333
+  m_Completion: 0
 --- !u!23 &1667355899
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4227,6 +4235,7 @@ MonoBehaviour:
   activeScale: {x: 1, y: 1, z: 1}
   inactiveScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleSpeed: 3.3333333
+  m_Completion: 0
 --- !u!82 &1870371934
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4521,7 +4530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactable: 1
   isBeingLookedAt: 0
-  triggerTime: 2
+  triggerTime: 1
   deselectTime: 0.3
   OnLookedAt:
     m_PersistentCalls:
@@ -4557,6 +4566,7 @@ MonoBehaviour:
   activeScale: {x: 1, y: 1, z: 1}
   inactiveScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleSpeed: 3.3333333
+  m_Completion: 0
 --- !u!23 &2005676716
 MeshRenderer:
   m_ObjectHideFlags: 0

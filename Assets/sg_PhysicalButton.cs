@@ -30,6 +30,9 @@ public class sg_PhysicalButton : MonoBehaviour {
     public Vector3 activeScale, inactiveScale;
     public float scaleSpeed = 3f;
 
+    [Range(0,1)]
+    public float m_Completion = 0f;
+
     private void Start()
     {
         m_transform = GetComponent<Transform>();
@@ -38,6 +41,8 @@ public class sg_PhysicalButton : MonoBehaviour {
         inactiveColor = m_renderer.material.color;
         gameObject.layer = LayerMask.NameToLayer("UI");
         PhysicalButtonManager.Add(this);
+        m_Completion = 0f;
+        m_renderer.material.SetFloat("_Max", GetComponent<BoxCollider>().size.x);
     }
 
     private void Update()
@@ -63,14 +68,19 @@ public class sg_PhysicalButton : MonoBehaviour {
                 targetScale = activeScale;
             }
             m_triggerTimer += Time.deltaTime;
+            m_Completion = Mathf.Clamp01(m_triggerTimer / triggerTime);
         }
         else
         {
             targetScale = inactiveScale;
             m_triggerTimer += Time.deltaTime;
+            m_Completion = Mathf.Clamp01(1.0f - (m_triggerTimer / deselectTime));
+
         }
 
         m_transform.localScale = Vector3.MoveTowards(m_transform.localScale, targetScale, scaleSpeed * Time.deltaTime);
+        
+        m_renderer.material.SetFloat("_Input", m_Completion);
     }
 
     private void DetectChange()
@@ -78,7 +88,7 @@ public class sg_PhysicalButton : MonoBehaviour {
         if(isBeingLookedAt && !m_prevBeingLookedAt)
         {
             m_prevBeingLookedAt = true;
-            m_renderer.material.color = activeColor;
+            //m_renderer.material.color = activeColor;
             m_triggerTimer = 0f;
             if (m_audiosource && clickSound) m_audiosource.PlayOneShot(lookAtSound);
 
@@ -89,7 +99,7 @@ public class sg_PhysicalButton : MonoBehaviour {
         else if(!isBeingLookedAt && m_prevBeingLookedAt)
         {
             m_prevBeingLookedAt = false;
-            m_renderer.material.color = inactiveColor;
+            //m_renderer.material.color = inactiveColor;
             OnLookedAway.Invoke();
             m_triggerTimer = 0f;
         }

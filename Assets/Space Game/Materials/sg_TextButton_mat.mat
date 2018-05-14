@@ -58,17 +58,25 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: c0bf820a433a98242943be3493688ac0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _ASEOutlineWidth: 0.02
     - _BumpScale: 1
+    - _Completion: 0.707
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Highlight: 1
+    - _Highlight: 0
+    - _Input: 0
+    - _Max: 100
     - _Metallic: 0
+    - _Min: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -81,7 +89,8 @@ Material:
     - __dirty: 0
     m_Colors:
     - _ASEOutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Color: {r: 0.5647059, g: 0.36078432, b: 0.93333334, a: 1}
+    - _Color: {r: 0.5647059, g: 0.36078325, b: 0.93333334, a: 1}
+    - _CompletionColor: {r: 1, g: 0, b: 0.22745088, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
     - _HighlightRepetition: {r: -0.001, g: 0, b: 0, a: 0}
