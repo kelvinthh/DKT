@@ -20,6 +20,9 @@ public class sg_Missile : MonoBehaviour {
     private sg_BulletPool m_bulletPool;
     public int shipId = 0;
 
+    public TrailRenderer trail;
+    bool wasJustSpawned;
+
     private void Start()
     {
         m_bulletPool = GameObject.Find("GM").GetComponent<sg_BulletPool>();
@@ -31,6 +34,12 @@ public class sg_Missile : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        if (wasJustSpawned)
+        {
+            wasJustSpawned = false;
+            trail.Clear();
+        }
+
         if (target)
         {
             Movement();

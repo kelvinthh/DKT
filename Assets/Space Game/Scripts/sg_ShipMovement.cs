@@ -82,7 +82,6 @@ public class sg_ShipMovement : MonoBehaviour {
 
             if (m_distanceFromTarget <= decelerationDistance && currentRadius > minimumDistance)
             {
-                //  Decelerate
                 applyForce = 2f;
                 m_rb.drag = (decelerationRamp.Evaluate(1 - m_distanceFromTarget / decelerationDistance)) * decelerationDrag;
             }
@@ -97,7 +96,6 @@ public class sg_ShipMovement : MonoBehaviour {
                 Vector3 targetDir = targetObject.transform.position - m_transform.position;
                 float step = turningSpeed * Time.deltaTime;
                 Vector3 newDir = Vector3.RotateTowards(m_mainChild.forward, targetDir, step, 0.0f);
-                Debug.DrawRay(transform.position, newDir, Color.red);
                 m_mainChild.rotation = Quaternion.LookRotation(newDir);
             } 
         }
@@ -155,7 +153,6 @@ public class sg_ShipMovement : MonoBehaviour {
 
             if (m_distanceFromTarget <= decelerationDistance)
             {
-                //  Decelerate
                 applyForce = 2f;
                 m_rb.drag = (decelerationRamp.Evaluate(1 - m_distanceFromTarget / decelerationDistance)) * decelerationDrag;
             }
@@ -171,7 +168,6 @@ public class sg_ShipMovement : MonoBehaviour {
             Vector3 targetDir = m_lookAtPosition - m_transform.position;
             float step = turningSpeed * Time.deltaTime;
             Vector3 newDir = Vector3.RotateTowards(m_mainChild.forward, targetDir, step, 0.0f);
-            Debug.DrawRay(transform.position, newDir, Color.red);
             m_mainChild.rotation = Quaternion.LookRotation(newDir);
         }
     }

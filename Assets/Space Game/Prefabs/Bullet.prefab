@@ -259,6 +259,7 @@ MonoBehaviour:
   target: {fileID: 0}
   deathTimer: 10
   shipId: 0
+  trail: {fileID: 96152072417577912}
 --- !u!135 &135091333058890918
 SphereCollider:
   m_ObjectHideFlags: 1

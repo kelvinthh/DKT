@@ -29,7 +29,6 @@ public class sg_ViewPointer : MonoBehaviour {
                     lookingAt = hitObject;
                     button.LookAt();
                 }
-                Debug.DrawLine(m_transform.position, hitObject.transform.position, Color.green);
             }
             else
             {
