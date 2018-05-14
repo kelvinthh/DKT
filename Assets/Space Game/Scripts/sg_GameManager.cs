@@ -82,6 +82,7 @@ public class sg_GameManager : MonoBehaviour {
             }
             doSpawn = false;
             GameObject.Destroy(ship.gameObject);
+            EndGame();
             OnPlayerDeath.Invoke();
         }
         else
