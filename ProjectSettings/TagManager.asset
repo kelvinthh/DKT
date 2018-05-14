@@ -4,20 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - envTier
-  - videoTier
-  - Video
-  - game
+  - FxTemporaire
+  - projectile
+  - Enemy
   - Back
-  - Image
-  - imageTier
-  - inactive
   - Exit
-  - Environment
-  - Car
-  - Controller
   - Action
-  - ActionShort
+  - Player Target
+  - Asteroid
+  - Special
   layers:
   - Default
   - TransparentFX
@@ -27,11 +22,11 @@ TagManager:
   - UI
   - 
   - 
-  - InfoBubble
-  - BubbleText
-  - 
-  - 
-  - 
+  - Enemy Ship
+  - Player Ship
+  - Bullet
+  - Asteroid
+  - Special
   - 
   - 
   - 
@@ -52,12 +47,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: InfoBubble
-    uniqueID: 3938478543
-    locked: 0
-  - name: MonitorGazeBar
-    uniqueID: 3760659145
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
