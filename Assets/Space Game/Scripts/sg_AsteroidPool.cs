@@ -29,7 +29,9 @@ public class sg_AsteroidPool : MonoBehaviour
             float w = Random.Range(-1000f, 1000f);
 
             int j = Random.Range(0, 2);
+            float k = Random.Range(0.8f, 1.6f);
             GameObject newAsteroid = Instantiate(prefabs[j], new Vector3(pos.x, pos.y, pos.z), Quaternion.Euler(pos.x * w, pos.y * w, pos.z * w), m_transform);
+            newAsteroid.transform.localScale.Set(k, k, k);
             newAsteroid.transform.name = "Asteroid_" + i;
             all.Add(newAsteroid);
             active.Add(newAsteroid);
