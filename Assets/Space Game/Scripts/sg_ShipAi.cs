@@ -64,7 +64,7 @@ public class sg_ShipAi : MonoBehaviour {
             r.material.color = Color.blue;
         }
         gm.m_playerShip = gameObject;
-        m_healthBar = GameObject.Find("Health Bar").GetComponent<Image>();
+        //m_healthBar = gm.hudCanvas.transform.Find("Health Bar").GetComponent<Image>();
     }
 
     private void EnemyPrep()
@@ -178,7 +178,13 @@ public class sg_ShipAi : MonoBehaviour {
             }
         }
 
-        if (IsPlayer()) { m_healthBar.fillAmount = Mathf.Clamp01((float)data.health / (float)data.maxHealth); }
+        if (IsPlayer()) {
+            if (!m_healthBar)
+            {
+                m_healthBar = gm.hudCanvas.transform.GetChild(0).GetChild(1).gameObject.GetComponent<Image>();
+            }
+            m_healthBar.fillAmount = Mathf.Clamp01((float)data.health / (float)data.maxHealth);
+        }
     }
 
     public bool IsPlayer()
