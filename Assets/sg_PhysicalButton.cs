@@ -7,8 +7,10 @@ public class sg_PhysicalButton : MonoBehaviour {
 
     private Transform m_transform;
 
+    public bool interactable = true;
+
     public bool isBeingLookedAt;
-    public bool m_prevBeingLookedAt;
+    private bool m_prevBeingLookedAt;
     public float triggerTime = 2.0f;
     private float m_triggerTimer;
     public float deselectTime = 0.3f;
@@ -21,7 +23,7 @@ public class sg_PhysicalButton : MonoBehaviour {
     public AudioClip lookAtSound;
     public AudioClip clickSound;
     
-    public Material activeMaterial, inactiveMaterial;
+    public Material activeMaterial, inactiveMaterial, nonInteractbleMaterial;
     private Renderer m_renderer;
 
     public Vector3 activeScale, inactiveScale;
@@ -40,6 +42,12 @@ public class sg_PhysicalButton : MonoBehaviour {
 
     private void Update()
     {
+        if (!interactable)
+        {
+            m_renderer.material = nonInteractbleMaterial;
+            return;
+        }
+
         DetectChange();
 
         Vector3 targetScale = m_transform.localScale;

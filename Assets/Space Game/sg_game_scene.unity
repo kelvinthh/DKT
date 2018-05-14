@@ -1028,7 +1028,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 23c4baecdd78e2e4e804a5091a67e965, type: 2}
+  - {fileID: 2100000, guid: e3dc3a5782d928848b71d574943a5fe0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1079,8 +1079,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad1be945dd23344e9d874f62ce957f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 1
   isBeingLookedAt: 0
-  m_prevBeingLookedAt: 0
   triggerTime: 2
   deselectTime: 0.3
   OnLookedAt:
@@ -1100,8 +1100,10 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   lookAtSound: {fileID: 8300000, guid: 548da0f289b8d9941ba65c1af59fbdb9, type: 3}
   clickSound: {fileID: 8300000, guid: d4501202b3b5d064cbe0e98a38a8357f, type: 3}
-  activeMaterial: {fileID: 2100000, guid: e3dc3a5782d928848b71d574943a5fe0, type: 2}
-  inactiveMaterial: {fileID: 2100000, guid: 23c4baecdd78e2e4e804a5091a67e965, type: 2}
+  activeMaterial: {fileID: 2100000, guid: 56d09b6f747462b469117db4ff5fe792, type: 2}
+  inactiveMaterial: {fileID: 2100000, guid: e3dc3a5782d928848b71d574943a5fe0, type: 2}
+  nonInteractbleMaterial: {fileID: 2100000, guid: 6d44b6296cc85cf428e09352141a51e8,
+    type: 2}
   activeScale: {x: 1, y: 1, z: 1}
   inactiveScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleSpeed: 3.3333333
@@ -1532,15 +1534,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4196333628699598, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.294859
+      value: 6.390235
       objectReference: {fileID: 0}
     - target: {fileID: 4196333628699598, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.7726135
+      value: 4.9730473
       objectReference: {fileID: 0}
     - target: {fileID: 4196333628699598, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 6.0621624
+      value: 6.6541843
       objectReference: {fileID: 0}
     - target: {fileID: 4196333628699598, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1564,16 +1566,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4541254094989626, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.87415457
+      value: -0.74192923
       objectReference: {fileID: 0}
     - target: {fileID: 4541254094989626, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.48564786
+      value: 0.6704783
       objectReference: {fileID: 0}
     - target: {fileID: 212104871652918038, guid: 2fa9bf3e17a9fbe4887a141157a77c66,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212104871652918038, guid: 2fa9bf3e17a9fbe4887a141157a77c66,
         type: 2}
@@ -1583,7 +1585,7 @@ Prefab:
     - target: {fileID: 135387084394044652, guid: 2fa9bf3e17a9fbe4887a141157a77c66,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
@@ -2096,7 +2098,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 23c4baecdd78e2e4e804a5091a67e965, type: 2}
+  - {fileID: 2100000, guid: e3dc3a5782d928848b71d574943a5fe0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2147,8 +2149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad1be945dd23344e9d874f62ce957f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 1
   isBeingLookedAt: 0
-  m_prevBeingLookedAt: 0
   triggerTime: 2
   deselectTime: 0.3
   OnLookedAt:
@@ -2168,8 +2170,10 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   lookAtSound: {fileID: 8300000, guid: 548da0f289b8d9941ba65c1af59fbdb9, type: 3}
   clickSound: {fileID: 8300000, guid: d4501202b3b5d064cbe0e98a38a8357f, type: 3}
-  activeMaterial: {fileID: 2100000, guid: e3dc3a5782d928848b71d574943a5fe0, type: 2}
-  inactiveMaterial: {fileID: 2100000, guid: 23c4baecdd78e2e4e804a5091a67e965, type: 2}
+  activeMaterial: {fileID: 2100000, guid: 56d09b6f747462b469117db4ff5fe792, type: 2}
+  inactiveMaterial: {fileID: 2100000, guid: e3dc3a5782d928848b71d574943a5fe0, type: 2}
+  nonInteractbleMaterial: {fileID: 2100000, guid: 6d44b6296cc85cf428e09352141a51e8,
+    type: 2}
   activeScale: {x: 1, y: 1, z: 1}
   inactiveScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleSpeed: 3.3333333
@@ -2265,15 +2269,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4196333628699598, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 8.373268
+      value: -0.698679
       objectReference: {fileID: 0}
     - target: {fileID: 4196333628699598, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.8109217
+      value: 3.616496
       objectReference: {fileID: 0}
     - target: {fileID: 4196333628699598, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -6.4448223
+      value: 9.527252
       objectReference: {fileID: 0}
     - target: {fileID: 4196333628699598, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2301,16 +2305,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4541254094989626, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.009466279
+      value: -0.21655291
       objectReference: {fileID: 0}
     - target: {fileID: 4541254094989626, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.99995524
+      value: -0.9762709
       objectReference: {fileID: 0}
     - target: {fileID: 212104871652918038, guid: 2fa9bf3e17a9fbe4887a141157a77c66,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212104871652918038, guid: 2fa9bf3e17a9fbe4887a141157a77c66,
         type: 2}
@@ -2320,7 +2324,7 @@ Prefab:
     - target: {fileID: 135387084394044652, guid: 2fa9bf3e17a9fbe4887a141157a77c66,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2fa9bf3e17a9fbe4887a141157a77c66, type: 2}
@@ -2793,7 +2797,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 23c4baecdd78e2e4e804a5091a67e965, type: 2}
+  - {fileID: 2100000, guid: e3dc3a5782d928848b71d574943a5fe0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3170,7 +3174,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 23c4baecdd78e2e4e804a5091a67e965, type: 2}
+  - {fileID: 2100000, guid: e3dc3a5782d928848b71d574943a5fe0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3221,8 +3225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ad1be945dd23344e9d874f62ce957f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactable: 0
   isBeingLookedAt: 0
-  m_prevBeingLookedAt: 0
   triggerTime: 2
   deselectTime: 0.3
   OnLookedAt:
@@ -3242,8 +3246,10 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   lookAtSound: {fileID: 8300000, guid: 548da0f289b8d9941ba65c1af59fbdb9, type: 3}
   clickSound: {fileID: 8300000, guid: d4501202b3b5d064cbe0e98a38a8357f, type: 3}
-  activeMaterial: {fileID: 2100000, guid: e3dc3a5782d928848b71d574943a5fe0, type: 2}
-  inactiveMaterial: {fileID: 2100000, guid: 23c4baecdd78e2e4e804a5091a67e965, type: 2}
+  activeMaterial: {fileID: 2100000, guid: 56d09b6f747462b469117db4ff5fe792, type: 2}
+  inactiveMaterial: {fileID: 2100000, guid: e3dc3a5782d928848b71d574943a5fe0, type: 2}
+  nonInteractbleMaterial: {fileID: 2100000, guid: 6d44b6296cc85cf428e09352141a51e8,
+    type: 2}
   activeScale: {x: 1, y: 1, z: 1}
   inactiveScale: {x: 0.8, y: 0.8, z: 0.8}
   scaleSpeed: 3.3333333
