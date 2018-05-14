@@ -8,7 +8,7 @@ public class sg_PhysicalButton : MonoBehaviour {
     private Transform m_transform;
 
     public bool isBeingLookedAt;
-    private bool m_prevBeingLookedAt;
+    public bool m_prevBeingLookedAt;
     public float triggerTime = 2.0f;
     private float m_triggerTimer;
     public float deselectTime = 0.3f;
@@ -16,6 +16,10 @@ public class sg_PhysicalButton : MonoBehaviour {
     public UnityEvent OnLookedAt;
     public UnityEvent OnLookedAway;
     public UnityEvent OnClicked;
+
+    private AudioSource m_audiosource;
+    public AudioClip lookAtSound;
+    public AudioClip clickSound;
     
     public Material activeMaterial, inactiveMaterial;
     private Renderer m_renderer;
@@ -23,10 +27,13 @@ public class sg_PhysicalButton : MonoBehaviour {
     public Vector3 activeScale, inactiveScale;
     public float scaleSpeed = 3f;
 
+    public List<sg_PhysicalButton> otherButtons;
+
     private void Start()
     {
         m_transform = GetComponent<Transform>();
         m_renderer = GetComponent<Renderer>();
+        m_audiosource = GetComponent<AudioSource>();
         if (!activeMaterial) activeMaterial = m_renderer.material;
         if (!inactiveMaterial) inactiveMaterial = m_renderer.material;
     }
@@ -51,14 +58,7 @@ public class sg_PhysicalButton : MonoBehaviour {
         }
         else
         {
-            if (m_triggerTimer >= deselectTime)
-            {
-                OnClicked.Invoke();
-            }
-            else
-            {
-                targetScale = inactiveScale;
-            }
+            targetScale = inactiveScale;
             m_triggerTimer += Time.deltaTime;
         }
 
@@ -72,6 +72,13 @@ public class sg_PhysicalButton : MonoBehaviour {
             m_prevBeingLookedAt = true;
             m_renderer.material = activeMaterial;
             m_triggerTimer = 0f;
+            if (m_audiosource && clickSound) m_audiosource.PlayOneShot(lookAtSound);
+
+            foreach(sg_PhysicalButton b in otherButtons)
+            {
+                b.LookAwayFrom();
+            }
+
             OnLookedAt.Invoke();
         }
         else if(!isBeingLookedAt && m_prevBeingLookedAt)
@@ -86,5 +93,9 @@ public class sg_PhysicalButton : MonoBehaviour {
     public void LookAt()
     {
         isBeingLookedAt = true;
+    }
+    public void LookAwayFrom()
+    {
+        isBeingLookedAt = false;
     }
 }
