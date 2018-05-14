@@ -31,7 +31,7 @@ public class sg_GameManager : MonoBehaviour {
 
     public int gameScore = 0;
 
-    public GameObject gameHUD;
+    public Canvas hudCanvas;
     public UnityEvent OnPlayerDeath;
 
     private void Awake()
@@ -39,22 +39,19 @@ public class sg_GameManager : MonoBehaviour {
         RadiusTools.Init(50);
         PhysicalButtonManager.Init();
     }
-    private void Start()
-    {
-        m_RoundText = GameObject.Find("Wave Text").GetComponent<Text>();
-        m_ScoreText = GameObject.Find("Score Text").GetComponent<Text>();
-    }
 
     public void StartGame()
     {
-        gameHUD.SetActive(true);
+        hudCanvas.enabled = true;
+        m_RoundText = hudCanvas.transform.Find("Wave Text").GetComponent<Text>();
+        m_ScoreText = hudCanvas.transform.Find("Score Text").GetComponent<Text>();
         m_playerShip = SpawnPlayer();
         doSpawn = true;
         NextWave();
     }
     public void EndGame()
     {
-        gameHUD.SetActive(false);
+        hudCanvas.enabled = false;
         doSpawn = false;
 
         Debug.Log("Ended game with " + gameScore + " points.");

@@ -41,6 +41,8 @@ public class sg_PhysicalButton : MonoBehaviour {
         inactiveColor = m_renderer.material.color;
         gameObject.layer = LayerMask.NameToLayer("UI");
         PhysicalButtonManager.Add(this);
+        inactiveScale = m_transform.localScale;
+        activeScale = new Vector3(1, 1, 1);
         m_Completion = 0f;
         m_renderer.material.SetFloat("_Max", GetComponent<BoxCollider>().size.x);
         m_renderer.material.SetFloat("_Input", m_Completion);
