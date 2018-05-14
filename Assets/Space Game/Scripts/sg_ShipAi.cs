@@ -169,7 +169,8 @@ public class sg_ShipAi : MonoBehaviour {
         {
             if (IsPlayer())
             {
-                data.health = data.maxHealth;
+                //data.health = data.maxHealth;
+                gm.NotifyOfDeath(this);
             }
             else
             {

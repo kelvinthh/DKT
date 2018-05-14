@@ -14,7 +14,7 @@ public class sg_PhysicalButton : MonoBehaviour {
     private bool m_prevBeingLookedAt;
     public float triggerTime = 2.0f;
     private float m_triggerTimer;
-    public float deselectTime = 0.3f;
+    private float deselectTime = 0.5f;
 
     public UnityEvent OnLookedAt;
     public UnityEvent OnLookedAway;

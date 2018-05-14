@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class sg_GameManager : MonoBehaviour {
 
@@ -21,6 +22,8 @@ public class sg_GameManager : MonoBehaviour {
     public GameObject frigatePrefab;
     public GameObject playerPrefab;
 
+    public List<GameObject> enemyShips;
+
     public bool doSpawn = false;
 
     private Text m_ScoreText;
@@ -28,33 +31,65 @@ public class sg_GameManager : MonoBehaviour {
 
     public int gameScore = 0;
 
+    public GameObject gameHUD;
+    public UnityEvent OnPlayerDeath;
+
     private void Awake()
     {
         RadiusTools.Init(50);
         PhysicalButtonManager.Init();
     }
-
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) { NextWave(); }
+        m_RoundText = GameObject.Find("Wave Text").GetComponent<Text>();
+        m_ScoreText = GameObject.Find("Score Text").GetComponent<Text>();
     }
 
     public void StartGame()
     {
+        gameHUD.SetActive(true);
+        m_playerShip = SpawnPlayer();
         doSpawn = true;
         NextWave();
+    }
+    public void EndGame()
+    {
+        gameHUD.SetActive(false);
+        doSpawn = false;
+
+        Debug.Log("Ended game with " + gameScore + " points.");
+        int hs = PlayerPrefs.GetInt("Highscore");
+        if (gameScore > hs)
+        {
+            PlayerPrefs.SetInt("Highscore", gameScore);
+            Debug.Log("NEW HIGHSCORE!");
+        }
+        else
+        {
+            Debug.Log("Highscore is " + hs + ".");
+        }
+
+        gameScore = 0;
     }
 
     public void NotifyOfDeath(sg_ShipAi ship)
     {
         if(ship.data.difficulty == sg_ShipDifficulty.Player)
         {
-            GameObject.Destroy(ship.gameObject);
+            //GameObject.Destroy(ship.gameObject);
             Debug.Log("PLAYER DIED");
-            m_playerShip = SpawnPlayer();
+            foreach(GameObject s in enemyShips)
+            {
+                if (s == null) break;
+                GameObject.Destroy(s);
+            }
+            doSpawn = false;
+            GameObject.Destroy(ship.gameObject);
+            OnPlayerDeath.Invoke();
         }
         else
         {
+            enemyShips.Remove(ship.gameObject);
             GameObject.Destroy(ship.gameObject);
 
             m_remainingEnemies--;
@@ -102,6 +137,7 @@ public class sg_GameManager : MonoBehaviour {
         newShip = Instantiate(newShip, pos, Quaternion.identity);
 
         m_remainingEnemies++;
+        enemyShips.Add(newShip);
     }
 
     private GameObject SpawnPlayer()
@@ -116,16 +152,6 @@ public class sg_GameManager : MonoBehaviour {
         shipAi.data.difficulty = sg_ShipDifficulty.Player;
         shipAi.invincible = false;
         return GameObject.Instantiate(newObject);
-    }
-
-
-    private void Start()
-    {
-        
-
-        m_RoundText = GameObject.Find("Wave Text").GetComponent<Text>();
-        m_ScoreText = GameObject.Find("Score Text").GetComponent<Text>();
-        m_playerShip = SpawnPlayer();
     }
 
     public void NextLevel()

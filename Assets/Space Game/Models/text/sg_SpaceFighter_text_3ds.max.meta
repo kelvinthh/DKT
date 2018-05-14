@@ -21,6 +21,8 @@ ModelImporter:
     100026: BACK
     100028: QUALITY
     100030: 6
+    100032: GAMEOVER
+    100034: PLAYAGAIN
     400000: //RootNode
     400002: TextPlus001
     400004: TextPlus002
@@ -37,6 +39,8 @@ ModelImporter:
     400026: BACK
     400028: QUALITY
     400030: 6
+    400032: GAMEOVER
+    400034: PLAYAGAIN
     2100000: No Name
     2300000: //RootNode
     2300002: TextPlus001
@@ -54,6 +58,8 @@ ModelImporter:
     2300026: BACK
     2300028: QUALITY
     2300030: 6
+    2300032: GAMEOVER
+    2300034: PLAYAGAIN
     3300000: //RootNode
     3300002: TextPlus001
     3300004: TextPlus002
@@ -70,6 +76,8 @@ ModelImporter:
     3300026: BACK
     3300028: QUALITY
     3300030: 6
+    3300032: GAMEOVER
+    3300034: PLAYAGAIN
     4300000: TextPlus001
     4300002: TextPlus002
     4300004: TextPlus003
@@ -85,6 +93,8 @@ ModelImporter:
     4300024: 5
     4300026: BACK
     4300028: 6
+    4300030: GAMEOVER
+    4300032: PLAYAGAIN
     9500000: //RootNode
   externalObjects: {}
   materials:
