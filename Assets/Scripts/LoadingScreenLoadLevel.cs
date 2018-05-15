@@ -20,11 +20,9 @@ public class LoadingScreenLoadLevel : MonoBehaviour {
 
     IEnumerator LoadScene()
     {
-
-        
-
+        print("loading...");
         yield return new WaitForSeconds(3);
-
+       
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneToLoad);
         // Wait until the asynchronous scene fully loads
         while (!asyncLoad.isDone)

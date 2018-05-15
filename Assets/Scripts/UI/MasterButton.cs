@@ -54,6 +54,7 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
 
     public void GazeEnter()
     {
+        print(sceneIndex);
         gazingAt = true;
         print("Gazing");
 
@@ -118,20 +119,6 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         return 100 / gazeTimer;
     }
 
-    IEnumerator LoadNewScene()
-    {
-        SceneManager.LoadScene(sceneIndex);
-        // Start an asynchronous operation to load the scene that was passed to the LoadNewScene coroutine.
-        AsyncOperation async = SceneManager.LoadSceneAsync(sceneIndex);
-
-        // While the asynchronous operation to load the new scene is not yet complete, continue waiting until it's done.
-        while (!async.isDone)
-        {
-            yield return null;
-        }
-
-    }
-
     // Use this for initialization
     void Start () {
         
@@ -146,6 +133,7 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
         onHoverSound = GetComponent<AudioSource>();
         vc = GetComponent<VideoController>();
         barSpeed = GetProgressBarDuration();
+
     }
 	
 	// Update is called once per frame
