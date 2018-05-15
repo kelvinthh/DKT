@@ -30,7 +30,8 @@ Shader "GoogleVR/UI/Overlay" {
 
   SubShader {
     Tags {
-    "Queue"="Overlay+100"
+    // Overlay+110 fixes depth sorting between UI and controller.
+    "Queue"="Overlay+110"
     "IgnoreProjector"="True"
     "RenderType"="Transparent"
     "PreviewType"="Plane"
@@ -61,7 +62,6 @@ Shader "GoogleVR/UI/Overlay" {
 
       #include "UnityCG.cginc"
       #include "UnityUI.cginc"
-      #include "GvrUnityCompatibility.cginc"
 
       #pragma multi_compile __ UNITY_UI_ALPHACLIP
 
@@ -85,7 +85,7 @@ Shader "GoogleVR/UI/Overlay" {
       v2f vert(appdata_t IN) {
         v2f OUT;
         OUT.worldPosition = IN.vertex;
-        OUT.vertex = GvrUnityObjectToClipPos(OUT.worldPosition);
+        OUT.vertex = UnityObjectToClipPos(OUT.worldPosition);
 
         OUT.texcoord = IN.texcoord;
 
