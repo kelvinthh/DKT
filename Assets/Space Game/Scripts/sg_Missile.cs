@@ -23,6 +23,8 @@ public class sg_Missile : MonoBehaviour {
     public TrailRenderer trail;
     bool wasJustSpawned;
 
+    public Color playerColor1, playerColor2;
+
     private void Start()
     {
         m_bulletPool = GameObject.Find("GM").GetComponent<sg_BulletPool>();
@@ -30,6 +32,18 @@ public class sg_Missile : MonoBehaviour {
         m_body = GetComponent<Rigidbody>();
         StartCoroutine(AutoDeath());
         target = GameObject.Find("Player").transform;
+        SetUpColors();
+    }
+
+    private void SetUpColors()
+    {
+        if(shipId == 0)
+        {
+            Renderer m_renderer = GetComponent<Renderer>();
+            m_renderer.material.SetColor("_StartColor", playerColor1);
+            m_renderer.material.SetColor("_EndColor", playerColor2);
+            trail.startColor = playerColor2;
+        }
     }
 
     private void FixedUpdate()
