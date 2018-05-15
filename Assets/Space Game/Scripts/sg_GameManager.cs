@@ -49,6 +49,8 @@ public class sg_GameManager : MonoBehaviour {
         m_RoundText = hudCanvas.transform.Find("Wave Text").GetComponent<Text>();
         m_ScoreText = hudCanvas.transform.Find("Score Text").GetComponent<Text>();
         m_playerShip = SpawnPlayer();
+        currentLevel = 0;
+        currentWave = 0;
         doSpawn = true;
         NextWave();
     }
