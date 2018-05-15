@@ -34,6 +34,9 @@ public class sg_GameManager : MonoBehaviour {
     public Canvas hudCanvas;
     public UnityEvent OnPlayerDeath;
 
+    public GameObject[] menuObjects;
+    public GameObject playerTarget;
+
     private void Awake()
     {
         RadiusTools.Init(50);
@@ -67,6 +70,17 @@ public class sg_GameManager : MonoBehaviour {
         }
 
         gameScore = 0;
+
+
+        float nPFactor = menuObjects[0].transform.position.magnitude;
+        Vector3 nP = playerTarget.transform.position.normalized;
+        nP.y = 0;
+        nP *= nPFactor;
+        foreach (GameObject g in menuObjects)
+        {
+            g.transform.position = nP;
+            g.transform.LookAt(nP * 2);
+        }
     }
 
     public void NotifyOfDeath(sg_ShipAi ship)

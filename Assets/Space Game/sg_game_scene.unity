@@ -855,6 +855,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  menuObjects:
+  - {fileID: 1491464965}
+  - {fileID: 367668985}
+  - {fileID: 1002775552}
+  playerTarget: {fileID: 1756483159}
 --- !u!4 &513480267
 Transform:
   m_ObjectHideFlags: 0

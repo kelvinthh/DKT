@@ -98,6 +98,12 @@ public class sg_ShipAi : MonoBehaviour {
                 if (weapon != null) weapon.TryShoot();
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.K) && data.difficulty == sg_ShipDifficulty.Player)
+        {
+            invincible = false;
+            Damage(data.health);
+        }
     }
 
     public void TickUpdate()
