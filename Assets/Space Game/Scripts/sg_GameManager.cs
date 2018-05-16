@@ -205,6 +205,6 @@ public class sg_GameManager : MonoBehaviour {
             currentWave++;
         }
 
-        m_RoundText.text = "Wave: " + currentWave.ToString() + " / " + waveCount.ToString();
+        m_RoundText.text = "Wave " + currentWave.ToString() + " of " + waveCount.ToString();
     }
 }
