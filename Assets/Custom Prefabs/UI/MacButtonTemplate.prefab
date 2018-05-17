@@ -707,7 +707,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -744,7 +744,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1748846760954942}
-  m_Text: mettle
+  m_Text: Kelvin Tam
   m_OffsetZ: 0
   m_CharacterSize: 0.01
   m_LineSpacing: 1
@@ -765,7 +765,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1009538976997756}
-  m_Text: Bavarian Alps
+  m_Text: Alternate History
   m_OffsetZ: 0
   m_CharacterSize: 0.01
   m_LineSpacing: 1
@@ -786,7 +786,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596189486075564}
-  m_Text: real life | Germany | mountains
+  m_Text: Germany | WW2 | History
   m_OffsetZ: 0
   m_CharacterSize: 0.01
   m_LineSpacing: 1
@@ -838,12 +838,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aa8668d9c85434e85f81438094df69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptNotes: '*Point 1
+
+    *Point 2
+
+    *Point 3'
   buttonAction: 0
   gazeTimer: 2
-  sceneIndex: 3
+  sceneIndex: 2
   progressBar: {fileID: 114028793677126818}
   teleportTo: {fileID: 0}
-  overlay: {fileID: 0}
+  overlayUI: {fileID: 0}
   player: {fileID: 0}
 --- !u!114 &114314695479682570
 MonoBehaviour:
@@ -1095,12 +1100,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1aa8668d9c85434e85f81438094df69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptNotes: "*DO NOT EDIT*\nThe fields:\n\tProgress Bar\n\tOverlay UI\nwill only
+    display if they are not null.\n\nThe remaining fields will need to be filled based
+    on the button function.\nLOADSCENE: sceneIndex\nTELEPORT: Teleoport To\nDISPLAY
+    UI: overlay UI\n"
   buttonAction: 2
   gazeTimer: 2
   sceneIndex: 0
   progressBar: {fileID: 0}
   teleportTo: {fileID: 0}
-  overlay: {fileID: 1493272663060696}
+  overlayUI: {fileID: 1964059532439290}
   player: {fileID: 0}
 --- !u!114 &114949694224193704
 MonoBehaviour:

@@ -7,9 +7,7 @@ public enum ButtonType { LOADSCENE_ON_ACTION, TELEPORT_ON_ACTION, DISPLAY_UI_ON_
 
 public class MasterButton : MonoBehaviour, IInteractiveObject {
 
-    [TextArea]
-    public string scriptNotes = "*DO NOT EDIT*\nThe fields:\n\tProgress Bar\n\tOverlay UI\nwill only display if they are not null.\n\nThe remaining fields will need to be filled based on the button function.\nLOADSCENE: sceneIndex\nTELEPORT: Teleoport To\nDISPLAY UI: overlay UI\n";
-
+    
     [SerializeField] private ButtonType buttonAction;
     [SerializeField] private float gazeTimer = 2.0f;
     private float gazeTimerToEdit;
@@ -140,6 +138,15 @@ public class MasterButton : MonoBehaviour, IInteractiveObject {
 	void Update () {
 
         GazeTimer();
+
+        if(barProgress < 3)
+        {
+            progressBar.enabled = false;
+        } else
+        {
+            progressBar.enabled = true;
+        }
+
         
 	}
 
