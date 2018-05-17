@@ -806,6 +806,28 @@ MonoBehaviour:
         shipClass: 1
         difficulty: 0
         shipId: 0
+        scoreValue: 10
+    - enemies:
+      - health: 20
+        maxHealth: 20
+        name: Fighter
+        shipClass: 0
+        difficulty: 0
+        shipId: 0
+        scoreValue: 5
+      - health: 20
+        maxHealth: 20
+        name: Fighter
+        shipClass: 0
+        difficulty: 0
+        shipId: 0
+        scoreValue: 5
+      - health: 20
+        maxHealth: 20
+        name: Fighter
+        shipClass: 0
+        difficulty: 0
+        shipId: 0
         scoreValue: 5
     - enemies:
       - health: 20
@@ -829,6 +851,64 @@ MonoBehaviour:
         difficulty: 0
         shipId: 0
         scoreValue: 5
+    - enemies:
+      - health: 20
+        maxHealth: 20
+        name: Fighter
+        shipClass: 1
+        difficulty: 0
+        shipId: 0
+        scoreValue: 5
+      - health: 20
+        maxHealth: 20
+        name: Fighter
+        shipClass: 1
+        difficulty: 0
+        shipId: 0
+        scoreValue: 5
+      - health: 20
+        maxHealth: 20
+        name: Fighter
+        shipClass: 1
+        difficulty: 0
+        shipId: 0
+        scoreValue: 10
+    - enemies:
+      - health: 20
+        maxHealth: 20
+        name: Fighter
+        shipClass: 0
+        difficulty: 0
+        shipId: 0
+        scoreValue: 5
+      - health: 20
+        maxHealth: 20
+        name: Fighter
+        shipClass: 0
+        difficulty: 0
+        shipId: 0
+        scoreValue: 5
+      - health: 20
+        maxHealth: 20
+        name: Fighter
+        shipClass: 0
+        difficulty: 0
+        shipId: 0
+        scoreValue: 5
+      - health: 20
+        maxHealth: 20
+        name: Fighter
+        shipClass: 1
+        difficulty: 0
+        shipId: 0
+        scoreValue: 10
+      - health: 20
+        maxHealth: 20
+        name: Fighter
+        shipClass: 1
+        difficulty: 0
+        shipId: 0
+        scoreValue: 10
   fighterPrefab: {fileID: 1132137427620660, guid: d934e0a47be96844097511acbfc55d4c,
     type: 2}
   frigatePrefab: {fileID: 1980160382814360, guid: 336ffe69b9659694a94ffc39b946b3ca,
