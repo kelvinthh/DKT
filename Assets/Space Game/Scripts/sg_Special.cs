@@ -60,6 +60,15 @@ public class sg_Special : MonoBehaviour {
 
     private void Update()
     {
+        if (gm)
+        {
+            if(!gm.doSpawn && spawned)
+            {
+                Despawn();
+                return;
+            }
+        }
+
         m_child.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
 
         if (m_prevType != type) SetImage();

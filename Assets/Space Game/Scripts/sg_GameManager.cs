@@ -34,6 +34,9 @@ public class sg_GameManager : MonoBehaviour {
     public Canvas hudCanvas;
     public UnityEvent OnPlayerDeath;
 
+    public GameObject[] menuObjects;
+    public GameObject playerTarget;
+
     private void Awake()
     {
         RadiusTools.Init(50);
@@ -46,6 +49,8 @@ public class sg_GameManager : MonoBehaviour {
         m_RoundText = hudCanvas.transform.Find("Wave Text").GetComponent<Text>();
         m_ScoreText = hudCanvas.transform.Find("Score Text").GetComponent<Text>();
         m_playerShip = SpawnPlayer();
+        currentLevel = 0;
+        currentWave = 0;
         doSpawn = true;
         NextWave();
     }
@@ -67,6 +72,17 @@ public class sg_GameManager : MonoBehaviour {
         }
 
         gameScore = 0;
+
+
+        float nPFactor = menuObjects[0].transform.position.magnitude;
+        Vector3 nP = playerTarget.transform.position.normalized;
+        nP.y = 0;
+        nP *= nPFactor;
+        foreach (GameObject g in menuObjects)
+        {
+            g.transform.position = nP;
+            g.transform.LookAt(nP * 2);
+        }
     }
 
     public void NotifyOfDeath(sg_ShipAi ship)
@@ -189,6 +205,6 @@ public class sg_GameManager : MonoBehaviour {
             currentWave++;
         }
 
-        m_RoundText.text = "Wave: " + currentWave.ToString() + " / " + waveCount.ToString();
+        m_RoundText.text = "Wave " + currentWave.ToString() + " of " + waveCount.ToString();
     }
 }
