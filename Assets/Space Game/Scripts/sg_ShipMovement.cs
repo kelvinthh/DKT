@@ -171,4 +171,12 @@ public class sg_ShipMovement : MonoBehaviour {
             m_mainChild.rotation = Quaternion.LookRotation(newDir);
         }
     }
+
+    public IEnumerator WarpIn()
+    {
+
+
+
+        yield return null;
+    }
 }
