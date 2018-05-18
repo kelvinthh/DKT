@@ -109,7 +109,7 @@ public class sg_GameManager : MonoBehaviour {
             m_remainingEnemies--;
 
             gameScore += ship.data.scoreValue;
-            m_ScoreText.text = "Score: " + gameScore.ToString();
+            m_ScoreText.text = "Score " + gameScore.ToString();
 
             if (m_remainingEnemies <= 0)
             {
