@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0.0070285387, b: 0.028074289, a: 1}
+  m_IndirectSpecularColor: {r: 0.00012466114, g: 0.006333441, b: 0.024836335, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -800,122 +800,95 @@ MonoBehaviour:
   - difficulty: 0
     waves:
     - enemies:
+      - health: 10
+        maxHealth: 10
+        name: lil ship
+        shipClass: 0
+        difficulty: 0
+        shipId: 0
+        scoreValue: 5
+    - enemies:
+      - health: 10
+        maxHealth: 10
+        name: lil ship
+        shipClass: 0
+        difficulty: 0
+        shipId: 0
+        scoreValue: 5
+      - health: 10
+        maxHealth: 10
+        name: lil ship
+        shipClass: 0
+        difficulty: 0
+        shipId: 0
+        scoreValue: 5
+    - enemies:
+      - health: 10
+        maxHealth: 10
+        name: lil ship
+        shipClass: 0
+        difficulty: 0
+        shipId: 0
+        scoreValue: 5
+      - health: 10
+        maxHealth: 10
+        name: lil ship
+        shipClass: 0
+        difficulty: 0
+        shipId: 0
+        scoreValue: 5
+      - health: 10
+        maxHealth: 10
+        name: lil ship
+        shipClass: 0
+        difficulty: 0
+        shipId: 0
+        scoreValue: 5
+    - enemies:
       - health: 50
         maxHealth: 50
-        name: Frigate
+        name: big ship
         shipClass: 1
         difficulty: 0
         shipId: 0
-        scoreValue: 10
+        scoreValue: 20
     - enemies:
-      - health: 20
-        maxHealth: 20
-        name: Fighter
-        shipClass: 0
+      - health: 50
+        maxHealth: 50
+        name: big ship
+        shipClass: 1
         difficulty: 0
         shipId: 0
-        scoreValue: 5
-      - health: 20
-        maxHealth: 20
-        name: Fighter
-        shipClass: 0
+        scoreValue: 20
+      - health: 50
+        maxHealth: 50
+        name: big ship
+        shipClass: 1
         difficulty: 0
         shipId: 0
-        scoreValue: 5
-      - health: 20
-        maxHealth: 20
-        name: Fighter
-        shipClass: 0
-        difficulty: 0
-        shipId: 0
-        scoreValue: 5
+        scoreValue: 20
     - enemies:
-      - health: 20
-        maxHealth: 20
-        name: Fighter
-        shipClass: 0
-        difficulty: 0
-        shipId: 0
-        scoreValue: 5
-      - health: 20
-        maxHealth: 20
-        name: Fighter
-        shipClass: 0
-        difficulty: 0
-        shipId: 0
-        scoreValue: 5
-      - health: 20
-        maxHealth: 20
-        name: Fighter
-        shipClass: 0
-        difficulty: 0
-        shipId: 0
-        scoreValue: 5
-    - enemies:
-      - health: 20
-        maxHealth: 20
-        name: Fighter
+      - health: 50
+        maxHealth: 50
+        name: big ship
         shipClass: 1
         difficulty: 0
         shipId: 0
-        scoreValue: 10
-      - health: 20
-        maxHealth: 20
-        name: Fighter
-        shipClass: 1
-        difficulty: 0
-        shipId: 0
-        scoreValue: 10
-      - health: 20
-        maxHealth: 20
-        name: Fighter
-        shipClass: 1
-        difficulty: 0
-        shipId: 0
-        scoreValue: 10
-      - health: 20
-        maxHealth: 20
-        name: Fighter
+        scoreValue: 20
+      - health: 10
+        maxHealth: 10
+        name: lil ship
         shipClass: 0
         difficulty: 0
         shipId: 0
-        scoreValue: 10
-    - enemies:
-      - health: 20
-        maxHealth: 20
-        name: Fighter
+        scoreValue: 20
+      - health: 10
+        maxHealth: 10
+        name: lil ship
         shipClass: 0
         difficulty: 0
         shipId: 0
-        scoreValue: 5
-      - health: 20
-        maxHealth: 20
-        name: Fighter
-        shipClass: 0
-        difficulty: 0
-        shipId: 0
-        scoreValue: 5
-      - health: 20
-        maxHealth: 20
-        name: Fighter
-        shipClass: 0
-        difficulty: 0
-        shipId: 0
-        scoreValue: 5
-      - health: 20
-        maxHealth: 20
-        name: Fighter
-        shipClass: 1
-        difficulty: 0
-        shipId: 0
-        scoreValue: 10
-      - health: 20
-        maxHealth: 20
-        name: Fighter
-        shipClass: 1
-        difficulty: 0
-        shipId: 0
-        scoreValue: 10
+        scoreValue: 20
   fighterPrefab: {fileID: 1132137427620660, guid: d934e0a47be96844097511acbfc55d4c,
     type: 2}
   frigatePrefab: {fileID: 1980160382814360, guid: 336ffe69b9659694a94ffc39b946b3ca,
@@ -993,7 +966,7 @@ MonoBehaviour:
   inactive: []
   active: []
   all: []
-  minRadius: 13
+  minRadius: 25
   maxRadius: 40
   spawnAreaHeight: 20
 --- !u!1 &636066168

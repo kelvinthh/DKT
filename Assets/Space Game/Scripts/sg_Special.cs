@@ -98,7 +98,7 @@ public class sg_Special : MonoBehaviour {
             switch (type)
             {
                 case sg_SpecialType.Health:
-                    ship.data.health = Mathf.Clamp(ship.data.health + value, 0, ship.data.maxHealth);
+                    ship.Damage(-value);
                     Debug.Log("Applied " + value + " health to '" + ship.data.name + "'");
                     break;
                 case sg_SpecialType.Damage:

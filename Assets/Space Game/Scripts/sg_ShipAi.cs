@@ -101,8 +101,11 @@ public class sg_ShipAi : MonoBehaviour {
 
         if(Input.GetKeyDown(KeyCode.K) && data.difficulty == sg_ShipDifficulty.Player)
         {
-            invincible = false;
-            Damage(data.health);
+            ForceDamage(data.health);
+        }
+        if(Input.GetKeyDown(KeyCode.D) && data.difficulty == sg_ShipDifficulty.Player)
+        {
+            ForceDamage(10);
         }
     }
 
@@ -154,7 +157,7 @@ public class sg_ShipAi : MonoBehaviour {
         m_targetsInRange.Clear();
         foreach (GameObject target in m_allTargets)
         {
-            if (Vector3.Distance(target.transform.position, transform.position) <= maxTargetRange)
+            if (Vector3.Distance(target.transform.position, gm.playerTarget.transform.position) <= maxTargetRange)
             {
                 m_targetsInRange.Add(target);
             }
@@ -169,13 +172,16 @@ public class sg_ShipAi : MonoBehaviour {
     {
         if (invincible) return;
 
+        ForceDamage(dmg);
+    }
+    private void ForceDamage(int dmg)
+    {
         data.health -= dmg;
 
-        if(data.health <= 0)
+        if (data.health <= 0)
         {
             if (IsPlayer())
             {
-                //data.health = data.maxHealth;
                 gm.NotifyOfDeath(this);
             }
             else
@@ -183,8 +189,13 @@ public class sg_ShipAi : MonoBehaviour {
                 gm.NotifyOfDeath(this);
             }
         }
+        else
+        {
+            data.health = Mathf.Clamp(data.health, 0, data.maxHealth);
+        }
 
-        if (IsPlayer()) {
+        if (IsPlayer())
+        {
             if (!m_healthBar)
             {
                 m_healthBar = gm.hudCanvas.transform.GetChild(0).GetChild(1).gameObject.GetComponent<Image>();
